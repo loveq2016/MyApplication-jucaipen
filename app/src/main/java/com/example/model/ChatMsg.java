@@ -5,29 +5,16 @@ package com.example.model;
  * 聊天实体类
  */
 public class ChatMsg {
-    //   opType    1   上线       2    聊天      3   下线
-    // {"fromId":1,"liveId:1","opType":2,"toId":0,msg:"hello"}
-    private int fromId;
-    private int liveId;
-    private int opType;
-    private int toId;
+
+
+    //[{"sendId":48,"sendName":"学习找牛股","msg":"份饭","shenHe":0,"sendLeavel":0,"toName":null}]
+    private int sendId;
+    private String sendName;
     private String msg;
+    private int shenHe;
+    private int sendLeavel;
+    private String toName;
 
-    public int getFromId() {
-        return fromId;
-    }
-
-    public void setFromId(int fromId) {
-        this.fromId = fromId;
-    }
-
-    public int getLiveId() {
-        return liveId;
-    }
-
-    public void setLiveId(int liveId) {
-        this.liveId = liveId;
-    }
 
     public String getMsg() {
         return msg;
@@ -37,19 +24,43 @@ public class ChatMsg {
         this.msg = msg;
     }
 
-    public int getOpType() {
-        return opType;
+    public int getSendId() {
+        return sendId;
     }
 
-    public void setOpType(int opType) {
-        this.opType = opType;
+    public void setSendId(int sendId) {
+        this.sendId = sendId;
     }
 
-    public int getToId() {
-        return toId;
+    public int getSendLeavel() {
+        return sendLeavel;
     }
 
-    public void setToId(int toId) {
-        this.toId = toId;
+    public void setSendLeavel(int sendLeavel) {
+        this.sendLeavel = sendLeavel;
+    }
+
+    public String getSendName() {
+        return sendName;
+    }
+
+    public void setSendName(String sendName) {
+        this.sendName = sendName;
+    }
+
+    public int getShenHe() {
+        return shenHe;
+    }
+
+    public void setShenHe(int shenHe) {
+        this.shenHe = shenHe;
+    }
+
+    public String getToName() {
+        return toName;
+    }
+
+    public void setToName(String toName) {
+        this.toName = toName;
     }
 }

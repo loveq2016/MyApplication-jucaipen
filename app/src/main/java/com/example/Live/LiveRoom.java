@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.androidnetwork.R;
 import com.example.reciver.MyReceiver;
+import com.example.utils.JsonUtil;
 import com.example.utils.MarqueeTextView;
 import com.example.adapter.ViewPagerAdapter;
 
@@ -62,6 +63,9 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
             public void onReceive(Context context, Intent intent) {
                     String receiverMsg=intent.getExtras().getString(JPushInterface.EXTRA_MESSAGE);
                     //[{"sendId":48,"sendName":"学习找牛股","msg":"份饭","shenHe":0,"sendLeavel":0,"toName":null}]
+
+                //解析聊天
+                JsonUtil.getMsg(receiverMsg);
                     Toast.makeText(LiveRoom.this, "接受的"+receiverMsg, Toast.LENGTH_SHORT).show();
             }
         };

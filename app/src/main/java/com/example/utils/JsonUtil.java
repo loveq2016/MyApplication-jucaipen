@@ -1,6 +1,7 @@
 package com.example.utils;
 
 import com.example.model.ChargeOrder;
+import com.example.model.ChatMsg;
 import com.example.model.Discuss;
 import com.example.model.Moneny;
 import com.example.model.Related;
@@ -1023,7 +1024,37 @@ public class JsonUtil {
 
     /*
     * 解析聊天数据
+    *
     * */
+
+    public static List<ChatMsg> getMsg(String result) {
+        List<ChatMsg> list = new ArrayList<>();
+        try {
+            JSONArray array = new JSONArray(result);
+            for (int i = 0; i < array.length(); i++) {
+                //[{"sendId":48,"sendName":"学习找牛股","msg":"份饭","shenHe":0,"sendLeavel":0,"toName":null}]
+                JSONObject object = array.getJSONObject(i);
+                int sendId = object.optInt("sendId", -1);
+                String sendName = object.optString("sendName", "");
+                String msg = object.optString("msg", "");
+                int shenHe = object.optInt("shenHe", -1);
+                int sendLeavel = object.optInt("sendLeavel", -1);
+                String toName = object.optString("toName", "");
+                ChatMsg chatMsg = new ChatMsg();
+                chatMsg.setSendId(sendId);
+                chatMsg.setSendName(sendName);
+                chatMsg.setMsg(msg);
+                chatMsg.setShenHe(shenHe);
+                chatMsg.setSendLeavel(sendLeavel);
+                chatMsg.setToName(toName);
+                list.add(chatMsg);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 }
