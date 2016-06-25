@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Thirty"
+            android:background="@color/lv_div"></View>
+
+        <ImageView
+            android:id="@+id/person_iv"
+            android:layout_width="@dimen/One_hundred"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_four"
+            android:src="@drawable/rentou" />
+
+        <TextView
+            android:id="@+id/point_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginTop="@dimen/forty_eight"
+            android:layout_toRightOf="@id/person_iv"
+            android:drawableRight="@drawable/vip"
+            android:text="皮海洲  "
+            android:textColor="#222"
+            android:textSize="@dimen/Thirty_six" />
+
+        <TextView
+            android:id="@+id/point_touzi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/point_name"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:layout_toRightOf="@id/person_iv"
+            android:text="资深投资人"
+            android:textColor="#aaa"
+            android:textSize="@dimen/Thirty" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="@dimen/forty_eight"
+            android:id="@+id/tv_idDate"
+            android:text="2016-04-27 20:20" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/summary"
+        android:layout_marginTop="@dimen/Thirty"
+        android:paddingBottom="@dimen/Forty_two">
+
+        <TextView
+            android:id="@+id/point_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="超级主力进场大盘反转2"
+            android:textColor="@color/my"
+            android:textSize="@dimen/Forty" />
+
+        <TextView
+            android:id="@+id/point_bodys"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/point_title"
+            android:ellipsize="end"
+            android:lineSpacingExtra="6dp"
+            android:maxLines="2"
+            android:padding="@dimen/Thirty"
+            android:text="当时的他是最好的他，后来的我是最好的我。可是最好的我们之间，隔了一整个青春。 怎么奔跑也跨不过的青春，只好伸出手道别"
+            android:textColor="#aaa"
+            android:textSize="@dimen/thirty_four" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/one_hundred_ten"
+        android:layout_below="@+id/content">
+
+
+        <TextView
+            android:id="@+id/point_plun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:drawableLeft="@drawable/pinglun"
+            android:text=" 45" />
+
+        <TextView
+            android:id="@+id/tv_dianzan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/One_hundred"
+            android:layout_toLeftOf="@+id/point_plun"
+            android:drawableLeft="@drawable/dianzan"
+            android:text=" 88" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

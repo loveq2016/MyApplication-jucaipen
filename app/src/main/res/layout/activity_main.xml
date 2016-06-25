@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/viewpagr"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"></LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/cl_login"
+        android:layout_height="1dp"></View>
+
+
+    <LinearLayout
+        android:background="#f7f7f7"
+        android:id="@+id/maingroup"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_index"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/radioOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_selector" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_play"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/radioTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_show" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/radioThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_style" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
+

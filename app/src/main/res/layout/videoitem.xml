@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/Thirty">
+
+    <ImageView
+        android:id="@+id/imagevideo"
+        android:layout_width="@dimen/five_hundred"
+        android:layout_height="@dimen/two_hundred_eighty"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:src="@drawable/approve" />
+
+    <TextView
+        android:id="@+id/video_context"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Thirty"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="饭店附近的健身卡回房间大帅哥呀韩国如诶啊高"
+        android:textColor="@color/my"
+        android:textSize="@dimen/thirty_four" />
+
+    <TextView
+        android:id="@+id/video_inroduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Twenty"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="饭店附近的健身卡回房间大帅哥呀韩国如诶啊高"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/Thirty_two" />
+
+
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white">
+
+                <TextView
+                    android:id="@+id/video_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:layout_marginRight="@dimen/Thirty"
+                    android:layout_marginTop="@dimen/Forty_two"
+                    android:text="譬如送直播系类教程"
+                    android:textColor="@color/my"
+                    android:textSize="@dimen/Forty_four" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/Thirty"
+                    android:layout_marginTop="@dimen/Forty_two"
+                    android:background="@android:color/white"
+                    android:src="@drawable/xiajian" />
+
+                <TextView
+                    android:id="@+id/play_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/video_name"
+                    android:layout_marginBottom="@dimen/Forty_two"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:layout_marginRight="@dimen/Thirty"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:text="1556.25万次播放"
+                    android:textColor="@color/cl_btn"
+                    android:textSize="@dimen/thirty_eight" />
+            </RelativeLayout>
+
+            <include layout="@layout/tabtitle"
+                android:id="@+id/xuanji_more"></include>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one"></View>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_video"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@android:color/white"
+                android:paddingBottom="@dimen/Forty_two"
+                android:paddingLeft="@dimen/Thirty"
+                android:paddingRight="@dimen/Thirty"
+                android:paddingTop="@dimen/Forty_two">
+            </android.support.v7.widget.RecyclerView>
+
+
+            <include layout="@layout/relatevideo"
+                android:id="@+id/about_video"></include>
+
+            <com.example.view.MyGridView
+                android:id="@+id/video_mygrid"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@android:color/white"
+                android:numColumns="2"></com.example.view.MyGridView>
+
+
+            <include layout="@layout/videorecommend"
+                android:id="@+id/tuijian_more"></include>
+
+            <com.example.view.MyGridView
+                android:id="@+id/look_video"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@android:color/white"
+                android:numColumns="2"></com.example.view.MyGridView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

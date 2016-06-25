@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/six_hundred_twenty_four">
+
+
+    <com.example.view.media.QkVideoView
+        android:layout_width="match_parent"
+        android:id="@+id/qk_yb"
+        android:layout_height="@dimen/six_hundred_twenty_four" />
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="#e0000000">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:text="01:34"
+            android:id="@+id/time"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/progress"></RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:text="01:34"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="#e0000000"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
+
+</RelativeLayout>

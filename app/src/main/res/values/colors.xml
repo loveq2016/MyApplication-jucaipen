@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="red">#e70945</color>
+
+
+    <!-- 我的   字体颜色 -->
+    <color name="my">#222</color>
+    <!--我的  守护者填充色 -->
+    <color name="Cl_guard">#fb5e00</color>
+    <!-- 我的 背景颜色-->
+    <color name="cl_myback">#f2f2f2</color>
+    <!--我的 按钮分割线颜色-->
+    <color name="cl_view">#000</color>
+    <!--我的  按钮字体颜色-->
+    <color name="cl_btn">#aaa</color>
+    <!--我的 按钮间隔线颜色-->
+    <color name="cl_line">#e7e7e7</color>
+    <!--首页 人气名家 字体颜色-->
+    <color name="cl_person">#555</color>
+    <!--Listview分割线-->
+    <color name="lv_div">#F0F0F0</color>
+    <!--直播 滚动广告字体颜色-->
+    <color name="video_ad">#fd894e</color>
+    <!--聊天输入框字体颜色 -->
+    <color name="edt_cl">#858687</color>
+    <!--登录界面分割线颜色-->
+    <color name="cl_login">#eee</color>
+    <!--性别背景-->
+    <color name="cl_sex">#222</color>
+    <!--积分背景-->
+    <color name="cl_jifen">#fd5661</color>
+    <!--积分明细背景颜色-->
+    <color name="cl_total">#f7f7f7</color>
+    <!--button选中颜色-->
+    <color name="cl_textcl">#d70c1a</color>
+
+</resources>

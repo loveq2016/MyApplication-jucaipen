@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/Thirty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:text="订单号：1213456"
+            android:id="@+id/tv_oId"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:id="@+id/tv_oTime"
+            android:text="下单时间：1015-02-25"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty">
+
+        <TextView
+            android:id="@+id/tv_serve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:singleLine="true"
+            android:text="服务项目：观点"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_serve"
+            android:layout_marginBottom="@dimen/Forty_two"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:id="@+id/tv_oMoney"
+            android:text="支付金额：￥8聚财币"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <ImageView
+            android:id="@+id/iv_oState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/dingdan_yiwancheng" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/twenty_one"
+            android:paddingTop="@dimen/twenty_one"
+            android:src="@drawable/del_dingdan" />
+    </RelativeLayout>
+
+</LinearLayout>

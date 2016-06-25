@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   视频直播室
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <SurfaceView
+            android:id="@+id/sv"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cl_myback" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/dibeijing">
+
+            <ImageView
+                android:id="@+id/video_finsh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/Thirty"
+                android:src="@drawable/video_back" />
+
+            <TextView
+                android:id="@+id/video_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/video_share"
+                android:layout_toRightOf="@+id/video_finsh"
+                android:singleLine="true"
+                android:text="CCTV 志愿老师发动机感觉肯定把附件是"
+                android:textColor="@android:color/white" />
+
+            <ImageButton
+                android:id="@+id/video_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/Thirty"
+                android:src="@drawable/video_share" />
+
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/iv_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/fangda" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/Thirty"
+            android:background="@drawable/renwubeijing">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/renwu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:text="1258"
+                android:textColor="@android:color/white"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RadioGroup
+        android:id="@+id/room_group"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_interact"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="互动列表"
+            android:textColor="@color/my"
+            android:textSize="@dimen/thirty_six" />
+
+        <RadioButton
+            android:id="@+id/radio_seat"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="用户席位"
+            android:textColor="@color/my"
+            android:textSize="@dimen/thirty_six" />
+
+        <RadioButton
+            android:id="@+id/radio_idea"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="老师观点"
+            android:textColor="@color/my"
+            android:textSize="@dimen/thirty_six" />
+
+        <RadioButton
+            android:id="@+id/radio_news"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="最新榜单"
+            android:textColor="@color/my"
+            android:textSize="@dimen/thirty_six" />
+
+        <View
+            android:layout_width="@dimen/one"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@color/cl_myback" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/one_hundred_sixty"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/Thirty"
+            android:paddingRight="@dimen/Thirty">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/guanzhu" />
+        </RelativeLayout>
+    </RadioGroup>
+
+    <com.example.utils.MarqueeTextView
+        android:id="@+id/user_round"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty_eight"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@drawable/dibeijing"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/room_viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/war_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/Thirty"
+        android:src="@drawable/approve" />
+
+    <TextView
+        android:id="@+id/war_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/war_iv"
+        android:layout_toRightOf="@id/war_iv"
+        android:text="名家战法" />
+
+    <TextView
+        android:id="@+id/war_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/war_title"
+        android:layout_toRightOf="@id/war_iv"
+        android:singleLine="true"
+        android:text="高大上范德萨噶法第三大方的萨达是范德萨" />
+
+    <TextView
+        android:id="@+id/war_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/war_body"
+        android:layout_toRightOf="@id/war_iv"
+        android:text="名家战法" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/war_num"
+        android:layout_toRightOf="@id/war_iv"
+        android:background="@android:color/white" />
+
+
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/lively_iv"
+        android:layout_width="@dimen/One_hundred"
+        android:layout_height="@dimen/One_hundred"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/Thirty"
+        android:src="@drawable/rentou" />
+
+    <TextView
+        android:id="@+id/lively_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/lively_iv"
+        android:text="杨二炮"
+        android:textColor="@color/my"
+        android:textSize="@dimen/Forty_two" />
+
+
+</RelativeLayout>

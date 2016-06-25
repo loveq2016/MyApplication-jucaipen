@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:text="分享到" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/share_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Thirty"
+            android:layout_weight="1"
+            android:src="@drawable/kt_tenxunqq" />
+
+        <ImageButton
+            android:id="@+id/ibt_qqzone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Thirty"
+            android:layout_weight="1"
+            android:src="@drawable/kt_qqkongjian" />
+
+        <ImageButton
+            android:id="@+id/ibt_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Thirty"
+            android:layout_weight="1"
+            android:src="@drawable/kt_wenxin" />
+
+        <ImageButton
+            android:id="@+id/ibt_wenxinzone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Thirty"
+            android:layout_weight="1"
+            android:src="@drawable/kt_wx_friend" />
+
+        <ImageButton
+            android:id="@+id/ibt_weibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Thirty"
+            android:layout_weight="1"
+            android:src="@drawable/kt_xinlang" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:gravity="center"
+        android:text="取消" />
+
+
+</LinearLayout>

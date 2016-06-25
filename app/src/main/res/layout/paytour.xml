@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打赏" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:background="@android:color/holo_red_dark"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="给老师一个大大的鼓励吧！" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="打赏金额" />
+
+        <EditText
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="输入金额" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:background="@android:color/holo_red_dark"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:text="1元" />
+
+        <RadioButton
+            android:background="@android:color/holo_red_dark"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:text="5元" />
+
+        <RadioButton
+            android:background="@android:color/holo_red_dark"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:text="15元" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:background="@android:color/holo_red_dark"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:text="20元" />
+
+        <RadioButton
+            android:background="@android:color/holo_red_dark"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:text="30元" />
+
+        <RadioButton
+            android:background="@android:color/holo_red_dark"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:text="50元" />
+    </LinearLayout>
+
+    <Button
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打赏" />
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingLeft="@dimen/Thirty"
+    android:paddingRight="@dimen/Thirty">
+
+    <ImageView
+        android:id="@+id/hotimageview"
+        android:layout_width="@dimen/Two_hundred_seventy"
+        android:layout_height="@dimen/Two_hundred"
+        android:layout_marginBottom="@dimen/Forty_two"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:background="@drawable/bg" />
+
+    <TextView
+        android:id="@+id/hot_title"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/hotimageview"
+        android:layout_marginTop="@dimen/six"
+        android:layout_toRightOf="@+id/hotimageview"
+        android:maxLines="2"
+        android:lineSpacingExtra="5dp"
+        android:text="底啊食底啊食底啊食底啊食八十个不顾忽地谷底啊食古底啊食底啊食不化附近的时光"
+        android:textSize="@dimen/thirty_eight" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:id="@+id/hotcontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hotimageview"
+        android:layout_marginBottom="@dimen/one"
+        android:layout_toRightOf="@+id/hotimageview"
+        android:text="东方财富网 2016-4-23 10:54"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+    <TextView
+        android:id="@+id/tv_hit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/hotcontext"
+        android:layout_alignParentRight="true"
+        android:text="120评论"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+</RelativeLayout>

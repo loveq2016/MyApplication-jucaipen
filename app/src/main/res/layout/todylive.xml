@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/Thirty">
+
+    <RelativeLayout
+        android:layout_width="@dimen/five_hundred"
+        android:layout_height="@dimen/two_hundred_eighty"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/video_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/approve" />
+
+        <TextView
+            android:id="@+id/video_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/Thirty"
+            android:text="04-19"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/Thirty"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/video_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/Twenty"
+                android:src="@drawable/bofangbiao" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_context"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Thirty"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="饭店附近的健身卡回房间大帅哥呀韩国如诶啊高"
+        android:textColor="@color/my"
+        android:textSize="@dimen/thirty_four" />
+
+</LinearLayout>

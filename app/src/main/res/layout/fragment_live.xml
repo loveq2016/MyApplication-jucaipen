@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:layout_marginLeft="@dimen/Thirty"
+    android:layout_marginRight="@dimen/Thirty"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:id="@+id/live_group"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:id="@+id/wz_live"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:checked="true"
+            android:gravity="center"
+            android:background="@drawable/live_select_left"
+            android:textColor="@drawable/live_color"
+            android:button="@null"
+            android:text="文字直播" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/live_select_right"
+            android:id="@+id/video_live"
+            android:textColor="@drawable/live_color"
+            android:button="@null"
+            android:gravity="center"
+            android:text="视频直播" />
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/frame_live"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+
+</LinearLayout>

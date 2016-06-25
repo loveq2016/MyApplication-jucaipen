@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Two_hundred_sixteen"
+        android:background="@drawable/shadow">
+
+        <ImageView
+            android:id="@+id/ask_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:src="@drawable/return_select" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="提问"
+            android:textColor="#222"
+            android:textSize="21dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/One_hundred"
+        android:layout_marginBottom="@dimen/Forty_two"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:background="@drawable/askbody_shap">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="请选择分类"
+            android:textColor="#aaa"
+            android:textSize="@dimen/thirty_eight" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/under_jian" />
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/five_hundred"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:background="@drawable/askbody_shap"
+        android:gravity="top"
+        android:hint="在此输入您的问题"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:paddingTop="@dimen/Forty_two"
+        android:textColorHint="@color/cl_btn"
+        android:textSize="@dimen/Thirty_six"></EditText>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:background="@android:color/white"
+        android:src="@drawable/jianjie_question" />
+
+
+</LinearLayout>

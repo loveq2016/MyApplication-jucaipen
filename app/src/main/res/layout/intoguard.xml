@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/guard_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="开通守护" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_marginTop="@dimen/Forty_two"
+            android:paddingLeft="@dimen/Thirty"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开通账号：" />
+
+        <TextView
+            android:textSize="@dimen/Thirty_two"
+            android:layout_marginTop="@dimen/Thirty"
+            android:paddingLeft="@dimen/Thirty"
+            android:textColor="@color/cl_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="名师账号：" />
+
+        <TextView
+            android:textSize="@dimen/Thirty_two"
+            android:layout_marginTop="@dimen/sixty"
+            android:paddingLeft="@dimen/Thirty"
+            android:textColor="@color/my"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开通时长：" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+        <RadioButton
+            android:textSize="@dimen/Thirty_two"
+            android:textColor="@color/cl_person"
+            android:padding="@dimen/Thirty"
+            android:drawableLeft="@drawable/weixuanzhong"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sixty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:text="     一天10聚财币" />
+
+
+        <RadioButton
+            android:textSize="@dimen/Thirty_two"
+            android:textColor="@color/cl_person"
+            android:padding="@dimen/Thirty"
+            android:drawableLeft="@drawable/weixuanzhong"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sixty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:text="     一个月270聚财币" />
+
+        <RadioButton
+            android:textSize="@dimen/Thirty_two"
+            android:textColor="@color/cl_person"
+            android:padding="@dimen/Thirty"
+            android:drawableLeft="@drawable/weixuanzhong"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sixty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:text="     三天960聚财币" />
+
+        <RadioButton
+            android:textSize="@dimen/Thirty_two"
+            android:textColor="@color/cl_person"
+            android:padding="@dimen/Thirty"
+            android:drawableLeft="@drawable/weixuanzhong"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sixty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:text="     一年25200聚财币（送当前主播频道横幅）" />
+    </RadioGroup>
+
+    <TextView
+        android:paddingTop="@dimen/sixty"
+        android:textSize="@dimen/Forty"
+        android:paddingLeft="@dimen/Thirty"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开通守护：10聚财币" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_start"
+            android:layout_marginBottom="@dimen/sixty"
+            android:layout_marginTop="@dimen/sixty"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/kaitong" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

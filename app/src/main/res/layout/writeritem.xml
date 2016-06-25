@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:layout_width="1dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="14dp"
+        android:background="@color/cl_myback"></ImageView>
+
+
+    <ImageView
+        android:id="@+id/iv_yuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:src="@drawable/small" />
+
+
+    <TextView
+        android:id="@+id/writer_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_yuan"
+        android:layout_marginLeft="@dimen/Twenty"
+        android:layout_toRightOf="@+id/iv_yuan"
+        android:text="范德萨噶收费"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+
+    <TextView
+        android:id="@+id/writer_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/writer_time"
+        android:layout_marginLeft="@dimen/Twenty"
+        android:layout_marginTop="@dimen/Twenty"
+        android:layout_toRightOf="@+id/iv_yuan"
+        android:maxLength="10"
+        android:text="llll"
+        android:ellipsize="end"
+        android:textColor="@color/cl_person"
+        android:textSize="@dimen/thirty_four" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_liveLock"
+        android:layout_alignTop="@+id/writer_body"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:visibility="gone"
+        android:src="@drawable/lock"/>
+
+
+</RelativeLayout>

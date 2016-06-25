@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/One_hundred_forty_five"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/ibt_callback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:id="@+id/tv_titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/three_hundred"
+                android:background="@color/cl_jifen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:layout_marginTop="@dimen/Forty_two"
+                    android:src="@drawable/jifen_dangqian" />
+
+                <TextView
+                    android:id="@+id/moneynumbers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/Forty_two"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:text="456"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/one_hundred_twenty" />
+
+                <ImageButton
+                    android:id="@+id/ibt_pay"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/Thirty"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/jucaibi_chongzhi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/moneynumbers"
+                    android:layout_marginBottom="@dimen/Thirty"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:layout_toRightOf="@+id/moneynumbers"
+                    android:text="分"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/thirty_six" />
+
+
+                <TextView
+                    android:id="@+id/tv_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/Thirty"
+                    android:layout_marginTop="@dimen/Forty_two"
+                    android:text="使用帮助"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/thirty_four" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_hundred_twenty"
+                android:background="@color/cl_total"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/Thirty"
+                android:text="积分明细"
+                android:textSize="@dimen/Forty" />
+
+            <com.example.view.TestListView
+                android:id="@+id/lv_money"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"></com.example.view.TestListView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

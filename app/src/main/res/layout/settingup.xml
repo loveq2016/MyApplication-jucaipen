@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/One_hundred_forty_five"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/setting_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="设置"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="我的账户"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/sixty"
+            android:text="10086"
+            android:id="@+id/tv_account"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="修改密码"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/Thirty"
+            android:src="@drawable/ziliao_youjian" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="更换手机号"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <TextView
+            android:id="@+id/phone_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Twenty"
+            android:layout_toLeftOf="@+id/iv_phone"
+            android:text="1225745652"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/Thirty"
+            android:src="@drawable/ziliao_youjian" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/other_count"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="第三方账号"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Twenty"
+            android:layout_toLeftOf="@+id/setting_count"
+            android:text="查看/绑定第三方账号"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+
+        <ImageView
+            android:id="@+id/setting_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/Thirty"
+            android:src="@drawable/ziliao_youjian" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/see_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="版本检测"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:text="当前已是最新版本"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/about_we"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="关于我们"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/Thirty"
+            android:src="@drawable/ziliao_youjian" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="我的反馈"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/Thirty"
+            android:src="@drawable/ziliao_youjian" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/thirty_eight"
+        android:background="@android:color/white"
+        android:text="退出登录"
+        android:textColor="@android:color/holo_red_dark" />
+</LinearLayout>

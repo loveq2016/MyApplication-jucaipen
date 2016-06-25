@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/deta_head"
+        android:layout_width="@dimen/One_hundred"
+        android:layout_height="@dimen/One_hundred"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:src="@drawable/rentou" />
+
+    <TextView
+        android:id="@+id/deta_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/deta_head"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_toRightOf="@+id/deta_head"
+        android:drawableRight="@drawable/vip"
+        android:text="A4553  "
+        android:textColor="#222"
+        android:textSize="@dimen/Thirty_six" />
+
+    <TextView
+        android:id="@+id/answer_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/deta_head"
+        android:layout_below="@+id/deta_name"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_toRightOf="@+id/deta_head"
+        android:text="回复时间：2016-04-30 20:20"
+        android:textColor="#aaa"
+        android:textSize="@dimen/Thirty_two" />
+
+    <TextView
+        android:id="@+id/answer_problem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer_time"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_marginRight="@dimen/Thirty_two"
+        android:layout_marginTop="@dimen/Thirty"
+        android:layout_toRightOf="@+id/deta_head"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="记得有这样一段话：时光静好，与君语；细水流年，与君同；繁华落尽，与君老。静好的时光里，小城市，总是有一个人，渡你一生的回忆。有人说，一个人最好记性不要太好，因为回忆越多，幸福感越少。"
+        android:textColor="#555"
+        android:textSize="@dimen/thirty_four" />
+
+    <TextView
+        android:id="@+id/answer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer_problem"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_marginRight="@dimen/Thirty_two"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/Thirty"
+        android:layout_toRightOf="@+id/deta_head"
+        android:text="提问：老师，我的股票怎么涨不上去呢这是为什么呢" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer_tv"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_marginRight="@dimen/Thirty_two"
+        android:layout_marginTop="@dimen/Thirty"
+        android:layout_toRightOf="@+id/deta_head"
+        android:text="回复：老师，我的股票怎么涨不上去呢这是为什么呢这是发的佛好搭噶卡佛打破伤风" />
+
+    <View
+        android:id="@+id/solid"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/problem"
+        android:background="#aaaaaa"></View>
+</RelativeLayout>

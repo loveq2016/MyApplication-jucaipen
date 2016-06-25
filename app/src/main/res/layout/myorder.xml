@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_forty_one"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/order_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的订单" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rp_order"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/order_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="已支付"
+            android:textSize="@dimen/Thirty_six" />
+
+        <RadioButton
+            android:id="@+id/order_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="未支付"
+            android:textSize="@dimen/Thirty_six" />
+
+        <RadioButton
+            android:id="@+id/order_unfinished"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="支付失败"
+            android:textSize="@dimen/Thirty_six" />
+    </RadioGroup>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/charge_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

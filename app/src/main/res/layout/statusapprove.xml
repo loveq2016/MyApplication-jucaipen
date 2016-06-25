@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/One_hundred_forty_five"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/approve_finsh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="资格认证" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/status_type"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="资格证种类"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv1"
+            android:text="请选择分类"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/right_jian" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/station_job"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="所在岗位"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv2"
+            android:text="证券资讯投资分析师"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/right_jian" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/status_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="资格号码"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv3"
+            android:text="职业资格号，请标准填写"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/right_jian" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/on_work"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="所在公司"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv4"
+            android:text="请具体填写"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/right_jian" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/big_field"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="擅长领域"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv5"
+            android:text="1-5个领域，每个领域不超过8个字"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/right_jian" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_jianli"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:text="个人简介"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv6"
+            android:text="请填写个人简历"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/right_jian" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btn_approve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/one_hundred_eight"
+        android:background="@android:color/white"
+        android:src="@drawable/kaitong_next" />
+
+
+</LinearLayout>

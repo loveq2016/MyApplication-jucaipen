@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的礼品" />
+
+    </RelativeLayout>
+
+
+    <RadioGroup
+        android:gravity="center"
+        android:id="@+id/present_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbt_my"
+            android:gravity="center"
+            android:background="@drawable/radiobutton_selecter"
+            android:layout_weight="1"
+            android:button="@null"
+            android:paddingBottom="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的礼品" />
+
+        <RadioButton
+            android:background="@drawable/radiobutton_selecter"
+            android:gravity="center"
+            android:id="@+id/rbt_send"
+            android:layout_weight="1"
+            android:paddingBottom="25dp"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="送出的礼品" />
+
+        <RadioButton
+            android:id="@+id/rbt_receive"
+            android:background="@drawable/radiobutton_selecter"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingBottom="25dp"
+            android:button="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收到的礼品" />
+
+    </RadioGroup>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/present_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+</LinearLayout>

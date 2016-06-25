@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/video_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/Thirty"
+                    android:src="@drawable/approve" />
+
+                <ImageView
+                    android:id="@+id/iamge_live"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/video_pic"
+                    android:layout_marginRight="@dimen/Twenty"
+                    android:layout_marginTop="@dimen/Thirty"
+                    android:layout_toRightOf="@+id/video_pic"
+                    android:src="@drawable/jianjie_bofang" />
+
+                <TextView
+                    android:id="@+id/video_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/video_pic"
+                    android:layout_marginTop="@dimen/Thirty"
+                    android:layout_toRightOf="@+id/iamge_live"
+                    android:text="正在直播"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/Forty" />
+
+                <TextView
+                    android:id="@+id/live_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/video_play"
+                    android:layout_marginTop="@dimen/Thirty"
+                    android:layout_toRightOf="@+id/video_pic"
+                    android:text="范德萨个的撒范德萨范德萨发生" />
+
+                <TextView
+                    android:id="@+id/video_personnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/live_body"
+                    android:layout_marginRight="@dimen/Thirty"
+                    android:layout_marginTop="@dimen/Thirty"
+                    android:layout_toRightOf="@+id/video_pic"
+                    android:text="在线人数 ：560"
+                    android:textColor="@color/cl_btn"
+                    android:textSize="@dimen/Thirty_two" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_hundred_twenty_six"
+                android:layout_marginTop="@dimen/Thirty"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/eight"
+                    android:layout_height="@dimen/Forty_two"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:background="@color/red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:text="往期回顾"
+                    android:textColor="@color/cl_sex"
+                    android:textSize="@dimen/Forty" />
+            </LinearLayout>
+
+            <com.example.view.TestListView
+                android:id="@+id/writer_history"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:background="@android:color/white"
+                android:divider="@android:color/white"
+                android:dividerHeight="0dp"
+                android:scrollbars="none"></com.example.view.TestListView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

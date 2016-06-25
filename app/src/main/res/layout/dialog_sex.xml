@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="#f7f7f7"
+        android:gravity="center"
+        android:text="选择性别"
+        android:textColor="@color/cl_sex"
+        android:textSize="@dimen/Forty_two" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/sixty"
+        android:paddingTop="@dimen/Forty_two">
+
+        <RadioButton
+            android:id="@+id/sex_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="68dp"
+            android:background="@drawable/sexman"
+            android:button="@null" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/cl_login"
+            android:paddingBottom="@dimen/sixty"
+            android:paddingTop="@dimen/Forty_two"></View>
+
+        <RadioButton
+            android:id="@+id/sex_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="68dp"
+            android:background="@drawable/sexwoman"
+            android:button="@null" />
+    </RadioGroup>
+
+    <ImageButton
+        android:id="@+id/sex_sure"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/sixty"
+        android:src="@drawable/ziliao_queding" />
+
+</LinearLayout>

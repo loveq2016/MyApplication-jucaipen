@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.view.TestListView
+                android:id="@+id/user_lv1"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"></com.example.view.TestListView>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/bLogo"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:layout_marginTop="@dimen/Thirty"
+                    android:layout_marginBottom="@dimen/Thirty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/huoyuebang" />
+
+                <TextView
+                    android:id="@+id/bLable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/Forty_four"
+                    android:layout_toRightOf="@+id/bLogo"
+                    android:text="现场嘉宾"
+                    android:textColor="@color/my" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:background="@color/cl_myback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one"></View>
+
+            <com.example.view.TestListView
+                android:id="@+id/user_lv2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            </com.example.view.TestListView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

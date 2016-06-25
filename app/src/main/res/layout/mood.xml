@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/person_image"
+        android:layout_width="166dp"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:src="@drawable/approve" />
+
+    <RelativeLayout
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/Thirty">
+
+        <TextView
+            android:id="@+id/person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="股市早知道" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/white"
+            android:src="@drawable/vip" />
+
+        <TextView
+            android:id="@+id/person_num"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/person_name"
+            android:layout_marginTop="@dimen/Thirty"
+            android:text="总人气：365" />
+    </RelativeLayout>
+
+</LinearLayout>

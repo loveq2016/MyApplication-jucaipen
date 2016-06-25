@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/six_hundred_twenty_four">
+
+        <com.example.view.media.QkVideoView
+            android:id="@+id/qk_video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/viediostop"
+            android:visibility="gone"
+            android:id="@+id/imageButton" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/viediocomeback" />
+
+        <ImageButton
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/viediofenxiang" />
+
+        <TextView
+            android:id="@+id/tv_alltime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/sixty"
+            android:text="10:25"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/tv_nowtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/sixty"
+            android:layout_marginRight="@dimen/sixty"
+            android:layout_toLeftOf="@+id/btn_big"
+            android:text="11:25"
+            android:textColor="@android:color/white" />
+
+        <ProgressBar
+            android:id="@+id/video_progressbar"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/tv_nowtime"
+            android:layout_toRightOf="@+id/tv_alltime"
+            android:max="100"
+            android:progress="20"
+            android:secondaryProgress="50" />
+
+        <ImageButton
+            android:id="@+id/btn_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/viedio_fangda" />
+
+
+    </RelativeLayout>
+
+
+    <RadioGroup
+        android:id="@+id/plant_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/intro_rad"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="简介"
+            android:textColor="@drawable/live_color" />
+
+        <RadioButton
+            android:id="@+id/comm_rad"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="评论"
+            android:textColor="@drawable/live_color" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Thirty"
+        android:background="@color/cl_myback" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/plant_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+</LinearLayout>

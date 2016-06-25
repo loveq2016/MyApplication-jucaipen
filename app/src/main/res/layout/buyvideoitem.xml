@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/Forty_two"
+        android:layout_marginBottom="@dimen/Forty_two"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Forty"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginRight="@dimen/Forty"
+            android:id="@+id/video_iv"
+            android:layout_width="@dimen/three_hundred_forty"
+            android:layout_height="@dimen/Two_hundred"
+            android:src="@drawable/approve" />
+
+        <TextView
+            android:id="@+id/tv_buyvideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/video_iv"
+            android:layout_marginTop="@dimen/Twenty"
+            android:layout_toRightOf="@+id/video_iv"
+            android:singleLine="true"
+            android:text="发动机扫个答复叫房东说胖啊第四名"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/Thirty_six" />
+
+        <TextView
+            android:id="@+id/tv_starttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_buyvideo"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/video_iv"
+            android:singleLine="true"
+            android:text="发动机扫个答复叫房东说胖啊第四名"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+        <TextView
+            android:id="@+id/tv_buytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/video_iv"
+            android:layout_marginBottom="@dimen/ten"
+            android:layout_toRightOf="@+id/video_iv"
+            android:singleLine="true"
+            android:text="发动机扫个答复叫房东说胖啊第四名"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/ibt_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="更换手机号" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <EditText
+            android:id="@+id/old_phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:hint="旧手机号"
+            android:inputType="phone"
+            android:paddingLeft="@dimen/Thirty"
+            android:paddingRight="@dimen/Thirty"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/Thirty"
+            android:text="发送验证码" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/old_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:hint="请输入验证码"
+        android:inputType="number"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white">
+
+        <EditText
+            android:id="@+id/new_phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:hint="新手机号"
+            android:inputType="phone"
+            android:paddingLeft="@dimen/Thirty"
+            android:paddingRight="@dimen/Thirty"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="@dimen/Thirty"
+            android:text="发送验证码" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/new_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:hint="请输入验证码"
+        android:inputType="number"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="下一步" />
+
+
+</LinearLayout>

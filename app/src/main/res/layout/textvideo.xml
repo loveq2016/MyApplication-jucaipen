@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="文字直播"
+            android:textColor="@color/my"
+            android:textSize="@dimen/Forty_two" />
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="@color/cl_myback"></View>
+
+    <RadioGroup
+        android:id="@+id/tvlive_grp"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbt_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="文字直播"
+            android:textSize="@dimen/Forty" />
+
+        <RadioButton
+            android:id="@+id/rbt_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="聊天室"
+            android:textSize="@dimen/Forty" />
+
+        <RadioButton
+            android:id="@+id/rbt_look"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="浏览解盘"
+            android:textSize="@dimen/Forty" />
+
+       <!-- <RadioButton
+            android:id="@+id/rbt_guard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="守护悄悄话"
+            android:textSize="@dimen/Forty" />-->
+
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Thirty"
+        android:background="@color/cl_myback"></View>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/text_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+</LinearLayout>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/five_hundred"
+        android:background="#F5EDC8">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred_forty_five">
+
+            <ImageView
+                android:id="@+id/teacher_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/Thirty"
+                android:src="@drawable/mingshi_jiantou" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="名师简介"
+                android:textSize="@dimen/Forty" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/Thirty"
+                android:src="@drawable/fenxiang" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/tImage"
+            android:layout_width="66dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/Thirty"
+            android:src="@drawable/rentou" />
+
+        <TextView
+            android:id="@+id/tName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tImage"
+            android:layout_toRightOf="@+id/tImage"
+            android:text="明飞"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/Forty" />
+
+        <ImageView
+            android:id="@+id/v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tName"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/tName"
+            android:src="@drawable/vip" />
+
+        <TextView
+            android:id="@+id/famous_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/v"
+            android:layout_marginLeft="@dimen/Twenty"
+            android:layout_toRightOf="@+id/v"
+            android:text="资深投资者"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/Forty" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tName"
+            android:layout_below="@+id/v"
+            android:layout_marginTop="@dimen/Thirty"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="@dimen/eighty">
+
+                <TextView
+                    android:id="@+id/tv_rq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="38645"
+                    android:textColor="#D92E32"
+                    android:textSize="@dimen/Forty" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_rq"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/iv_rq"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/twenty"
+                        android:src="@drawable/renqi" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="@dimen/eighty"
+                android:layout_marginRight="@dimen/eighty">
+
+
+                <TextView
+                    android:id="@+id/tv_gz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="38645"
+                    android:textColor="#D92E32"
+                    android:textSize="@dimen/Forty" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_gz"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/iv_gz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/twenty"
+                        android:src="@drawable/teacherguanzhu" />
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="@dimen/eighty"
+                android:layout_marginRight="@dimen/eighty">
+
+                <TextView
+                    android:id="@+id/tv_sh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="38645"
+                    android:textColor="#D92E32"
+                    android:textSize="@dimen/Forty" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_sh"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/iv_sh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/twenty"
+                        android:src="@drawable/teachershouhu" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_plain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tImage"
+            android:layout_below="@+id/tImage"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginLeft="@dimen/Forty_two"
+            android:layout_marginRight="@dimen/Forty_two"
+            android:layout_marginTop="@dimen/Thirty"
+            android:singleLine="true"
+            android:text="简介：人妖出生于公元20年大清皇帝封为太子"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_eight" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tv_plain"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/jianjie_rightjian" />
+
+    </RelativeLayout>
+
+
+    <RadioGroup
+        android:id="@+id/teacher_group"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rad_homepage"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="主页"
+            android:textColor="@drawable/live_color"
+            android:textSize="@dimen/Thirty_six" />
+
+        <RadioButton
+            android:id="@+id/rad_writing"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="文字直播"
+            android:textColor="@drawable/live_color"
+            android:textSize="@dimen/Thirty_six" />
+
+        <RadioButton
+            android:id="@+id/rad_video"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="视频直播"
+            android:textColor="@drawable/live_color"
+            android:textSize="@dimen/Thirty_six" />
+
+        <RadioButton
+            android:id="@+id/rad_viewpoint"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="观点"
+            android:textColor="@drawable/live_color"
+            android:textSize="@dimen/Thirty_six" />
+
+        <RadioButton
+            android:id="@+id/rad_answer"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="问答"
+            android:textColor="@drawable/live_color"
+            android:textSize="@dimen/Thirty_six" />
+
+        <RadioButton
+            android:id="@+id/rad_warfare"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="战法"
+            android:textColor="@drawable/live_color"
+            android:textSize="@dimen/Thirty_six" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/twenty"
+        android:background="@color/cl_myback"></View>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/famous_viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/cl_myback"></View>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/one_hundred_sixty"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ibt_ask"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:button="@null"
+            android:src="@drawable/question" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:background="@color/cl_myback"></View>
+
+        <ImageButton
+            android:id="@+id/ibt_reward"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:button="@null"
+            android:src="@drawable/jianjie_shang" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:background="@color/cl_myback"></View>
+
+        <ImageButton
+            android:id="@+id/ibt_attention"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:button="@null"
+            android:src="@drawable/jianjie_dibu_guanzhu" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:background="@color/cl_myback"></View>
+
+        <ImageButton
+            android:id="@+id/ibt_guard"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:button="@null"
+            android:src="@drawable/teachershouhus" />
+    </LinearLayout>
+
+
+</LinearLayout>

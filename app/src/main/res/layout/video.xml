@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/Thirty">
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/search" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_toLeftOf="@+id/rela_video"
+            android:layout_toRightOf="@+id/iv_search"
+            android:background="@null"
+            android:hint="输入视频名称或者名师昵称"
+            android:singleLine="true"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+
+
+        <RelativeLayout
+            android:id="@+id/rela_video"
+            android:layout_width="@dimen/one_hundred_sixty"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/lv_div">
+
+            <TextView
+                android:id="@+id/tv_approve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/Thirty"
+                android:text="筛选"
+                android:textColor="@color/cl_btn"
+                android:textSize="@dimen/thirty_four" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/ten"
+                android:layout_toRightOf="@+id/tv_approve"
+                android:src="@drawable/xiajian" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="@color/cl_myback"></View>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/liner_video"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/eighty"
+            android:background="@android:color/white"
+            android:paddingLeft="@dimen/Thirty"
+            android:paddingRight="@dimen/Thirty"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/eighty"
+                android:layout_centerVertical="true"
+                android:text="按分类"
+                android:id="@+id/lable_type"
+                android:textColor="@color/red"
+                android:textSize="@dimen/thirty_four" />
+
+            <HorizontalScrollView
+                android:id="@+id/hv"
+                android:layout_toRightOf="@+id/lable_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:id="@+id/type_rgp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </RadioGroup>
+            </HorizontalScrollView>
+
+
+
+
+
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/eighty"
+            android:id="@+id/two_type"
+            android:layout_below="@+id/liner_video"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:visibility="visible"
+            android:scrollbars="none">
+
+            <RadioGroup
+                android:id="@+id/two_grop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/teacher_type"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/eighty"
+            android:layout_below="@+id/two_type"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:button="@null"
+                android:paddingRight="@dimen/eighty"
+                android:text="按类型"
+                android:textColor="@color/red"
+                android:textSize="@dimen/thirty_four" />
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:id="@+id/video_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                </RadioGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/eighty"
+            android:layout_below="@+id/teacher_type"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:button="@null"
+                android:paddingRight="@dimen/eighty"
+                android:text="按讲师"
+                android:textColor="@color/red"
+                android:textSize="@dimen/thirty_four" />
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:id="@+id/teacher_rad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                </RadioGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <GridView
+        android:scrollbars="none"
+        android:id="@+id/video_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="@android:color/white"
+        android:numColumns="auto_fit"></GridView>
+
+</LinearLayout>

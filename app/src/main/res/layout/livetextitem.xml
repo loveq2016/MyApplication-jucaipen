@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="#f7f7f7"
+        android:orientation="horizontal"
+        android:padding="@dimen/Thirty">
+
+        <ImageView
+            android:id="@+id/tv_videoFace"
+            android:layout_width="@dimen/One_hundred"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/rentou" />
+
+        <TextView
+            android:id="@+id/tv_videoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_weight="1"
+            android:text="明飞"
+            android:textSize="@dimen/Thirty_six" />
+
+
+        <TextView
+            android:id="@+id/tv_VideoNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableLeft="@drawable/yanjing"
+            android:text="  542人已参与"
+            android:textSize="@dimen/Thirty" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:background="@color/cl_login">
+
+    </View>
+
+    <TextView
+        android:id="@+id/tv_VideoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:background="#f7f7f7"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:paddingTop="5dp"
+        android:singleLine="true"
+        android:text="这个是复写的方的时候调用"
+        android:textColor="@color/cl_sex"
+        android:textSize="@dimen/Forty_two" />
+
+
+    <TextView
+        android:id="@+id/tv_videoBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:background="#f7f7f7"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingBottom="@dimen/Forty_two"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:paddingTop="5dp"
+        android:text="这个是复写的方方的时候方的时候调用调用方的时候调用的方的时候调用方的时候调用方的时候调用方的时候调用时候调用"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/Forty_two" />
+
+
+</LinearLayout>

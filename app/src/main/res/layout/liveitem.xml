@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/live_head"
+            android:layout_width="@dimen/three_hundred_forty"
+            android:layout_height="@dimen/Two_hundred"
+            android:layout_marginBottom="@dimen/Forty_two"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:src="@drawable/approve" />
+
+        <TextView
+            android:id="@+id/video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/live_head"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Twenty"
+            android:layout_toRightOf="@+id/live_head"
+            android:singleLine="true"
+            android:text="浮雕滚动号案件发的说法加拿大结案佛诶啊够大批发商"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/video_title"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Thirty"
+            android:layout_toRightOf="@+id/live_head"
+            android:singleLine="true"
+            android:text="浮雕滚动号案件发的说法加拿大结案佛诶啊够大批发商"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+    </RelativeLayout>
+
+</LinearLayout>

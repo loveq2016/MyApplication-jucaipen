@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/intro_tvback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="简介" />
+
+        <TextView
+            android:id="@+id/indruce_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/Thirty"
+            android:text="完成" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Thirty"
+        android:background="@color/cl_myback"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/six_hundred"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:background="@drawable/introduceshap"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_persondate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Forty_two"
+            android:layout_marginLeft="@dimen/Twenty"
+            android:layout_marginRight="@dimen/Twenty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:background="@null"
+            android:hint="填写个人资料"
+            android:maxLength="200"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/Thirty"
+            android:text="1/200" />
+    </RelativeLayout>
+</LinearLayout>

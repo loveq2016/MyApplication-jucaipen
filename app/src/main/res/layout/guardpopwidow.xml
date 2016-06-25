@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="266dp"
+    android:layout_height="200dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/one_hundred_twenty"
+        android:src="@drawable/kaitong_success" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixty"
+            android:text="您已成为明飞老师的守护者"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="守护时间2515.01.02-2015.06.05"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/popwidow_ivs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sixty"
+        android:background="@drawable/kaitong_back" />
+
+
+</LinearLayout>

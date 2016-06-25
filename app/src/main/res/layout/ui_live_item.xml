@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingTop="@dimen/Forty_two">
+
+    <ImageView
+        android:id="@+id/live_iv"
+        android:layout_width="@dimen/five_hundred"
+        android:layout_height="@dimen/two_hundred_eighty"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/approve" />
+
+    <LinearLayout
+        android:layout_width="@dimen/five_hundred"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/live_iv"
+        android:layout_below="@+id/live_iv"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/Thirty">
+
+        <TextView
+            android:id="@+id/live_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twenty"
+            android:singleLine="true"
+            android:text="4.26-大师的连城"
+            android:textColor="@color/my"
+            android:textSize="@dimen/thirty_eight" />
+
+        <TextView
+            android:id="@+id/live_teachername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twenty"
+            android:layout_marginTop="@dimen/twenty"
+            android:singleLine="true"
+            android:text="讲师：明飞老师"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+        <TextView
+            android:id="@+id/live_attnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twenty"
+            android:layout_marginTop="@dimen/twenty"
+            android:paddingBottom="@dimen/Thirty"
+            android:singleLine="true"
+            android:text="326人已参与"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+    </LinearLayout>
+
+</RelativeLayout>

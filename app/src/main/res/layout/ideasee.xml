@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/One_hundred_forty_five"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/hot_see"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="热点详情" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/Thirty"
+            android:paddingRight="@dimen/Thirty"
+            android:src="@drawable/fenxiang" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_share"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/shoucang" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cl_myback"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_hottitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Thirty"
+                android:layout_marginRight="@dimen/Thirty"
+                android:layout_marginTop="@dimen/Forty_two"
+                android:text="八省上报钢铁煤炭产能方案概念拉升在即"
+                android:textColor="@color/my"
+                android:textSize="@dimen/sixty" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/Forty_two"
+                android:layout_marginTop="@dimen/Thirty">
+
+                <ImageView
+                    android:id="@+id/hot_image"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/tv_teachername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/twenty"
+                    android:text="智远"
+                    android:textColor="#aaa"
+                    android:textSize="@dimen/Thirty_six" />
+
+                <TextView
+                    android:id="@+id/tv_inserttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/sixty"
+                    android:text="2016-10-10 10:51"
+                    android:textColor="#aaa"
+                    android:textSize="@dimen/Thirty_six" />
+            </LinearLayout>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_hotnews"
+                android:layout_width="match_parent"
+                android:layout_height="246dp"
+                android:layout_marginLeft="@dimen/Thirty"
+                android:layout_marginRight="@dimen/Thirty"
+                android:background="@drawable/approve" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="方案炭产能方案钢铁煤炭产能方案"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/tv_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Thirty"
+                android:layout_marginRight="@dimen/Thirty"
+                android:text="方案炭产能方案钢铁煤炭产能方案产能方案钢能方案钢铁煤炭产能方案铁煤炭产能方案钢铁煤炭产能方案钢铁煤炭产能方案钢铁煤炭产能方案钢铁煤炭产能方案钢铁煤炭产能方案概念拉升在即"
+                android:textColor="#555"
+                android:textSize="13dp" />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="阅读数  5631"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:text="88"
+                    android:textColor="#d70c1a"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_toLeftOf="@+id/num"
+                    android:src="@mipmap/ic_launcher" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/cl_myback"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="14dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/shang" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="685人赞赏"
+                    android:textColor="#aaa"
+                    android:textSize="13dp" />
+
+                <GridView
+                    android:id="@+id/grd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:numColumns="6"></GridView>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/cl_myback" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_hundred_thirty"
+                android:background="@android:color/white"
+                android:paddingLeft="@dimen/Thirty"
+                android:paddingRight="@dimen/Thirty">
+
+                <View
+                    android:layout_width="@dimen/eight"
+                    android:layout_height="@dimen/Forty_two"
+                    android:layout_centerVertical="true"
+                    android:background="@color/red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/Thirty"
+                    android:text="全部评论"
+                    android:textColor="@color/my"
+                    android:textSize="@dimen/Forty" />
+            </RelativeLayout>
+
+            <com.example.view.MyEspand
+                android:id="@+id/comment_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.example.view.MyEspand>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

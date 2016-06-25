@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/One_hundred_forty_five"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/bank_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="添加银行卡" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/Thirty"
+        android:text="为了保障您的资金安全及账户安全，请填写真实有效的信息进行身份验证确认" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/ad1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/One_hundred"
+            android:text="持卡人    "
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_toLeftOf="@+id/add_name"
+            android:layout_toRightOf="@+id/ad1"
+            android:background="@null"
+            android:hint="张燕"
+            android:singleLine="true"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageButton
+            android:id="@+id/add_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:background="@android:color/white"
+            android:src="@drawable/pay_yuan" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/ad2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/One_hundred"
+            android:text="身份证    "
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_toLeftOf="@+id/add_card"
+            android:layout_toRightOf="@+id/ad2"
+            android:background="@null"
+            android:hint="65248584554969855"
+            android:singleLine="true"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageButton
+
+            android:id="@+id/add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:background="@android:color/white"
+            android:src="@drawable/pay_yuan" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/ad3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/One_hundred"
+            android:text="银行卡号"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_toLeftOf="@+id/add_code"
+            android:layout_toRightOf="@+id/ad3"
+            android:background="@null"
+            android:hint="69854785126548554657489658"
+            android:singleLine="true"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageButton
+
+            android:id="@+id/add_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:background="@android:color/white"
+            android:src="@drawable/pay_yuan" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/ad4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/One_hundred"
+            android:text="手机号    "
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_toLeftOf="@+id/add_phone"
+            android:layout_toRightOf="@+id/ad4"
+            android:background="@null"
+            android:hint="155265485964"
+            android:singleLine="true"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <ImageButton
+
+            android:id="@+id/add_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:background="@android:color/white"
+            android:src="@drawable/pay_yuan" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/ad5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/One_hundred"
+            android:text="验证码    "
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_toRightOf="@+id/ad5"
+            android:background="@null"
+            android:hint="5864"
+            android:singleLine="true"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_six" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/one_hundred_eight"
+        android:background="@android:color/white"
+        android:src="@drawable/ziliao_queding" />
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

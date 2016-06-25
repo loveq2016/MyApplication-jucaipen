@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_answer"
+            android:layout_width="@dimen/One_hundred"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_margin="@dimen/Thirty"
+            android:src="@drawable/rentou" />
+
+        <TextView
+            android:id="@+id/answer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_answer"
+            android:layout_toRightOf="@+id/iv_answer"
+            android:drawableRight="@drawable/vip"
+            android:singleLine="true"
+            android:text="皮海洲 "
+            android:textColor="@color/cl_sex"
+            android:textSize="@dimen/Thirty_six" />
+
+
+        <TextView
+            android:id="@+id/answer_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/answer_name"
+            android:layout_marginTop="@dimen/Thirty"
+            android:layout_toRightOf="@+id/iv_answer"
+            android:text="购买时间：2015-02-23"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:maxLines="3"
+        android:text="超级主力进场大饭庄符合度搜按规fdagdasf定撒粉底撒过道上降低沙发国防生的工行付刚恢复到释不归高飞几个覅电视柜的上规定是光伏的撒核对撒个谎2"
+        android:textColor="@color/cl_person"
+        android:textSize="@dimen/Thirty_six" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:maxLines="2"
+        android:text="回答老师：明飞老师，博弈老师。查看详情>>>"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+</LinearLayout>

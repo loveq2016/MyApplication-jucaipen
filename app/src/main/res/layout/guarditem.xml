@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/guard_head"
+        android:layout_width="@dimen/One_hundred"
+        android:layout_height="@dimen/One_hundred"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:src="@drawable/rentou" />
+
+    <ImageButton
+        android:id="@+id/ibt_xufei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/guard_head"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/twenty_four"
+        android:background="@android:color/white"
+        android:src="@drawable/shouhu_xufei" />
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/guard_head"
+        android:layout_marginRight="@dimen/Twenty"
+        android:layout_marginTop="@dimen/twenty_four"
+        android:layout_toLeftOf="@+id/ibt_xufei"
+        android:background="@android:color/white"
+        android:src="@drawable/shouhu_songli" />
+
+    <TextView
+        android:id="@+id/guard_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/guard_head"
+        android:layout_toRightOf="@+id/guard_head"
+        android:text="皮海 | 资深投资人"
+        android:textColor="@color/cl_sex"
+        android:textSize="@dimen/thirty_six" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/guard_rank"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/guard_rank"
+        android:src="@drawable/vip" />
+
+    <TextView
+        android:id="@+id/tv_guardtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/guard_head"
+        android:layout_toRightOf="@+id/guard_head"
+        android:text="守护时间：2015/01/05-2016/05/03"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/Thirty_two" />
+
+    <TextView
+        android:id="@+id/guard_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guard_head"
+        android:layout_marginBottom="@dimen/Forty_two"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:maxLines="2"
+        android:text="最新个人出租房源：浦东二号地铁附近，唐镇，看房电话：13512134128。金利公寓106/201一室户1850元，金利22/501主卧1500元，创新佳苑电梯创新家园1001大厅二阳台1800"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+
+</RelativeLayout>

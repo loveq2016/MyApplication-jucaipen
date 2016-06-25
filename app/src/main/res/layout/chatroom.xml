@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/lv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></ListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#24282B"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/Twenty"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/xiaolian" />
+
+        <EditText
+            android:id="@+id/chat_edt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/eighty_four"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/Twenty"
+            android:layout_weight="1"
+            android:background="#4F5355"
+            android:hint="输入您想发送的内容"
+            android:paddingLeft="10dp"
+            android:textColor="@color/edt_cl"
+            android:textColorHint="@android:color/white"
+            android:textSize="@dimen/thirty_six" />
+
+        <Button
+            android:id="@+id/send_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/Thirty"
+            android:background="@drawable/fasong"
+            />
+    </LinearLayout>
+
+</LinearLayout>

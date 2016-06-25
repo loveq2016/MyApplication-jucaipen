@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <ImageView
+        android:padding="@dimen/Thirty"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_thirty_five"
+        android:src="@drawable/bangdan" />
+
+    <RadioGroup
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/Thirty"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:id="@+id/live_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/button_sun"
+            android:layout_width="170dp"
+            android:layout_height="@dimen/One_hundred"
+            android:background="@drawable/live_select_left"
+            android:button="@null"
+            android:gravity="center"
+            android:text="日贡献榜"
+            android:textColor="@drawable/live_color" />
+
+        <RadioButton
+            android:id="@+id/button_month"
+            android:layout_width="170dp"
+            android:layout_height="@dimen/One_hundred"
+            android:background="@drawable/live_select_right"
+            android:button="@null"
+            android:gravity="center"
+            android:text="月贡献榜"
+            android:textColor="@drawable/live_color" />
+    </RadioGroup>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:background="@android:color/white"
+        android:id="@+id/lv_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

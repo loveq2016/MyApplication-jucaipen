@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="@dimen/one_hundred_eighteen"
+        android:layout_height="@dimen/one_hundred_eighteen"
+        android:id="@+id/chat_image"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:src="@drawable/rentou" />
+
+    <TextView
+        android:id="@+id/chat_name"
+        android:textSize="@dimen/thirty_four"
+        android:textColor="@color/cl_btn"
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginBottom="@dimen/twenty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/chat_image"
+        android:layout_alignTop="@+id/chat_image"
+        android:text="A123: (12:22)" />
+
+    <TextView
+        android:id="@+id/chat_body"
+        android:layout_marginRight="@dimen/Thirty"
+        android:textColor="@color/cl_person"
+        android:background="@drawable/wenzibeijing"
+        android:textSize="@dimen/thirty_four"
+        android:layout_toRightOf="@+id/chat_image"
+        android:layout_width="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="7dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:layout_below="@+id/chat_name"
+        android:text="今天又来上课了！！！" />
+
+
+</RelativeLayout>

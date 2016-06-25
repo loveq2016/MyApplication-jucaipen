@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rela_spec"
+        android:layout_width="@dimen/four_hundred_ninety_eight"
+        android:layout_height="@dimen/three_hundred"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/Thirty">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/approve" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sixty_nine"
+            android:layout_alignParentBottom="true"
+            android:background="@color/cl_btn"
+            android:gravity="center_vertical"
+            android:paddingLeft="3dp"
+            android:text="2015/02/12~1205/23/12"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/Thirty" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/liner_spec"
+        android:layout_width="@dimen/four_hundred_ninety_eight"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rela_spec"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Thirty"
+            android:singleLine="true"
+            android:text="福大短时规定不过蒂萨个ID欧飒不够大扫荡"
+            android:textColor="@color/cl_sex"
+            android:textSize="@dimen/thirty_six" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Forty_two"
+            android:layout_marginTop="@dimen/Twenty"
+            android:singleLine="true"
+            android:text="讲师：皮青如 | 35全集"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/liner_spec"
+        android:background="@color/cl_myback"></View>
+
+</RelativeLayout>

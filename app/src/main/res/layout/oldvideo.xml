@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="@dimen/Thirty">
+
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_width="@dimen/five_hundred"
+        android:layout_height="@dimen/two_hundred_eighty">
+
+        <ImageView
+            android:id="@+id/video_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/approve"/>
+
+        <TextView
+            android:textColor="@android:color/white"
+            android:layout_margin="@dimen/Thirty"
+            android:id="@+id/video_month"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="04-19" />
+
+        <LinearLayout
+            android:layout_margin="@dimen/Thirty"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginRight="@dimen/Twenty"
+                android:layout_gravity="center"
+                android:id="@+id/video_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bofangbiao" />
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                android:id="@+id/video_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <TextView
+        android:textColor="@color/my"
+        android:id="@+id/old_context"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Thirty"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="饭店附近的健身卡回房间大帅哥呀韩国如诶啊高"
+        android:textSize="@dimen/thirty_four" />
+
+    <TextView
+        android:id="@+id/tv_indruce"
+        android:textColor="@color/cl_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Twenty"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:text="饭店附近的健身卡回房间大帅哥呀韩国如诶啊高"
+        android:textSize="@dimen/Thirty_two" />
+
+
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vip" />
+
+
+    <LinearLayout
+        android:layout_margin="@dimen/Thirty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Thirty"
+                android:src="@drawable/ask" />
+
+            <TextView
+                android:id="@+id/page_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Twenty"
+                android:text="ACKD:  "
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="@dimen/thirty_four" />
+
+
+            <TextView
+                android:id="@+id/answer_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/Thirty"
+                android:text="招手机分期要求白户和纯白户，要有自己的手机实招手机分期要求白户和纯白户，要有自己的手机实名制和银行卡要绑定现在用的手机号名制和银行卡要绑定现在用的手机号:"
+                android:textColor="@color/cl_person"
+                android:textSize="@dimen/thirty_four" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Thirty"
+                android:src="@drawable/ask" />
+
+            <TextView
+                android:id="@+id/page_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/Twenty"
+                android:text="回复:  "
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="@dimen/thirty_four" />
+
+
+            <TextView
+                android:id="@+id/question_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/Thirty"
+                android:text="招手机分期要求白户和纯白户，要有自己的手机实招手机分期要求白户和纯白户，要有自己的手机实名制和银行卡要绑定现在用的手机号名制和银行卡要绑定现在用的手机号:"
+                android:textColor="@color/cl_person"
+                android:textSize="@dimen/thirty_four" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/page_time"
+            android:layout_marginRight="@dimen/Thirty"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2015-5-9"/>
+    </LinearLayout>
+
+</LinearLayout>

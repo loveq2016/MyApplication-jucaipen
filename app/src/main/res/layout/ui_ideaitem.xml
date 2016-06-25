@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/at_biaoti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp">
+
+        <ImageView
+            android:id="@+id/at_idea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/guandian" />
+
+        <TextView
+            android:id="@+id/idea_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/at_idea"
+            android:text="超级主力进场大盘反转2"
+            android:textColor="@color/my"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ra_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/at_biaoti"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="17dp"
+        android:maxLines="2"
+        android:text="国泰君安的中期策略会认为,双重“去杠杆”将继续限制短期A股市场的估值空间,但这也将为之后的市场反弹储备更多的超预期空间。"
+        android:textColor="#aaa"
+        android:textSize="11dp" />
+
+    <TextView
+        android:id="@+id/ra_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ra_context"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="14dp"
+        android:text="2015-10-02 06:41:40 | 87人阅读"
+        android:textColor="#aaa"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:textSize="10dp" />
+
+</RelativeLayout>

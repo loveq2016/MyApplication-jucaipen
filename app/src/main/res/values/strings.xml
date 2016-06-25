@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">聚财盆</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todayHots">今日热点</string>
+    <string name="shuoming">无居民省份证的内地居民可提交《临时居民身份证》，香港，澳门特别行政区，台湾居民提供当地有效身份证件。照片或扫描件必须本人手持身份证，保证头像清晰可辨认，保证身份证信息清晰可见。</string>
+
+
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">刷新查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+
+
+    <string name="N_A">N/A</string>
+    <string name="close">Close</string>
+    <string name="exit">Exit</string>
+    <string name="sample">Sample</string>
+    <string name="recent">Recent</string>
+    <string name="settings">Settings</string>
+    <string name="tracks">Tracks</string>
+    <string name="toggle_player">Player</string>
+    <string name="toggle_render">Render</string>
+    <string name="toggle_ratio">Scale</string>
+    <string name="show_info">Info</string>
+    <string name="fps_output">fps (output)</string>
+    <string name="fps_decode">fps (decode)</string>
+
+    <string name="media_information">Media Information</string>
+    <string name="mi_player">Player</string>
+    <string name="mi_media">Media</string>
+    <string name="mi_profile_level">Profile level</string>
+    <string name="mi_pixel_format">Pixel format</string>
+    <string name="mi_resolution">Resolution</string>
+    <string name="mi_length">Length</string>
+    <string name="mi_stream_fmt1">Stream #%d</string>
+    <string name="mi_type">Type</string>
+    <string name="mi_codec">Codec</string>
+    <string name="mi_frame_rate">Frame rate</string>
+    <string name="mi_bit_rate">Bit rate</string>
+    <string name="mi_sample_rate">Sample rate</string>
+    <string name="mi_channels">Channels</string>
+    <string name="mi__selected_video_track">*</string>
+    <string name="mi__selected_audio_track">*</string>
+
+    <string name="TrackType_video">Video</string>
+    <string name="TrackType_audio">Audio</string>
+    <string name="TrackType_subtitle">Subtitle</string>
+    <string name="TrackType_timedtext">Timed text</string>
+    <string name="TrackType_metadata">Meta data</string>
+    <string name="TrackType_unknown">Unknown</string>
+
+    <string name="VideoView_error_text_invalid_progressive_playback">Invalid progressive playback</string>
+    <string name="VideoView_error_text_unknown">Unknown</string>
+    <string name="VideoView_error_button">OK</string>
+
+    <string name="VideoView_ar_aspect_fit_parent">Aspect / Fit parent</string>
+    <string name="VideoView_ar_aspect_fill_parent">Aspect / Fill parent</string>
+    <string name="VideoView_ar_aspect_wrap_content">Aspect / Wrap content</string>
+    <string name="VideoView_ar_match_parent">Free / Fill parent</string>
+    <string name="VideoView_ar_16_9_fit_parent">16:9 / Fit parent</string>
+    <string name="VideoView_ar_4_3_fit_parent">4:3 / Fit parent</string>
+
+    <string name="VideoView_render_none">Render: None</string>
+    <string name="VideoView_render_surface_view">Render: SurfaceView</string>
+    <string name="VideoView_render_texture_view">Render: TextureView</string>
+
+    <string name="VideoView_player_none">Player: None</string>
+    <string name="VideoView_player_QkMediaPlayer">Player: QkMediaPlayer</string>
+
+    <string name="mediacontroller_play_pause">Play/Pause</string>
+
+
+</resources>

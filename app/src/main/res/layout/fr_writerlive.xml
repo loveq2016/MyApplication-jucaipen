@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_thirty_five"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iamge_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Twenty"
+            android:src="@drawable/jianjie_bofang" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iamge_live"
+            android:text="正在直播"
+            android:id="@+id/tv_liveState"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="@dimen/Forty" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_liveFans"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:text="在线人数 ：560"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:id="@+id/tv_liveTitle"
+        android:singleLine="true"
+        android:text="飞机到给你打的覅搜房迪奥撒"
+        android:textColor="@color/cl_sex"
+        android:textSize="@dimen/thirty_six" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty_six"
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="@dimen/Thirty"
+            android:paddingRight="@dimen/twenty"
+            android:src="@drawable/jianjie_biao" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="查看历史"
+            android:textColor="@color/cl_sex"
+            android:textSize="@dimen/Forty" />
+    </LinearLayout>
+
+    <ListView
+        android:scrollbars="none"
+        android:dividerHeight="0dp"
+        android:divider="@android:color/white"
+        android:id="@+id/writer_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"></ListView>
+</LinearLayout>

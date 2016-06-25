@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/ui_pro"></include>
+
+    <RadioGroup
+        android:id="@+id/video_group"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <RadioButton
+            android:id="@+id/button_intro"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="简介"
+            android:background="@drawable/radiobutton_selecter"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_height="fill_parent" />
+
+        <RadioButton
+            android:id="@+id/button_commend"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/radiobutton_selecter"
+            android:text="评论"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_height="fill_parent" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_video"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+
+</LinearLayout>

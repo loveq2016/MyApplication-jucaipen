@@ -1,0 +1,147 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="distance">38dp</dimen>
+
+
+    <!-- 145px-->
+    <dimen name="One_hundred_forty_five">48dp</dimen>
+    <!-- 42px-->
+    <dimen name="Forty_two">14dp</dimen>
+    <!-- 72px-->
+    <dimen name="Seventy_two">24dp</dimen>
+    <!-- 236px-->
+    <dimen name="Two_hundred_thirty_six">78dp</dimen>
+    <!-- 214px-->
+    <dimen name="Two_hundred_fourteen">71dp</dimen>
+    <!--30px-->
+    <dimen name="Thirty">10dp</dimen>
+    <!--141px-->
+    <dimen name="one_hundred_forty_one">47dp</dimen>
+    <!--140px-->
+    <dimen name="One_hundred_forty">46dp</dimen>
+
+    <!--232px-->
+    <dimen name="Two_hundred_thirty_two">77dp</dimen>
+    <!--36px-->
+    <dimen name="Thirty_six">12dp</dimen>
+    <!--32px-->
+    <dimen name="Thirty_two">10dp</dimen>
+    <!--20px-->
+    <dimen name="Twenty">6dp</dimen>
+    <!--40px-->
+    <dimen name="Forty">13dp</dimen>
+    <!--400px-->
+    <dimen name="Four_hundred">133dp</dimen>
+    <!--100px-->
+    <dimen name="One_hundred">33dp</dimen>
+    <!--200px-->
+    <dimen name="Two_hundred">66dp</dimen>
+    <!--222px-->
+    <dimen name="Two_hundred_twenty_two">74dp</dimen>
+    <!--520px-->
+    <dimen name="Five_hundred_twenty">173dp</dimen>
+    <!--44px-->
+    <dimen name="Forty_four">14dp</dimen>
+    <!--180px-->
+    <dimen name="One_hundred_eighty">60dp</dimen>
+    <!--216px-->
+    <dimen name="Two_hundred_sixteen">72dp</dimen>
+    <!--270px-->
+    <dimen name="Two_hundred_seventy">90dp</dimen>
+    <!--68px-->
+    <dimen name="Sixty_eight">22dp</dimen>
+    <!--70px-->
+    <dimen name="seventy">23dp</dimen>
+    <!--36px-->
+    <dimen name="thirty_six">12dp</dimen>
+    <!--80px-->
+    <dimen name="eighty">26dp</dimen>
+    <!--1px-->
+    <dimen name="one">1dp</dimen>
+    <!--218px-->
+    <dimen name="two_hundred_eighteen">72dp</dimen>
+    <!--112px-->
+    <dimen name="one_hundred_twelve">37dp</dimen>
+    <!--108px-->
+    <dimen name="one_hundred_eight">60dp</dimen>
+    <!--8px-->
+    <dimen name="eight">2dp</dimen>
+    <!--130px-->
+    <dimen name="one_hundred_thirty">43dp</dimen>
+    <!--38px-->
+    <dimen name="thirty_eight">12dp</dimen>
+    <!--34px-->
+    <dimen name="thirty_four">11dp</dimen>
+    <!--6px-->
+    <dimen name="six">2dp</dimen>
+    <!--280px-->
+    <dimen name="two_hundred_eighty">93dp</dimen>
+    <!--500px-->
+    <dimen name="five_hundred">166dp</dimen>
+    <!--48px-->
+    <dimen name="forty_eight">16dp</dimen>
+    <!--110px-->
+    <dimen name="one_hundred_ten">36dp</dimen>
+    <!--10px-->
+    <dimen name="ten">3dp</dimen>
+    <!--194px-->
+    <dimen name="one_hundred_ninety_four">64dp</dimen>
+    <!--120px-->
+    <dimen name="one_hundred_twenty">40dp</dimen>
+    <!--160px-->
+    <dimen name="one_hundred_sixty">53dp</dimen>
+    <!--20px-->
+    <dimen name="twenty">6dp</dimen>
+    <!--60px-->
+    <dimen name="sixty">20dp</dimen>
+    <!--58px-->
+    <dimen name="fifty_eight">19dp</dimen>
+    <!--84px-->
+    <dimen name="eighty_four">28dp</dimen>
+    <!--135px-->
+    <dimen name="one_hundred_thirty_five">45dp</dimen>
+    <!--118px-->
+    <dimen name="one_hundred_eighteen">39dp</dimen>
+    <!--25px-->
+    <dimen name="twenty_five">8dp</dimen>
+    <!--340px-->
+    <dimen name="three_hundred_forty">113dp</dimen>
+    <!--195px-->
+    <dimen name="one_hundred_ninety_five">65dp</dimen>
+    <!--150px-->
+    <dimen name="one_hundred_fifty">50dp</dimen>
+    <!--900px-->
+    <dimen name="nine_hundred">300dp</dimen>
+    <!--107px-->
+    <dimen name="one_hundred_seven">35dp</dimen>
+    <!--600px-->
+    <dimen name="six_hundred">200dp</dimen>
+    <!--21px-->
+    <dimen name="twenty_one">7dp</dimen>
+    <!--24px-->
+    <dimen name="twenty_four">8dp</dimen>
+    <!--681px-->
+    <dimen name="six_hundred_eighty_one">227dp</dimen>
+    <!--90px-->
+    <dimen name="ninety">30dp</dimen>
+    <!--165px-->
+    <dimen name="one_hundred_sixty_five">55dp</dimen>
+    <!--300px-->
+    <dimen name="three_hundred">100dp</dimen>
+    <!--69px-->
+    <dimen name="sixty_nine">23dp</dimen>
+    <!--498px-->
+    <dimen name="four_hundred_ninety_eight">166dp</dimen>
+    <!--201px-->
+    <dimen name="two_hundred_one">67dp</dimen>
+    <!--624px-->
+    <dimen name="six_hundred_twenty_four">208dp</dimen>
+    <!--351px 视频简介item距离-->
+    <dimen name="three_hundred_fifty_one">117dp</dimen>
+    <!--126px-->
+    <dimen name="one_hundred_twenty_six">42dp</dimen>
+
+
+</resources>

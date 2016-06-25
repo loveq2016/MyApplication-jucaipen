@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Thirty"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:padding="@dimen/Thirty">
+
+                <TextView
+                    android:id="@+id/intro_live"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/jianjie_bofang"
+                    android:text="  正在直播  "
+                    android:textColor="@android:color/holo_red_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_vdurl"
+                    android:layout_toRightOf="@+id/intro_live"
+                    android:text="出租距离6号线博兴路地铁站步行10分小区门口就有多班次公交车可直达陆家嘴" />
+            </RelativeLayout>
+
+            <include layout="@layout/todaylive"></include>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/lv_today"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginTop="1dp"
+                android:background="@android:color/white"></android.support.v7.widget.RecyclerView>
+
+
+            <include layout="@layout/personmoods"></include>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/lv_moods"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="1dp"
+                android:background="@android:color/white"
+                android:padding="@dimen/Thirty"></android.support.v7.widget.RecyclerView>
+
+            <include layout="@layout/oldlive"></include>
+
+            <com.example.view.TestListView
+                android:id="@+id/lv_old"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@android:color/white"></com.example.view.TestListView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

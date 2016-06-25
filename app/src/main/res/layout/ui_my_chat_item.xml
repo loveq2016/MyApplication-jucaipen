@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/my_head"
+        android:layout_width="@dimen/one_hundred_eighteen"
+        android:layout_height="@dimen/one_hundred_eighteen"
+        android:layout_marginTop="@dimen/Forty_two"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/rentou" />
+
+    <TextView
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginBottom="@dimen/twenty"
+        android:layout_alignTop="@+id/my_head"
+        android:layout_toLeftOf="@+id/my_head"
+        android:textSize="@dimen/thirty_four"
+        android:textColor="@color/cl_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_name"
+        android:text="A123: (12:22)" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/Thirty"
+        android:background="@drawable/rightweizibeijingfan"
+        android:layout_toLeftOf="@+id/my_head"
+        android:layout_below="@+id/my_name"
+        android:textColor="@color/cl_person"
+        android:paddingLeft="7dp"
+        android:paddingRight="15dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:gravity="center"
+        android:textSize="@dimen/thirty_four"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="今天又来上课了！！！" />
+
+</RelativeLayout>

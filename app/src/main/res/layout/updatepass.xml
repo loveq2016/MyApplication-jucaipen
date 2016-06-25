@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/One_hundred_forty_five"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/ibt_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="修改密码" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/old_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:hint="原始密码"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty">
+
+        <EditText
+            android:maxLength="11"
+            android:inputType="phone"
+            android:id="@+id/password_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:hint="请输入手机号"
+            android:paddingLeft="@dimen/Thirty"
+            android:paddingRight="@dimen/Thirty"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/thirty_four" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:text="发送验证码" />
+    </RelativeLayout>
+
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/update_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:hint="请输入验证码"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/new_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:hint="请输入新密码（6位以上）"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/sure_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:hint="请确认新密码（6位以上）"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/thirty_four" />
+
+    <Button
+        android:id="@+id/update_sure"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/holo_red_dark"
+        android:text="确 认 修 改" />
+
+
+</LinearLayout>

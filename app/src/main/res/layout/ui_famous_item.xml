@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/att_logo"
+        android:layout_width="@dimen/one_hundred_thirty"
+        android:layout_height="@dimen/one_hundred_thirty"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/Thirty"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginTop="@dimen/Thirty"
+        android:src="@drawable/rentou" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/Thirty_two"
+        android:layout_marginRight="@dimen/Thirty"
+        android:layout_toLeftOf="@id/iv_guanzhu"
+        android:layout_toRightOf="@id/att_logo"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="3dp"
+            android:drawableRight="@drawable/vip"
+            android:text="明飞"
+            android:textSize="@dimen/thirty_eight" />
+
+        <TextView
+            android:id="@+id/tv_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/Twenty"
+            android:paddingTop="@dimen/Twenty"
+            android:singleLine="true"
+            android:text="把我稳定性，追求确定性。"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/Thirty_two" />
+
+        <TextView
+            android:id="@+id/tv_fans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2542人关注|资审投资人"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_guanzhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/Thirty"
+        android:src="@drawable/jiaguanzhu" />
+
+</RelativeLayout>

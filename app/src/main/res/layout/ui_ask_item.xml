@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Thirty"
+            android:background="@color/lv_div"></View>
+
+        <ImageView
+            android:id="@+id/for_picture"
+            android:layout_width="@dimen/One_hundred"
+            android:layout_height="@dimen/One_hundred"
+            android:layout_marginLeft="@dimen/Thirty_two"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:src="@drawable/rentou" />
+
+        <TextView
+            android:id="@+id/for_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/for_picture"
+            android:layout_marginLeft="@dimen/Thirty_two"
+            android:layout_toRightOf="@+id/for_picture"
+            android:text="A4554"
+            android:textColor="#222"
+            android:textSize="@dimen/Thirty_six" />
+
+        <ImageView
+            android:id="@+id/iv_ispay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/for_name"
+            android:layout_margin="@dimen/Thirty"
+             />
+
+        <TextView
+            android:id="@+id/for_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/for_picture"
+            android:layout_below="@+id/for_name"
+            android:layout_marginLeft="@dimen/Thirty_two"
+            android:layout_toRightOf="@+id/for_picture"
+            android:text="提问时间：2016-04-30 20:20"
+            android:textColor="#aaa"
+            android:textSize="@dimen/Thirty_two" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/problem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="@dimen/Thirty_two"
+        android:paddingBottom="@dimen/Forty_four">
+
+        <TextView
+            android:id="@+id/for_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/Thirty_two"
+            android:layout_marginRight="@dimen/Thirty_two"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="记得有这样一段话：时光静好，与君语；细水流年，与君同；繁华落尽，与君老。静好的时光里，小城市，总是有一个人，渡你一生的回忆。有人说，一个人最好记性不要太好，因为回忆越多，幸福感越少。"
+            android:textColor="#555"
+            android:textSize="@dimen/thirty_four" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/solid"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/problem"
+        android:background="#aaaaaa"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_eight"
+        android:layout_below="@+id/solid"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/for_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:drawableLeft="@drawable/pinglun"
+            android:text=" 45"
+            android:textColor="#aaa"
+            android:textSize="@dimen/Forty" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cl_myback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Thirty"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty">
+
+        <TextView
+            android:id="@+id/user_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:text="返利类型：用户评论"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+        <TextView
+            android:id="@+id/comment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/Thirty"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:text="1015-02-25  20:26:20"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty">
+
+        <TextView
+            android:id="@+id/comm_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Forty_two"
+            android:singleLine="true"
+            android:text="视频评论"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+        <TextView
+            android:id="@+id/comm_jifen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comm_title"
+            android:layout_marginBottom="@dimen/Forty_two"
+            android:layout_marginTop="@dimen/Thirty"
+            android:text="返利积分：5"
+            android:textColor="@color/cl_person"
+            android:textSize="@dimen/thirty_four" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

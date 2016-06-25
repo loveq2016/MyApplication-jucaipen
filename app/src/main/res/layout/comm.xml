@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="9dp"
+    android:layout_marginTop="9dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/twenty"
+        android:src="@drawable/pinglun" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:background="@drawable/live_shap"
+        android:gravity="center_vertical"
+        android:hint="输入您发送的内容"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/twenty"
+        android:paddingRight="@dimen/twenty"
+        android:paddingTop="8dp"
+        android:textColor="@color/cl_btn"
+        android:textSize="@dimen/Thirty_six" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/Thirty"
+        android:layout_marginRight="@dimen/twenty"
+        android:background="@android:color/white"
+        android:src="@drawable/dj_shurukuang_send" />
+
+</LinearLayout>
