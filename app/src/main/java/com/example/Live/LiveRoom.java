@@ -1,5 +1,6 @@
 package com.example.Live;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.androidnetwork.R;
 import com.example.reciver.MyReceiver;
+import com.example.utils.ExampleUtil;
 import com.example.utils.JsonUtil;
 import com.example.utils.MarqueeTextView;
 import com.example.adapter.ViewPagerAdapter;
@@ -29,7 +31,7 @@ import cn.jpush.android.api.JPushInterface;
 /**
  * Created by Administrator on 2016/5/11.
  */
-public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener {
+    public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener {
     private RadioGroup room_group;
     private ViewPager room_viewpager;
     private InteractList interactList;//互动列表
@@ -46,6 +48,9 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
     private int liveId;
     private ImageButton iv_big;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,25 +58,6 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
         init();
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        IntentFilter recIntent=new IntentFilter(JPushInterface.ACTION_MESSAGE_RECEIVED);
-        MyReceiver receiver=new MyReceiver(){
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                    String receiverMsg=intent.getExtras().getString(JPushInterface.EXTRA_MESSAGE);
-                    //[{"sendId":48,"sendName":"学习找牛股","msg":"份饭","shenHe":0,"sendLeavel":0,"toName":null}]
-
-                //解析聊天
-                JsonUtil.getMsg(receiverMsg);
-                    Toast.makeText(LiveRoom.this, "接受的"+receiverMsg, Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        this.registerReceiver(receiver,recIntent);
-    }
 
     private void init() {
         teacherId=getIntent().getIntExtra("teacherId",-1);
@@ -195,5 +181,9 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
                 this.finish();
                 break;
         }
+
+
     }
+
+
 }

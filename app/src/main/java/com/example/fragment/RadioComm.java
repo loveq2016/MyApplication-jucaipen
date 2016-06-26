@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.adapter.ChatAdapter;
 import com.example.androidnetwork.R;
+import com.example.model.ChatMsg;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class RadioComm extends Fragment implements View.OnClickListener {
     private View view;
     private ChatAdapter adapter;
     private ListView lv_chat;
-    private List<String> list;
+    private List<ChatMsg> list;
     private EditText chat_edt;
     private Button send_btn;
 
@@ -43,9 +44,7 @@ public class RadioComm extends Fragment implements View.OnClickListener {
         send_btn.setOnClickListener(this);
 
 
-        list = new ArrayList<>();
         lv_chat = (ListView) view.findViewById(R.id.lv_chat);
-        list.add("你好");
         adapter = new ChatAdapter(getActivity(), list);
         lv_chat.setAdapter(adapter);
     }
@@ -59,7 +58,7 @@ public class RadioComm extends Fragment implements View.OnClickListener {
                     //上线 发送消息
 
                     chat_edt.setText("");
-                    list.add(msg);
+                   // list.add(msg);
                     adapter.notifyDataSetChanged();
                     lv_chat.setSelection(adapter.getCount() - 1);
                 } else {

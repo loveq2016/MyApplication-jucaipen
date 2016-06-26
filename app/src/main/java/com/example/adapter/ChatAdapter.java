@@ -5,22 +5,33 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.androidnetwork.R;
+import com.example.model.ChatMsg;
+import com.example.utils.TimeUtils;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * Created by Administrator on 2016/5/12.
  */
 public class ChatAdapter extends BaseAdapter {
     private Context context;
-    private List<String> list;
+    private List<ChatMsg> list;
 
-    public ChatAdapter(FragmentActivity activity, List<String> list) {
+    public void setList(List<ChatMsg> list) {
+        this.list = list;
+    }
+
+    public ChatAdapter(FragmentActivity activity, List<ChatMsg> list) {
         this.context = activity;
         this.list = list;
     }
@@ -54,22 +65,32 @@ public class ChatAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
+
+
+       // int type= getItemViewType(position);
+        //if (type == 5) {
+            //返回我的
+            //convertView = LayoutInflater.from(context).inflate(R.layout.ui_my_chat_item, null);
+
+       // } else {
+            //用户的聊天记录
+        if(convertView==null){
             convertView = LayoutInflater.from(context).inflate(R.layout.ui_other_chat_item, null);
         }
-        TextView chat_body = (TextView) convertView.findViewById(R.id.chat_body);
-        chat_body.setText(list.get(position));
+       // }
 
-        // int type= getItemViewType(position);
-        if (position == 5) {
-            //返回我的
-            convertView = LayoutInflater.from(context).inflate(R.layout.ui_my_chat_item, null);
+        WebView chat_body = (WebView) convertView.findViewById(R.id.chat_body);
+        ImageView chat_image= (ImageView) convertView.findViewById(R.id.chat_image);
+        chat_body.loadData(list.get(position).getMsg(),"text/html; charset=UTF-8",null);
+        Glide.with(context).load(list.get(position).getFromFace()).bitmapTransform(new CropCircleTransformation(context))
+                .placeholder(R.drawable.rentou)
+                .into(chat_image);
+        TextView chat_time= (TextView) convertView.findViewById(R.id.chat_time);
+        TextView chat_name= (TextView) convertView.findViewById(R.id.chat_name);
+        chat_name.setText(list.get(position).getSendName());
+        chat_time.setText(TimeUtils.parseStrDate(list.get(position).getSendDate(),"yyyy-MM-dd HH:mm:ss"));
 
-            return convertView;
-        } else {
-            //用户的聊天记录
-            return convertView;
-        }
+        return  convertView;
 
 
     }

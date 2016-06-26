@@ -1,5 +1,7 @@
 package com.example.utils;
 
+import android.util.Log;
+
 import com.example.model.ChargeOrder;
 import com.example.model.ChatMsg;
 import com.example.model.Discuss;
@@ -1027,8 +1029,8 @@ public class JsonUtil {
     *
     * */
 
-    public static List<ChatMsg> getMsg(String result) {
-        List<ChatMsg> list = new ArrayList<>();
+    public static List<ChatMsg> getMsg(String result, List<ChatMsg> chatList) {
+        Log.i("111", "getMsg: "+result);
         try {
             JSONArray array = new JSONArray(result);
             for (int i = 0; i < array.length(); i++) {
@@ -1040,16 +1042,22 @@ public class JsonUtil {
                 int shenHe = object.optInt("shenHe", -1);
                 int sendLeavel = object.optInt("sendLeavel", -1);
                 String toName = object.optString("toName", "");
+                String fromFace=object.getString("fromFace");
+                String toFace=object.getString("toFace");
+                String sendDate=object.getString("sendDate");
                 ChatMsg chatMsg = new ChatMsg();
                 chatMsg.setSendId(sendId);
                 chatMsg.setSendName(sendName);
                 chatMsg.setMsg(msg);
+                chatMsg.setToFace(toFace);
+                chatMsg.setSendDate(sendDate);
+                chatMsg.setFromFace(fromFace);
                 chatMsg.setShenHe(shenHe);
                 chatMsg.setSendLeavel(sendLeavel);
                 chatMsg.setToName(toName);
-                list.add(chatMsg);
+                chatList.add(chatMsg);
             }
-            return list;
+            return chatList;
         } catch (JSONException e) {
             e.printStackTrace();
         }

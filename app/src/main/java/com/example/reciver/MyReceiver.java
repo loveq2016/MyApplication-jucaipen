@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.Live.InteractList;
+import com.example.Live.LiveRoom;
+import com.example.utils.ExampleUtil;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,7 +52,7 @@ public class MyReceiver extends BroadcastReceiver {
 
 
 
-			//	processCustomMessage(context, bundle);
+			processCustomMessage(context, bundle);
         
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
             Log.d(TAG, "[MyReceiver] 接收到推送下来的通知");
@@ -114,25 +118,25 @@ public class MyReceiver extends BroadcastReceiver {
 
 
 	
-//	//send msg to MainActivity
-//	private void processCustomMessage(Context context, Bundle bundle) {
-//		if (MainActivity.isForeground) {
-//			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
-//			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-//			Intent msgIntent = new Intent(MainActivity.MESSAGE_RECEIVED_ACTION);
-//			msgIntent.putExtra(MainActivity.KEY_MESSAGE, message);
-//			if (!ExampleUtil.isEmpty(extras)) {
-//				try {
-//					JSONObject extraJson = new JSONObject(extras);
-//					if (null != extraJson && extraJson.length() > 0) {
-//						msgIntent.putExtra(MainActivity.KEY_EXTRAS, extras);
-//					}
-//				} catch (JSONException e) {
-//
-//				}
-//
-//			}
-//			context.sendBroadcast(msgIntent);
-//		}
-//	}
+	//发送消息到直播间互动列表
+	private void processCustomMessage(Context context, Bundle bundle) {
+		if (InteractList.isForeground) {
+			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
+			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+			Intent msgIntent = new Intent(InteractList.MESSAGE_RECEIVED_ACTION);
+			msgIntent.putExtra(InteractList.KEY_MESSAGE, message);
+			if (!ExampleUtil.isEmpty(extras)) {
+				try {
+					JSONObject extraJson = new JSONObject(extras);
+					if (null != extraJson && extraJson.length() > 0) {
+						msgIntent.putExtra(InteractList.KEY_EXTRAS, extras);
+					}
+				} catch (JSONException e) {
+
+				}
+
+			}
+			context.sendBroadcast(msgIntent);
+		}
+	}
 }
