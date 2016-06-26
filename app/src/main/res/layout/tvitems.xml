@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white">
 
@@ -9,6 +9,7 @@
         android:layout_marginLeft="@dimen/twenty_five"
         android:id="@+id/select_iv"
         android:layout_width="@dimen/three_hundred_forty"
+        android:layout_centerHorizontal="true"
         android:layout_height="@dimen/Two_hundred"
         android:background="@drawable/approve" />
 
@@ -29,8 +30,8 @@
         android:textColor="@color/cl_btn"
         android:layout_below="@id/tv_context"
         android:layout_marginTop="@dimen/Twenty"
+        android:layout_alignLeft="@+id/tv_context"
         android:maxLines="2"
-        android:layout_marginLeft="@dimen/Thirty"
         android:layout_marginRight="@dimen/Thirty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

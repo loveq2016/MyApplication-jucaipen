@@ -187,12 +187,6 @@ public class InteractList extends Fragment implements View.OnClickListener {
         public void onReceive(Context context, Intent intent) {
             if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
                 String messge = intent.getStringExtra(KEY_MESSAGE);
-//                String extras = intent.getStringExtra(KEY_EXTRAS);
-//                StringBuilder showMsg = new StringBuilder();
-//                showMsg.append(messge + "\n");
-//                if (!ExampleUtil.isEmpty(extras)) {
-//                    showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
-//                }
                 chatList = JsonUtil.getMsg(messge,chatList);
             }
             adapter.setList(chatList);

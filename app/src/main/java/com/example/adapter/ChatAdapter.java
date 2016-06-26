@@ -74,23 +74,38 @@ public class ChatAdapter extends BaseAdapter {
 
        // } else {
             //用户的聊天记录
+        MyHolder holder;
         if(convertView==null){
             convertView = LayoutInflater.from(context).inflate(R.layout.ui_other_chat_item, null);
+            holder=new MyHolder();
+            holder.chat_body = (WebView) convertView.findViewById(R.id.chat_body);
+            holder.chat_image= (ImageView) convertView.findViewById(R.id.chat_image);
+            holder.chat_time= (TextView) convertView.findViewById(R.id.chat_time);
+            holder.chat_name= (TextView) convertView.findViewById(R.id.chat_name);
+            convertView.setTag(holder);
+        }else {
+            holder= (MyHolder) convertView.getTag();
         }
        // }
 
-        WebView chat_body = (WebView) convertView.findViewById(R.id.chat_body);
-        ImageView chat_image= (ImageView) convertView.findViewById(R.id.chat_image);
-        chat_body.loadData(list.get(position).getMsg(),"text/html; charset=UTF-8",null);
+
+        holder.chat_body.loadData(list.get(position).getMsg(),"text/html; charset=UTF-8",null);
         Glide.with(context).load(list.get(position).getFromFace()).bitmapTransform(new CropCircleTransformation(context))
                 .placeholder(R.drawable.rentou)
-                .into(chat_image);
-        TextView chat_time= (TextView) convertView.findViewById(R.id.chat_time);
-        TextView chat_name= (TextView) convertView.findViewById(R.id.chat_name);
-        chat_name.setText(list.get(position).getSendName());
-        chat_time.setText(TimeUtils.parseStrDate(list.get(position).getSendDate(),"yyyy-MM-dd HH:mm:ss"));
+                .into(holder.chat_image);
+        holder.chat_name.setText(list.get(position).getSendName());
+        holder.chat_time.setText(TimeUtils.parseStrDate(list.get(position).getSendDate(),"yyyy-MM-dd HH:mm:ss"));
 
         return  convertView;
+
+
+    }
+
+    class  MyHolder{
+        WebView chat_body;
+        ImageView chat_image;
+        TextView chat_time;
+        TextView chat_name;
 
 
     }

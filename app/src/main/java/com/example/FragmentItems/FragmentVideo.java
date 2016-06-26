@@ -1,6 +1,10 @@
 package com.example.FragmentItems;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -173,6 +177,7 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void parseType(List<Live> classList, RadioGroup gro) {
         for (int i = 0; i < classList.size(); i++) {
             String title = classList.get(i).getTitle();
@@ -180,11 +185,9 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
             button.setText(title);
             button.setButtonDrawable(0);
             button.setTextSize(11);
-            button.setTextColor(getResources().getColor(R.color.cl_btn));
             button.setPadding(26, 0, 26, 0);
-
+            button.setButtonDrawable(new ColorDrawable(Color.TRANSPARENT));
             int rand = TimeUtils.createRandom(5);
-            Log.i("111", "parseType: " + rand);
             button.setId(rand);
 
 

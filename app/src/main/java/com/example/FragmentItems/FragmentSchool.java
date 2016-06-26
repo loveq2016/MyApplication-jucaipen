@@ -3,6 +3,8 @@ package com.example.FragmentItems;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -141,6 +143,7 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
                         button.setCompoundDrawablePadding(7);
                         button.setGravity(Gravity.CENTER_HORIZONTAL);
                         button.setTextSize(11);
+                        button.setButtonDrawable(new ColorDrawable(Color.TRANSPARENT));
                         button.setTextColor(Color.parseColor("#aaaaaa"));
                         button.setText(typeList.get(i).getBigType());
                         school_radgrp.addView(button);
