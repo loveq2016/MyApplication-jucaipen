@@ -60,7 +60,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Light.NoTitleBar">
 
-        <activity android:name=".WelcomActivity">
+        <activity android:name=".TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
