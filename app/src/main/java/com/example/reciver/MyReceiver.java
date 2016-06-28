@@ -52,7 +52,7 @@ public class MyReceiver extends BroadcastReceiver {
 
 
 
-			processCustomMessage(context, bundle);
+			processVideLiveMessage(context, bundle);
         
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
             Log.d(TAG, "[MyReceiver] 接收到推送下来的通知");
@@ -119,7 +119,7 @@ public class MyReceiver extends BroadcastReceiver {
 
 	
 	//发送消息到直播间互动列表
-	private void processCustomMessage(Context context, Bundle bundle) {
+	private void processVideLiveMessage(Context context, Bundle bundle) {
 		if (InteractList.isForeground) {
 			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
 			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
@@ -139,4 +139,30 @@ public class MyReceiver extends BroadcastReceiver {
 			context.sendBroadcast(msgIntent);
 		}
 	}
+
+
+
+	private void processTxtLiveMessage(Context context, Bundle bundle) {
+		if (InteractList.isForeground) {
+			String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
+			String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+			Intent msgIntent = new Intent(InteractList.MESSAGE_RECEIVED_ACTION);
+			msgIntent.putExtra(InteractList.KEY_MESSAGE, message);
+			if (!ExampleUtil.isEmpty(extras)) {
+				try {
+					JSONObject extraJson = new JSONObject(extras);
+					if (null != extraJson && extraJson.length() > 0) {
+						msgIntent.putExtra(InteractList.KEY_EXTRAS, extras);
+					}
+				} catch (JSONException e) {
+
+				}
+
+			}
+			context.sendBroadcast(msgIntent);
+		}
+	}
+
+
+
 }

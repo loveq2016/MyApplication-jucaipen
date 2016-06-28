@@ -189,8 +189,6 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
             button.setButtonDrawable(new ColorDrawable(Color.TRANSPARENT));
             int rand = TimeUtils.createRandom(5);
             button.setId(rand);
-
-
             button.setGravity(Gravity.CENTER);
             ViewGroup.LayoutParams lm = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 80);
             button.setLayoutParams(lm);
