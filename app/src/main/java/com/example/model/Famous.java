@@ -16,7 +16,25 @@ public class Famous implements Serializable{
     private int fans;
     private int totpager;
     private String hoby;
+    private int isAttention;
+    private int isEnd;
 
+
+    public int getIsEnd() {
+        return isEnd;
+    }
+
+    public void setIsEnd(int isEnd) {
+        this.isEnd = isEnd;
+    }
+
+    public int getIsAttention() {
+        return isAttention;
+    }
+
+    public void setIsAttention(int isAttention) {
+        this.isAttention = isAttention;
+    }
 
     public String getHoby() {
         return hoby;

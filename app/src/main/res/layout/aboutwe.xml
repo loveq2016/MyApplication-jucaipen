@@ -1,11 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#ffffff">
+
+        <ImageButton
+            android:id="@+id/about_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:padding="@dimen/Thirty"
+            android:src="@drawable/left_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="关于我们"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="关于我们" />
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:lineSpacingExtra="10dp"
+                android:paddingBottom="14dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="14dp"
+                android:text="聚财盆是中国首家投资理财在线学习平台。平台汇聚全品类金融名师、行业权威专家和投资者,通过移动互联技术进行匹配互通，帮助投资者树立系统的投资理念和风险控制意识。平台精心打造的在线课程发布，直播实时教学互动等服务，引领行业发展新方向，是目前最为知名的金融在线教学平台。平台致力于成为最卓越的金融知识信息第三方分享平台。 "
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:lineSpacingExtra="10dp"
+                android:paddingBottom="14dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="14dp"
+                android:text="我们为用户提供最具专业性、最具价值的金融知识信息，平台汇聚的名师均为具有国家认证执业/职业资质并可进行线上查询的金融从业者和一些在金融行业内的知名人士。聚财盆为用户提供涵盖A股、期货、基金、黄金、外汇、美股、港股、保险、其他理财等各行业的最有价值的投资观点，帮助用户了解最新的投资理财知识；实时直播实盘教学，以及金融知识基础学习（视频、文字）；名师在线解答用户在学习过程中所遇到的问题。
+"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:paddingBottom="14dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="14dp"
+                android:src="@drawable/liucheng" />
+
+            <TextView
+                android:id="@+id/syno_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:allowUndo="false"
+                android:background="#ffffff"
+                android:lineSpacingExtra="10dp"
+                android:paddingBottom="14dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="我们为聚财盆的名家提供全新的互联网解决方案，满足名家的工作、推广、营销、盈利等各类需求，同时名家在聚财盆平台可以获得聚财盆独家的推广资源，让名家可以更加方便、快捷的服务客户。
+"
+                android:textSize="12dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:drawableRight="@drawable/mubiao"
+                android:lineSpacingExtra="10dp"
+                android:paddingBottom="14dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="我们是一个高速成长的平台，我们肩负着聚财盆投资理财在线教育平台的建设，我们致力于让用户享受到最专业、最有价值的金融理财知识，让名家方便的工作、快捷的推广、营销自己，同时服务更多的学习者。
+"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

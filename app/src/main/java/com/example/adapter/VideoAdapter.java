@@ -73,7 +73,9 @@ public class VideoAdapter extends BaseAdapter {
             holder.video_context.setText(video.getTitle());
             holder.video_inroduce.setText(video.getDesc());
             holder.imagevideo.setScaleType(ImageView.ScaleType.FIT_XY);
-            Glide.with(context).load(video.getImageUrl()).into(holder.imagevideo);
+            Glide.with(context).load(video.getImageUrl())
+                    .placeholder(R.drawable.approve)
+                    .into(holder.imagevideo);
         }
         if (video.isCharge()) {
             holder.imagevideo.setTagBackgroundColor(Color.parseColor("#d70c1a"));

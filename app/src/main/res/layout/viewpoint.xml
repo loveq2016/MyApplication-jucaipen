@@ -48,12 +48,12 @@
             android:textSize="@dimen/Thirty" />
 
         <TextView
+            android:id="@+id/tv_idDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/Thirty"
             android:layout_marginTop="@dimen/forty_eight"
-            android:id="@+id/tv_idDate"
             android:text="2016-04-27 20:20" />
     </RelativeLayout>
 
@@ -95,7 +95,8 @@
         android:layout_below="@+id/content">
 
 
-        <TextView
+        <RadioButton
+            android:button="@null"
             android:id="@+id/point_plun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,14 +106,15 @@
             android:drawableLeft="@drawable/pinglun"
             android:text=" 45" />
 
-        <TextView
+        <RadioButton
             android:id="@+id/tv_dianzan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/One_hundred"
             android:layout_toLeftOf="@+id/point_plun"
-            android:drawableLeft="@drawable/dianzan"
+            android:button="@null"
+            android:drawableLeft="@drawable/drawablezan"
             android:text=" 88" />
 
 

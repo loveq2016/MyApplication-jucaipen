@@ -5,13 +5,25 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.androidnetwork.R;
 import com.example.fragment.CollectVideo;
 import com.example.fragment.Collectknowledge;
+import com.example.utils.NetUtils;
+import com.example.utils.StoreUtils;
+import com.example.utils.StringUntils;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/5/19.
@@ -19,14 +31,12 @@ import com.example.fragment.Collectknowledge;
  * 我的收藏
  */
 public class MyCollect extends FragmentActivity implements View.OnClickListener {
-
     private Context context = MyCollect.this;
     private Collectknowledge knowledge;
     private CollectVideo video;
     private ImageButton collect_finish;
     private RadioButton my_video;
     private RadioButton my_knowledge;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +44,7 @@ public class MyCollect extends FragmentActivity implements View.OnClickListener 
         init();
         select(0);
     }
+
 
     private void select(int i) {
         FragmentManager fm = getSupportFragmentManager();

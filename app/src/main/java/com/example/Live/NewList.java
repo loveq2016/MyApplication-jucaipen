@@ -89,9 +89,9 @@ public class NewList extends Fragment implements View.OnClickListener {
                             String userFace = object.optString("userFace", "");
                             Rebate rebate = new Rebate();
                             rebate.setId(id);
-                            if(i==0){
+                            if (i == 0) {
                                 rebate.setLeavel(true);
-                            }else{
+                            } else {
                                 rebate.setLeavel(false);
                             }
                             rebate.setNinkName(nickName);
@@ -132,7 +132,7 @@ public class NewList extends Fragment implements View.OnClickListener {
         button_month = (RadioButton) view.findViewById(R.id.button_month);
         button_month.setOnClickListener(this);
         lv_news = (RecyclerView) view.findViewById(R.id.lv_news);
-        LinearLayoutManager lm=new LinearLayoutManager(getActivity());
+        LinearLayoutManager lm = new LinearLayoutManager(getActivity());
         lm.setOrientation(LinearLayoutManager.VERTICAL);
         lv_news.setLayoutManager(lm);
         adapter = new NewsAdapter(getActivity(), list);

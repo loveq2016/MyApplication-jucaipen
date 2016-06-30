@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cl_myback"
-    android:orientation="vertical">
+    >
 
     <RelativeLayout
+        android:id="@+id/hot_rel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/One_hundred_forty_five"
         android:background="@android:color/white">
@@ -47,15 +48,20 @@
 
     <ProgressBar
         android:id="@+id/progress"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
     <ScrollView
+        android:visibility="gone"
+        android:layout_below="@+id/hot_rel"
         android:id="@+id/hot_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cl_myback"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,7 +122,8 @@
                 android:layout_height="246dp"
                 android:layout_marginLeft="@dimen/Thirty"
                 android:layout_marginRight="@dimen/Thirty"
-                android:background="@drawable/approve" />
+                android:src="@drawable/approve"
+                />
 
             <TextView
                 android:id="@+id/tv_second"
@@ -188,18 +195,18 @@
                     android:src="@drawable/shang" />
 
                 <TextView
+                    android:id="@+id/tv_markerNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:text="685人赞赏"
-                    android:id="@+id/tv_markerNum"
                     android:textColor="#aaa"
                     android:textSize="13dp" />
 
                 <com.example.view.MyGridView
                     android:id="@+id/grd"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/one_hundred_sixty_five"
                     android:layout_marginRight="@dimen/one_hundred_sixty_five"
                     android:layout_marginTop="@dimen/Forty_two"
@@ -221,7 +228,8 @@
                 android:layout_height="@dimen/one_hundred_thirty"
                 android:background="@android:color/white"
                 android:paddingLeft="@dimen/Thirty"
-                android:paddingRight="@dimen/Thirty">
+                android:paddingRight="@dimen/Thirty"
+                android:visibility="gone">
 
                 <View
                     android:layout_width="@dimen/eight"
@@ -242,9 +250,8 @@
             <com.example.view.TestListView
                 android:id="@+id/comment_xv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </com.example.view.TestListView>
+                android:layout_height="wrap_content"></com.example.view.TestListView>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>
 

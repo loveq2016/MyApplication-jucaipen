@@ -5,9 +5,9 @@
     android:layout_height="match_parent">
 
 
-    <ListView
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:scrollbars="none"
         android:id="@+id/listview_video"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"></com.jcodecraeer.xrecyclerview.XRecyclerView>
 </LinearLayout>

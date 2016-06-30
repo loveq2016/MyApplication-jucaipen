@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.androidnetwork.R;
+import com.example.model.Special;
 import com.example.model.Video;
 
 import java.util.List;
@@ -22,14 +23,14 @@ import java.util.List;
  */
 public class OldAdapter extends BaseAdapter {
     private Context context;
-    private List<Video> list;
+    private List<Special> list;
 
-    public OldAdapter(FragmentActivity activity, List<Video> videoList) {
+    public OldAdapter(FragmentActivity activity, List<Special> videoList) {
         this.context = activity;
         this.list = videoList;
     }
 
-    public void setList(List<Video> list) {
+    public void setList(List<Special> list) {
         this.list = list;
     }
 
@@ -59,7 +60,7 @@ public class OldAdapter extends BaseAdapter {
         TextView video_month = (TextView) convertView.findViewById(R.id.video_month);
         TextView video_date = (TextView) convertView.findViewById(R.id.video_date);
 
-        Video video = list.get(position);
+        Special video = list.get(position);
         String imageUrl = video.getImageUrl();
         Glide.with(context).load(imageUrl)
                 .placeholder(R.drawable.approve)

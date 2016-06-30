@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/liner_free"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="#ffe7e9"
@@ -30,6 +31,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_pay"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@android:color/white"

@@ -132,6 +132,8 @@
         <activity android:name="com.example.Activity.Town"></activity>
         <activity android:name="com.example.Activity.AboutWe"></activity>
         <activity android:name="com.example.MyRecord.MyRebate"></activity>
+        <activity android:name="com.jucaipen.Activity.MyAnswer"></activity>
+        <activity android:name="com.example.Activity.Wardetails"></activity>
 
 
         <receiver android:name="com.example.reciver.RecQQLogin">

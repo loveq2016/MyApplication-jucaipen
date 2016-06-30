@@ -1,6 +1,7 @@
 package com.example.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,15 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  * <p/>
  * 名家
  */
-public class PersonAdapter extends BaseAdapter {
+public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyHolder> implements View.OnClickListener {
     private Context context;
     private List<Famous> list;
+    private OnRecyclerViewItemClickListener mOnItemClickListener;
+
+
+    public void setmOnItemClickListener(OnRecyclerViewItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
 
     public PersonAdapter(Context context, List<Famous> famousList) {
         this.context = context;
@@ -31,8 +38,11 @@ public class PersonAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
-        return list.size();
+    public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.ui_famous_item, null);
+        MyHolder myHolder = new MyHolder(view);
+        view.setOnClickListener(this);
+        return myHolder;
     }
 
     public void setList(List<Famous> list) {
@@ -40,40 +50,7 @@ public class PersonAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return list.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        MyHolder holder = null;
-
-        if (convertView == null) {
-            holder = new MyHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.ui_famous_item, null);
-            holder.logo = (ImageView) convertView.findViewById(R.id.att_logo);
-            holder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
-            holder.tv_notice = (TextView) convertView.findViewById(R.id.tv_notice);
-            holder.tv_fans = (TextView) convertView.findViewById(R.id.tv_fans);
-            holder.iv_guanzhu = (ImageView) convertView.findViewById(R.id.iv_guanzhu);
-            convertView.setTag(holder);
-        } else {
-            holder = (MyHolder) convertView.getTag();
-        }
-
-
-        final MyHolder finalHolder = holder;
-        holder.iv_guanzhu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finalHolder.iv_guanzhu.setImageResource(R.drawable.yiguanzhu);
-            }
-        });
+    public void onBindViewHolder(MyHolder holder, int position) {
         Famous famous = list.get(position);
         holder.tv_name.setText(famous.getNinkName());
         holder.tv_notice.setText(famous.getNotice());
@@ -81,17 +58,52 @@ public class PersonAdapter extends BaseAdapter {
         Glide.with(context).load(famous.getHeadFace())
                 .bitmapTransform(new CropCircleTransformation(context))
                 .into(holder.logo);
+        int isEnd = famous.getIsEnd();
 
 
-        return convertView;
+        if (isEnd == 2) {
+            // 直播状态 1未开始 2进行中 3已结束
+            holder.iv_guanzhu.setImageResource(R.drawable.xzh_shexiang);
+
+        } else {
+            holder.iv_guanzhu.setImageResource(R.drawable.shexiang);
+        }
+
+
+        holder.itemView.setTag(position);
+
     }
 
-    class MyHolder {
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (mOnItemClickListener != null) {
+            mOnItemClickListener.onItemClick(v, (Integer) v.getTag());
+        }
+    }
+
+    class MyHolder extends RecyclerView.ViewHolder {
         ImageView logo;
         TextView tv_name;
         TextView tv_notice;
         TextView tv_fans;
         ImageView iv_guanzhu;
 
+        public MyHolder(View itemView) {
+            super(itemView);
+            this.logo = (ImageView) itemView.findViewById(R.id.att_logo);
+            this.tv_name = (TextView) itemView.findViewById(R.id.tv_name);
+            this.tv_notice = (TextView) itemView.findViewById(R.id.tv_notice);
+            this.tv_fans = (TextView) itemView.findViewById(R.id.tv_fans);
+            this.iv_guanzhu = (ImageView) itemView.findViewById(R.id.iv_guanzhu);
+        }
+    }
+
+    public interface OnRecyclerViewItemClickListener {
+        void onItemClick(View view, int data);
     }
 }

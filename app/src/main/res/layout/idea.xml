@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cl_btn"
-    android:orientation="vertical">
+    >
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:background="#FFFFFF"
@@ -56,10 +56,18 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="免费观点" />
-        </RelativeLayout>
+        </RelativeLayout>-->
     </LinearLayout>
 
+
+    <ProgressBar
+        android:id="@+id/idea_progress"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:visibility="gone"
         android:id="@+id/ideaListivew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,4 +75,4 @@
         android:divider="@android:color/white"
         android:dividerHeight="0dp"
         android:scrollbars="none" />
-</LinearLayout>
+</RelativeLayout>

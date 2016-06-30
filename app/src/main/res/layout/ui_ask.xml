@@ -7,15 +7,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/Two_hundred_sixteen"
+        android:layout_height="@dimen/One_hundred_forty_five"
         android:background="@drawable/shadow">
 
-        <ImageView
+        <ImageButton
+            android:background="@null"
+            android:padding="@dimen/Thirty"
             android:id="@+id/ask_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/Thirty"
             android:src="@drawable/return_select" />
 
         <TextView
@@ -23,8 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="提问"
-            android:textColor="#222"
-            android:textSize="21dp" />
+            android:textColor="#222" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -55,6 +55,7 @@
     </RelativeLayout>
 
     <EditText
+        android:id="@+id/edt_ask"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/five_hundred"
         android:layout_marginLeft="@dimen/Thirty"
@@ -69,6 +70,7 @@
         android:textSize="@dimen/Thirty_six"></EditText>
 
     <ImageButton
+        android:id="@+id/question_ibt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

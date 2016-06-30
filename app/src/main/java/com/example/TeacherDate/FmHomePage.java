@@ -8,7 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 
+import com.example.Activity.QuestionAnswer;
+import com.example.adapter.HomeAnswerAdapter;
+import com.example.adapter.HomeIdeaAdapter;
 import com.example.androidnetwork.R;
 import com.example.model.Interlocution;
 import com.example.utils.JsonUtil;
@@ -42,11 +47,15 @@ public class FmHomePage extends Fragment implements AdapterView.OnItemClickListe
     private Map<String, Object> map = new HashMap<>();
     //他的观点适配器
     private String pointUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getideaask";
-    private PageIdeaAdapter pageIdeaAdapter;
+
+    private HomeIdeaAdapter ideaAdapter;
+
     private int teacherId;
     private int page = 1;
     //他的问答适配器
-    private PageAnswerAdapter answerAdapter;
+    private HomeAnswerAdapter answerAdapter;
+    private ProgressBar home_progress;
+    private ScrollView home_scroll;
 
     private TestListView homelv_idea;
     private TestListView homelv_answer;
@@ -74,9 +83,13 @@ public class FmHomePage extends Fragment implements AdapterView.OnItemClickListe
         homelv_idea = (TestListView) view.findViewById(R.id.homelv_idea);
         homelv_idea.setOnItemClickListener(this);
         homelv_answer = (TestListView) view.findViewById(R.id.homelv_answer);
-        pageIdeaAdapter = new PageIdeaAdapter(context, opinionList);
-        answerAdapter = new PageAnswerAdapter(context, list);
-        homelv_idea.setAdapter(pageIdeaAdapter);
+        homelv_answer.setOnItemClickListener(this);
+        home_progress = (ProgressBar) view.findViewById(R.id.home_progress);
+        home_scroll = (ScrollView) view.findViewById(R.id.home_scroll);
+
+        ideaAdapter = new HomeIdeaAdapter(context, opinionList);
+        answerAdapter = new HomeAnswerAdapter(context, list);
+        homelv_idea.setAdapter(ideaAdapter);
         homelv_answer.setAdapter(answerAdapter);
 
 
@@ -118,7 +131,7 @@ public class FmHomePage extends Fragment implements AdapterView.OnItemClickListe
                             opinion.setInsertdate(insertDate);
                             opinionList.add(opinion);
                         }
-                        pageIdeaAdapter.notifyDataSetChanged();
+                        ideaAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -158,10 +171,13 @@ public class FmHomePage extends Fragment implements AdapterView.OnItemClickListe
 
             @Override
             public void onSuccess(String result) {
+                home_progress.setVisibility(View.GONE);
+                home_scroll.setVisibility(View.VISIBLE);
+
                 //{"page":1,"totlePage":1,"askId":173,"trueName":null,"insertDate":"2016-05-23 10:02:00.71"
                 // ,"askBodys":"1111","headFace":null,"isPay":1,"replyCount":0,"answerBody":null},
                 if (result != null) {
-                    list = JsonUtil.getInter(result);
+                    list = JsonUtil.getInter(result, list);
                 }
                 answerAdapter.notifyDataSetChanged();
 
@@ -186,11 +202,16 @@ public class FmHomePage extends Fragment implements AdapterView.OnItemClickListe
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent();
         switch (parent.getId()) {
             case R.id.homelv_idea:
-                Intent intent = new Intent();
-                intent.putExtra("id",opinionList.get(position).getId());
+
+                intent.putExtra("id", opinionList.get(position).getId());
                 intent.setClass(getActivity(), HotCareful.class);
+                startActivity(intent);
+                break;
+            case R.id.homelv_answer:
+                intent.setClass(getActivity(), QuestionAnswer.class);
                 startActivity(intent);
                 break;
 

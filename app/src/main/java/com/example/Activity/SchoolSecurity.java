@@ -2,9 +2,11 @@ package com.example.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.adapter.SchoolAdapter;
 import com.example.androidnetwork.R;
@@ -117,6 +119,13 @@ public class SchoolSecurity extends Activity implements View.OnClickListener {
     }
 
     public List<SchoolKnowledge> pareJson(String str, int bigId) {
+        Log.i("111", "pareJson: "+str);
+//        [{"id":2,"bigType":"初级教程","item":
+//            [{"sId":21,"smallType":"基础知识"},{"sId":4,"smallType":"学习看盘"},{"sId":5,"smallType":"交易指南"}]},
+//        {"id":19,"bigType":"中级教程","item":[{"sId":6,"smallType":"基本面分析"},{"sId":7,"smallType":"技术面分析"},
+//            {"sId":23,"smallType":"技术指标"},{"sId":3,"smallType":"炒股技巧"},{"sId":8,"smallType":"实战操盘"}]},
+//        ]{"id":20,"bigType":"高级教程","item":[{"sId":10,"smallType":"大师理论"},{"sId":11,"smallType":"老股民经验"},
+//            {"sId":22,"smallType":"炒股心理学"}]}]
         parentKnowledges.clear();
         childKnow.clear();
         try {
@@ -147,6 +156,8 @@ public class SchoolSecurity extends Activity implements View.OnClickListener {
                     childKnow.add(sts);
                 }
             }
+            adapter.setChild(childKnow);
+            adapter.setParents(parentKnowledges);
         } catch (JSONException e) {
             e.printStackTrace();
         }

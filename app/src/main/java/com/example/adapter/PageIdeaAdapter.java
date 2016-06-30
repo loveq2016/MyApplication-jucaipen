@@ -1,6 +1,7 @@
 package com.example.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.androidnetwork.R;
 import com.example.model.Opinion;
+import com.example.utils.StringUtil;
 import com.example.utils.TimeUtils;
 
 import java.util.List;
@@ -19,9 +21,10 @@ import java.util.List;
  * <p/>
  * 观点适配器
  */
-public class PageIdeaAdapter extends BaseAdapter {
+public class PageIdeaAdapter extends RecyclerView.Adapter<PageIdeaAdapter.MyHolder> implements View.OnClickListener {
     private Context context;
     private List<Opinion> opinionList;
+    private RecyclerViewAdapterOnClick adapterOnClick;
 
     public PageIdeaAdapter(Context context, List<Opinion> opinionList) {
         this.context = context;
@@ -30,77 +33,57 @@ public class PageIdeaAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
+    public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.pageidea, null);
+        MyHolder holder = new MyHolder(view);
+        view.setOnClickListener(this);
+        return holder;
+    }
+
+    public void setAdapterOnClick(RecyclerViewAdapterOnClick adapterOnClick) {
+        this.adapterOnClick = adapterOnClick;
+    }
+
+    @Override
+    public void onBindViewHolder(MyHolder holder, int position) {
+
+        Opinion opinion = opinionList.get(position);
+        holder.for_time.setText(TimeUtils.parseStrDate(opinion.getInsertdate(), "yyyy-MM-dd"));
+        holder.for_title.setText(" " + opinion.getTitle());
+        holder.for_body.setText( StringUtil.clearHTMLCode(opinion.getDesc()));
+
+
+        holder.itemView.setTag(position);
+
+    }
+
+    @Override
+    public int getItemCount() {
         return opinionList.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return opinionList.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.pageidea, null);
+    public void onClick(View v) {
+        if (adapterOnClick!=null){
+            adapterOnClick.onClick(v, (Integer) v.getTag());
         }
+    }
 
+    class MyHolder extends RecyclerView.ViewHolder {
+        TextView for_time;
+        TextView for_title;
+        TextView for_body;
 
-        //  ImageView for_picture= (ImageView) convertView.findViewById(R.id.for_picture);
-        // TextView for_name= (TextView) convertView.findViewById(R.id.for_name);
-        TextView for_time = (TextView) convertView.findViewById(R.id.for_time);
-        // TextView for_type= (TextView) convertView.findViewById(R.id.for_type);
-        TextView for_title = (TextView) convertView.findViewById(R.id.for_title);
-        TextView for_body = (TextView) convertView.findViewById(R.id.for_body);
+        public MyHolder(View itemView) {
+            super(itemView);
+            this.for_time = (TextView) itemView.findViewById(R.id.for_time);
+            this.for_title = (TextView) itemView.findViewById(R.id.for_title);
+            this.for_body = (TextView) itemView.findViewById(R.id.for_body);
+        }
+    }
 
-
-        Opinion opinion = opinionList.get(position);
-//        Glide.with(context).load(opinion.getHeadface())
-//                .bitmapTransform(new CropCircleTransformation(context))
-//                .placeholder(R.drawable.rentou)
-//                .into(for_picture);
-//        for_name.setText(opinion.getNickname());
-        for_time.setText(TimeUtils.parseStrDate(opinion.getInsertdate(), "yyyy-MM-dd"));
-//        for_type.setText(opinion.getLevel());
-        for_title.setText(" "+opinion.getTitle());
-        for_body.setText(Html.fromHtml(opinion.getDesc()));
-
-
-        return convertView;
+    public interface RecyclerViewAdapterOnClick {
+        void onClick(View v, int position);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

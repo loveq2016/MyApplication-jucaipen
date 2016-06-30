@@ -1,5 +1,7 @@
 package com.example.utils;
 
+import android.content.Context;
+
 import com.example.model.ChargeOrder;
 import com.example.model.ChatMsg;
 import com.example.model.Discuss;
@@ -22,8 +24,11 @@ import com.example.model.Person;
 import com.example.model.Press;
 import com.example.model.Province;
 import com.example.model.School;
+import com.example.model.Special;
 import com.example.model.TextVideo;
 import com.example.model.Video;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -67,8 +72,7 @@ public class JsonUtil {
     /**
      * 解析推荐名师界面
      */
-    public static List<Famous> getFamous(String famous) {
-        List<Famous> famouses = new ArrayList<>();
+    public static List<Famous> getFamous(String famous, List<Famous> famouses) {
         try {
             JSONArray array1 = new JSONArray(famous);
             for (int i = 0; i < array1.length(); i++) {
@@ -82,10 +86,12 @@ public class JsonUtil {
                 int isv = object.getInt("isV");
                 String notice = object.getString("notice");
                 int fan = object.getInt("fans");
+                int isEnd = object.getInt("isEnd");
                 Famous famoues = new Famous();
                 famoues.setPage(page);
                 famoues.setTotpager(totpage);
                 famoues.setId(id);
+                famoues.setIsEnd(isEnd);
                 famoues.setNinkName(nickName);
                 famoues.setHeadFace(headFace);
                 famoues.setLevel(lev);
@@ -101,19 +107,49 @@ public class JsonUtil {
         return null;
     }
 
+
+    public static List<Famous> getperson(String famous) {
+        try {
+
+            List<Famous> list = new ArrayList<>();
+            JSONArray array1 = new JSONArray(famous);
+            for (int i = 0; i < array1.length(); i++) {
+                JSONObject object = array1.getJSONObject(i);
+                int page = object.getInt("page");
+                int totpage = object.getInt("totlePage");
+                int id = object.getInt("id");
+                String nickName = object.getString("nickName");
+                String headFace = object.getString("headFace");
+                String lev = object.getString("level");
+                int isv = object.getInt("isV");
+                String notice = object.getString("notice");
+                int fan = object.getInt("fans");
+                int isAttention = object.optInt("isAttention", -1);
+                Famous famoues = new Famous();
+                famoues.setPage(page);
+                famoues.setTotpager(totpage);
+                famoues.setId(id);
+                famoues.setNinkName(nickName);
+                famoues.setHeadFace(headFace);
+                famoues.setLevel(lev);
+                famoues.setIsv(isv);
+                famoues.setFans(fan);
+                famoues.setNotice(notice);
+                famoues.setIsAttention(isAttention);
+                list.add(famoues);
+            }
+            return list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * 解析获取观点
      */
     public static List<Opinion> getOpinion(String opinion, List<Opinion> opinionList) {
         try {
-
-            //[{"page":1,"totlePage":1,"askId":173,"trueName":null,"insertDate":"2016-05-23 10:02:00.71",
-            // "askBodys":"1111","headFace":null,"isPay":1,"replyCount":0,"answerBody":null}
-
-            //[{"page":0,"totlePage":0,"id":796,"insertDate":null,"title":"加入国际指数A股能获得什么？",
-            // "hits":0,"goods":0,"teacherId":0,"nickName":null,"level":null,"headFace":null,"isV":0}
-
-
             JSONArray array = new JSONArray(opinion);
             for (int i = 0; i < array.length(); i++) {
                 JSONObject object = array.getJSONObject(i);
@@ -130,7 +166,6 @@ public class JsonUtil {
                 String lev = object.optString("level", "");
                 String portrait = object.optString("headFace", "");
                 int isv = object.optInt("isV", -1);
-
 
                 Opinion opinion1 = new Opinion();
                 opinion1.setPage(page);
@@ -158,9 +193,7 @@ public class JsonUtil {
     /**
      * 解析获取问答
      */
-    public static List<Interlocution> getInter(String interlocution) {
-
-        List<Interlocution> list = new ArrayList<>();
+    public static List<Interlocution> getInter(String interlocution, List<Interlocution> list) {
         try {
             JSONArray array = new JSONArray(interlocution);
             for (int i = 0; i < array.length(); i++) {
@@ -491,6 +524,8 @@ public class JsonUtil {
      */
     public static List<TextVideo> getTextVideo(String str) {
         List<TextVideo> list = new ArrayList<>();
+        //[{"id":30,"teacherName":"皮海洲","teacherFace":"http://img.jucaipen.101612161.jpg","isV":1,"attentNum":1}
+        //差总页数。
         try {
             JSONArray array = new JSONArray(str);
             for (int i = 0; i < array.length(); i++) {
@@ -503,6 +538,7 @@ public class JsonUtil {
                 int isV = object.optInt("isV", 0);
                 int attentNum = object.optInt("attentNum", -1);
                 int teacherId = object.optInt("teacherId", -1);
+
 
                 TextVideo video = new TextVideo();
                 video.setId(id);
@@ -539,6 +575,11 @@ public class JsonUtil {
                 int hits = object.optInt("hits", -1);
                 String image = object.optString("image", null);
                 String videoUrl = object.optString("videoUrl", "");
+                int classId=object.getInt("classId");
+                boolean isSpecial=object.getBoolean("isSpecial");
+                boolean isCharge=object.getBoolean("isCharge");
+
+
                 School school = new School();
                 school.setId(id);
                 school.setTitle(title);
@@ -547,6 +588,9 @@ public class JsonUtil {
                 school.setVideoUrl(videoUrl);
                 school.setHits(hits);
                 school.setImage(image);
+                school.setClassId(classId);
+                school.setSpecial(isSpecial);
+                school.setCharge(isCharge);
                 list.add(school);
             }
             return list;
@@ -617,6 +661,14 @@ public class JsonUtil {
   * */
     public static List<Video> getvideo(String str) {
         List<Video> list = new ArrayList<>();
+
+//        intent.putExtra("id", videoList.get(position).getId());
+//        intent.putExtra("videoUrl", videoList.get(position).getVideoUrl());
+//        intent.putExtra("classId", videoList.get(position).getClassId());
+//        intent.putExtra("title", videoList.get(position).getTitle());
+//        intent.putExtra("hit", videoList.get(position).getHits());
+//        intent.putExtra("isSpecial", videoList.get(position).isSpecial());
+//        intent.putExtra("isCharge", videoList.get(position).isCharge());
         try {
             JSONArray array = new JSONArray(str);
             for (int i = 0; i < array.length(); i++) {
@@ -628,6 +680,11 @@ public class JsonUtil {
                 String imageUrl = object.optString("imageUrl", "");
                 String desc = object.optString("desc", "");
                 String videUrl = object.optString("videoUrl", "");
+                int classId=object.optInt("classId",-1);
+                int hit=object.optInt("playCount",0);
+                boolean isSpecial=object.optBoolean("isSpecial",false);
+                boolean isCharge=object.optBoolean("isCharge",false);
+
                 Video video = new Video();
                 video.setId(id);
                 video.setPage(page);
@@ -636,6 +693,11 @@ public class JsonUtil {
                 video.setImageUrl(imageUrl);
                 video.setDesc(desc);
                 video.setVideoUrl(videUrl);
+                video.setClassId(classId);
+                video.setHits(hit);
+                video.setSpecial(isSpecial);
+                video.setCharge(isCharge);
+
                 list.add(video);
             }
             return list;
@@ -672,12 +734,15 @@ public class JsonUtil {
             JSONArray array = new JSONArray(str);
             for (int i = 0; i < array.length(); i++) {
                 JSONObject object = array.optJSONObject(i);
+//[{"id":4,"insertDate":"2016-06-29 16:42:40.087","reptCount":0,"body":"很好！",
+// "userName":"huating","headFace":"h6.jpg","userLeavel":1,"goods":0}]
+
 
                 int id = object.optInt("id", -1);
                 String insertDate = object.optString("insertDate", "");
-                int reptCount = object.optInt("respCount", -1);
-                String body = object.optString("bodys", "");
-                String userName = object.optString("nickName", "");
+                int reptCount = object.optInt("reptCount", -1);
+                String body = object.optString("body", "");
+                String userName = object.optString("userName", "");
                 String headFace = object.optString("headFace", "");
                 int userLeavel = object.optInt("userLeavel", -1);
                 int goods = object.optInt("goods", -1);
@@ -919,7 +984,6 @@ public class JsonUtil {
                 int totlePage = object.optInt("totlePage", -1);
                 int id = object.optInt("id", -1);
                 String recommderPhone = object.optString("recommderPhone", "");
-
                 String recommderDate = object.optString("recommderDate", "");
                 String recommder = object.optString("recommder", "");
                 String recommderImage = object.optString("recommderImage", "");
@@ -948,7 +1012,6 @@ public class JsonUtil {
 
     public static List<ChargeOrder> getmyorder(String result) {
         //[{"id":0,"insertDate":"2016-06-17 13:26:56.79","orderCode":"616061713265679131","chargeMoney":10.0,"payType":2,"state":1}]
-
         List<ChargeOrder> orders = new ArrayList<>();
         try {
             JSONArray array = new JSONArray(result);
@@ -1027,27 +1090,28 @@ public class JsonUtil {
     *
     * */
 
-    public static List<ChatMsg> getMsg(String result) {
-        List<ChatMsg> list = new ArrayList<>();
+    public static List<ChatMsg> getMsg(Context context, String result, List<ChatMsg> list) {
         try {
             JSONArray array = new JSONArray(result);
             for (int i = 0; i < array.length(); i++) {
                 //[{"sendId":48,"sendName":"学习找牛股","msg":"份饭","shenHe":0,"sendLeavel":0,"toName":null}]
                 JSONObject object = array.getJSONObject(i);
                 int sendId = object.optInt("sendId", -1);
-                String sendName = object.optString("sendName", "");
-                String msg = object.optString("msg", "");
-                int shenHe = object.optInt("shenHe", -1);
-                int sendLeavel = object.optInt("sendLeavel", -1);
-                String toName = object.optString("toName", "");
-                ChatMsg chatMsg = new ChatMsg();
-                chatMsg.setSendId(sendId);
-                chatMsg.setSendName(sendName);
-                chatMsg.setMsg(msg);
-                chatMsg.setShenHe(shenHe);
-                chatMsg.setSendLeavel(sendLeavel);
-                chatMsg.setToName(toName);
-                list.add(chatMsg);
+                if (sendId != StoreUtils.getUserInfo(context)) {
+                    String sendName = object.optString("sendName", "");
+                    String msg = object.optString("msg", "");
+                    int shenHe = object.optInt("shenHe", -1);
+                    int sendLeavel = object.optInt("sendLeavel", -1);
+                    String toName = object.optString("toName", "");
+                    ChatMsg chatMsg = new ChatMsg();
+                    chatMsg.setSendId(sendId);
+                    chatMsg.setSendName(sendName);
+                    chatMsg.setMsg(msg);
+                    chatMsg.setShenHe(shenHe);
+                    chatMsg.setSendLeavel(sendLeavel);
+                    chatMsg.setToName(toName);
+                    list.add(chatMsg);
+                }
             }
             return list;
         } catch (JSONException e) {
@@ -1057,4 +1121,14 @@ public class JsonUtil {
     }
 
 
+    /*
+    * 解析选集信息
+    * */
+    public static List<Special> getSpecal(String str) {
+        Gson gson = new Gson();
+        List<Special> Specials = gson.fromJson(str, new TypeToken<List<Special>>() {
+        }.getType());
+        return Specials;
+
+    }
 }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 
 import com.example.androidnetwork.R;
 import com.example.utils.JsonUtil;
@@ -38,6 +39,7 @@ public class LiveVideo extends Fragment implements AdapterView.OnItemClickListen
     private Map<String, Object> map = new HashMap<>();
     private int page = 1;
     private List<TextVideo> list = new ArrayList<>();
+    private ProgressBar video_progress;
 
 
     @Override
@@ -63,6 +65,8 @@ public class LiveVideo extends Fragment implements AdapterView.OnItemClickListen
 
             @Override
             public void onSuccess(String result) {
+                video_progress.setVisibility(View.GONE);
+                live_gv.setVisibility(View.VISIBLE);
 
                 if (result != null) {
                     list = JsonUtil.getTextVideo(result);
@@ -91,6 +95,8 @@ public class LiveVideo extends Fragment implements AdapterView.OnItemClickListen
     }
 
     private void init() {
+
+        video_progress= (ProgressBar) view.findViewById(R.id.video_progress);
         live_gv = (GridView) view.findViewById(R.id.live_gv);
         live_gv.setOnItemClickListener(this);
         adapter = new TextVideoAdapter(getActivity(), list);

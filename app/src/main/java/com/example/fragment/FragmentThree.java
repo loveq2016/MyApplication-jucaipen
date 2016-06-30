@@ -29,6 +29,7 @@ import com.example.MyRecord.MyRebate;
 import com.example.Activity.PersonDate;
 import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
+import com.jucaipen.Activity.MyAnswer;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -124,8 +125,8 @@ public class FragmentThree extends Fragment implements View.OnClickListener {
                         int leavel = object.getInt("leavel");
                         String ninckName = object.getString("nickName");
                         String imageFace = object.getString("imageFace");
-                        userName=object.getString("userName");
-                        telPhone=object.getString("telPhone");
+                        userName = object.getString("userName");
+                        telPhone = object.getString("telPhone");
                         // 头衔
                         //iv_rank
 
@@ -269,6 +270,8 @@ public class FragmentThree extends Fragment implements View.OnClickListener {
                 break;
             case R.id.my_answer:
                 Toast.makeText(getActivity(), "我的问答", Toast.LENGTH_SHORT).show();
+                intent.setClass(getActivity(), MyAnswer.class);
+                startActivity(intent);
                 break;
 
 
@@ -290,8 +293,8 @@ public class FragmentThree extends Fragment implements View.OnClickListener {
                 break;
             case R.id.my_setting:
                 intent.setClass(getActivity(), SettingUp.class);
-                intent.putExtra("account",userName);
-                intent.putExtra("phone",telPhone);
+                intent.putExtra("account", userName);
+                intent.putExtra("phone", telPhone);
                 startActivity(intent);
                 break;
 //            case R.id.rela_goteacher:
@@ -300,9 +303,9 @@ public class FragmentThree extends Fragment implements View.OnClickListener {
 //                Toast.makeText(getActivity(), "名师开通", Toast.LENGTH_SHORT).show();
 //                break;
             case R.id.my_gift:
-                intent.setClass(getActivity(), MyPresent.class);
-                startActivity(intent);
-                //Toast.makeText(getActivity(), "我的礼品", Toast.LENGTH_SHORT).show();
+//                intent.setClass(getActivity(), MyPresent.class);
+//                startActivity(intent);
+                Toast.makeText(getActivity(), "礼品敬请期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.uLogo:
 

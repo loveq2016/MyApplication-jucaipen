@@ -3,6 +3,7 @@ package com.example.FragmentItems;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,9 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.androidnetwork.R;
@@ -65,6 +68,7 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
     private List<School> schoolList = new ArrayList<>();
     private Map<String, Object> map = new HashMap<>();
     private List<ButtonType> typeList = new ArrayList<>();
+    private ProgressBar school_progress;
     private RadioGroup school_radgrp;
     public String ADVISE_PATH = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getadvise";
     RadioButton button;
@@ -135,7 +139,7 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
                         button = new RadioButton(getActivity());
                         RadioGroup.LayoutParams lm = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
                         button.setLayoutParams(lm);
-                        button.setButtonDrawable(0);
+                        button.setButtonDrawable(new ColorDrawable(Color.TRANSPARENT));
                         button.setId(typeList.get(i).getId());
                         button.setCompoundDrawablesRelativeWithIntrinsicBounds(0, images[i], 0, 0);
                         button.setCompoundDrawablePadding(7);
@@ -178,6 +182,9 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
 
             @Override
             public void onSuccess(String result) {
+                school_progress.setVisibility(View.GONE);
+                school_scroll.setVisibility(View.VISIBLE);
+
                 if (result != null) {
                     schoolList = JsonUtil.getschool(result);
                     videioAdapter.setList(schoolList);
@@ -205,6 +212,9 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
     }
 
     private void init() {
+        school_progress = (ProgressBar) view.findViewById(R.id.school_progress);
+        school_scroll = (ScrollView) view.findViewById(R.id.school_scroll);
+        school_scroll.smoothScrollTo(0, 0);
         adapter = new MyAdapter(list);
         school_grd = (MyGridView) view.findViewById(R.id.school_grd);
         school_grd.setOnItemClickListener(this);
@@ -212,11 +222,9 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
         schoolpager = (ViewPager) view.findViewById(R.id.schoolpager);
         schoolpager.setAdapter(adapter);
         school_grd.setAdapter(videioAdapter);
+
         //获取广告
         GetAdvace();
-        school_scroll = (ScrollView) view.findViewById(R.id.school_scroll);
-        school_scroll.smoothScrollTo(0, 0);
-
     }
 
     private void GetAdvace() {
@@ -296,10 +304,13 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
 
         switch (parent.getId()) {
             case R.id.school_grd:
-                intent.putExtra("title",schoolList.get(position).getTitle());
-                intent.putExtra("hit",schoolList.get(position).getHits());
-                intent.putExtra("videoUrl",schoolList.get(position).getVideoUrl());
                 intent.putExtra("id", schoolList.get(position).getId());
+                intent.putExtra("videoUrl", schoolList.get(position).getVideoUrl());
+                intent.putExtra("classId", schoolList.get(position).getClassId());
+                intent.putExtra("title", schoolList.get(position).getTitle());
+                intent.putExtra("hit", schoolList.get(position).getHits());
+                intent.putExtra("isSpecial", schoolList.get(position).isSpecial());
+                intent.putExtra("isCharge", schoolList.get(position).isCharge());
                 intent.setClass(getActivity(), VideoPlay.class);
                 startActivity(intent);
                 break;
@@ -313,6 +324,7 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
         int position = v.getId();
         Intent intent = new Intent();
         intent.putExtra("buttonId", position);
+
         intent.setClass(getActivity(), SchoolSecurity.class);
         startActivity(intent);
 

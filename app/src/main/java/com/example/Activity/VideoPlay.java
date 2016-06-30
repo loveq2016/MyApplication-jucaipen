@@ -28,6 +28,8 @@ import java.util.Map;
 
 /**
  * Created by Administrator on 2016/5/13.
+ * <p/>
+ * 视频回顾
  */
 public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener, View.OnTouchListener {
 //    private RadioButton button_intro;
@@ -62,10 +64,13 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
     private Map<String, Object> map = new HashMap<>();
     private String title;
     private int hit;
+    private boolean isSpecial;
+    private boolean isCharge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // setContentView(R.layout.ui_vide);
         setContentView(R.layout.fragmenttwo);
 
@@ -78,15 +83,16 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
         String videoUrl = getIntent().getStringExtra("videoUrl");
         int id = getIntent().getIntExtra("id", -1);
         int classId = getIntent().getIntExtra("classId", -1);
-//        intent.putExtra("title",schoolList.get(position).getTitle());
-//        intent.putExtra("hit",schoolList.get(position).getHits());
         title = getIntent().getStringExtra("title");
         hit = getIntent().getIntExtra("hit", -1);
+        isSpecial = getIntent().getBooleanExtra("isSpecial", false);
+        isCharge = getIntent().getBooleanExtra("isCharge", false);
 
-        Bundle bundle=new Bundle();
-        bundle.putString("title",title);
-        bundle.putInt("hit",hit);
-        bundle.putInt("classId",classId);
+        Bundle bundle = new Bundle();
+        bundle.putString("title", title);
+        bundle.putInt("hit", hit);
+        bundle.putInt("classId", classId);
+        bundle.putBoolean("isSpecial",isSpecial);
 
 
         qk_video = (QkVideoView) findViewById(R.id.qk_video);

@@ -1,5 +1,7 @@
 package com.example.Activity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +22,8 @@ import com.example.TeacherDate.FrViewpoint;
 import com.example.TeacherDate.FrWriterLive;
 import com.example.androidnetwork.R;
 import com.example.model.FamousTeacher;
+import com.example.utils.DialogUtils;
+import com.example.utils.SharedNews;
 import com.example.utils.StoreUtils;
 import com.example.TeacherDate.FrAnswer;
 import com.example.TeacherDate.FrVideoPlay;
@@ -81,7 +85,16 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
     private Map<String, Object> map = new HashMap<>();
     private int teacherId;
     private String joinDate;
-    private FamousTeacher teacher=new FamousTeacher();
+    private FamousTeacher teacher = new FamousTeacher();
+    private ImageButton famous_shared;
+    private Dialog dialog;
+    private ImageButton share_qq;
+    private ImageButton ibt_qqzone;
+    private ImageButton ibt_weixin;
+    private ImageButton ibt_wenxinzone;
+    private ImageButton ibt_weibo;
+    private ArrayList<String> imageList = new ArrayList<>();
+    private Context context = FamousPlain.this;
 
 
     @Override
@@ -94,7 +107,7 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
     }
 
     private void init() {
-        teacherId=getIntent().getIntExtra("teacherId", 0);
+        teacherId = getIntent().getIntExtra("teacherId", 0);
         Bundle bundle = new Bundle();
         bundle.putInt("teacherId", teacherId);
         GetTeacherDate();
@@ -126,14 +139,15 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
         list.add(frWarfare);
 
 
-
-        tImage= (ImageView) findViewById(R.id.tImage);
+        tImage = (ImageView) findViewById(R.id.tImage);
         tName = (TextView) findViewById(R.id.tName);
         famous_type = (TextView) findViewById(R.id.famous_type);
         tv_rq = (TextView) findViewById(R.id.tv_rq);
         tv_gz = (TextView) findViewById(R.id.tv_gz);
         tv_sh = (TextView) findViewById(R.id.tv_sh);
         tv_plain = (TextView) findViewById(R.id.tv_plain);
+        famous_shared = (ImageButton) findViewById(R.id.famous_shared);
+        famous_shared.setOnClickListener(this);
 
 
         teacher_back = (ImageView) findViewById(R.id.teacher_back);
@@ -163,13 +177,25 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
         famous_viewpager.setAdapter(pagerAdapter);
         rad_homepage.setChecked(true);
         teacher_group.setOnCheckedChangeListener(this);
+        dialog = DialogUtils.ShareDialog(this);
+        share_qq = (ImageButton) dialog.findViewById(R.id.share_qq);
+        share_qq.setOnClickListener(this);
+        ibt_qqzone = (ImageButton) dialog.findViewById(R.id.ibt_qqzone);
+        ibt_qqzone.setOnClickListener(this);
+        ibt_weixin = (ImageButton) dialog.findViewById(R.id.ibt_weixin);
+        ibt_weixin.setOnClickListener(this);
+        ibt_wenxinzone = (ImageButton) dialog.findViewById(R.id.ibt_wenxinzone);
+        ibt_wenxinzone.setOnClickListener(this);
+        ibt_weibo = (ImageButton) dialog.findViewById(R.id.ibt_weibo);
+        ibt_weibo.setOnClickListener(this);
+
 
     }
 
     private void GetTeacherDate() {
         map.clear();
         map.put("userId", StoreUtils.getUserInfo(this));
-        map.put("teacherId",teacherId);
+        map.put("teacherId", teacherId);
         RequestParams params = NetUtils.sendHttpGet(plainUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
@@ -182,10 +208,10 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
                 if (result != null) {
                     try {
                         JSONObject object = new JSONObject(result);
-                        joinDate=object.getString("joinDate");
-                        String notice=object.getString("notice");
-                        String hoby=object.getString("hoby");
-                        boolean isAttention=object.getBoolean("isAttention");
+                        joinDate = object.getString("joinDate");
+                        String notice = object.getString("notice");
+                        String hoby = object.getString("hoby");
+                        boolean isAttention = object.getBoolean("isAttention");
                         String headFace = object.getString("headFace");
                         String nickName = object.getString("nickName");
                         String leavel = object.getString("leavel");
@@ -213,10 +239,10 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
 
                         tName.setText(nickName);
                         famous_type.setText(leavel);
-                        tv_rq.setText(renQi+"");
-                        tv_gz.setText(attention+"");
-                        tv_sh.setText(gurdian+"");
-                        tv_plain.setText("简介："+Html.fromHtml(plain));
+                        tv_rq.setText(renQi + "");
+                        tv_gz.setText(attention + "");
+                        tv_sh.setText(gurdian + "");
+                        tv_plain.setText("简介：" + Html.fromHtml(plain));
 
 
                     } catch (JSONException e) {
@@ -248,8 +274,8 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
         Intent intent = new Intent();
         switch (v.getId()) {
             case R.id.tv_plain:
-                Bundle bundle=new Bundle();
-                bundle.putSerializable("teacher",teacher);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("teacher", teacher);
                 intent.putExtras(bundle);
                 intent.setClass(this, Teacherintro.class);
                 startActivity(intent);
@@ -274,6 +300,35 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
             case R.id.teacher_back:
                 this.finish();
                 break;
+            case R.id.famous_shared:
+                if (!dialog.isShowing()) {
+                    dialog.show();
+                }
+                break;
+
+            case R.id.share_qq:
+                SharedNews.shareQQ(FamousPlain.this, context, "lppo", "http://www.baidu.com");
+                dialog.cancel();
+                break;
+            case R.id.ibt_qqzone:
+                SharedNews.shareQz(FamousPlain.this, this, "title", "body", "www.baidu", imageList);
+                dialog.cancel();
+
+                break;
+            case R.id.ibt_weixin:
+                SharedNews.shareWX(this, "title", "msg");
+                dialog.cancel();
+                break;
+            case R.id.ibt_wenxinzone:
+                SharedNews.shareWXz(this, "title", "msg");
+                dialog.cancel();
+                break;
+            case R.id.ibt_weibo:
+                Toast.makeText(FamousPlain.this, "暂不能分享", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+                break;
+
+
             default:
                 break;
         }

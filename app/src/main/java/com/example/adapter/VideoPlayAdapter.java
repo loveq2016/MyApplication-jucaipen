@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 import com.example.androidnetwork.R;
 import com.example.model.Video;
 
+import net.wujingchao.android.view.SimpleTagImageView;
+
 import java.util.List;
 
 /**
@@ -51,10 +53,10 @@ public class VideoPlayAdapter extends BaseAdapter {
         MyHolder holder = null;
         if (convertView == null) {
             holder=new MyHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.tvitems, null);
-            holder.select_iv = (ImageView) convertView.findViewById(R.id.select_iv);
-            holder.tv_context = (TextView) convertView.findViewById(R.id.tv_context);
-            holder.live_content = (TextView) convertView.findViewById(R.id.live_content);
+            convertView = LayoutInflater.from(context).inflate(R.layout.liveitems, null);
+            holder.select_iv = (SimpleTagImageView) convertView.findViewById(R.id.imagevideo);
+            holder.tv_context = (TextView) convertView.findViewById(R.id.video_context);
+            holder.live_content = (TextView) convertView.findViewById(R.id.video_inroduce);
             convertView.setTag(holder);
         }else {
             holder= (MyHolder) convertView.getTag();
@@ -74,7 +76,7 @@ public class VideoPlayAdapter extends BaseAdapter {
     }
 
     class MyHolder {
-        ImageView select_iv;
+        SimpleTagImageView select_iv;
         TextView tv_context;
         TextView live_content;
 

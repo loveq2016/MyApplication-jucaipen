@@ -43,6 +43,7 @@
                 android:background="@color/cl_jifen">
 
                 <ImageView
+                    android:id="@+id/iv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/Thirty"
@@ -71,6 +72,7 @@
                     android:src="@drawable/jucaibi_chongzhi" />
 
                 <TextView
+                    android:id="@+id/tv_monad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/moneynumbers"
@@ -82,16 +84,6 @@
                     android:textSize="@dimen/thirty_six" />
 
 
-                <TextView
-                    android:id="@+id/tv_help"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/Thirty"
-                    android:layout_marginTop="@dimen/Forty_two"
-                    android:text="使用帮助"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/thirty_four" />
             </RelativeLayout>
 
             <TextView

@@ -66,11 +66,9 @@ public class TextVideoAdapter extends BaseAdapter {
 
 
         TextVideo video = list.get(position);
-        if (video.getTeacherFace() != null) {
-            Glide.with(context).load(video.getImages())
-                    .placeholder(R.drawable.approve)
-                    .into(holder.live_iv);
-        }
+        Glide.with(context).load(video.getImages())
+                .placeholder(R.drawable.approve)
+                .into(holder.live_iv);
         holder.live_title.setText(video.getTitle());
         holder.live_teachername.setText("讲师：" + video.getTeacherName());
         holder.live_attnum.setText(video.getAttentNum() + "" + "人已参与");

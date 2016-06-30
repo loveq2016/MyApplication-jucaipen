@@ -4,14 +4,13 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <ListView
-        android:layout_weight="1"
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/comm_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        android:scrollbars="none"></ListView>
-
+        android:scrollbars="none">
+    </com.jcodecraeer.xrecyclerview.XRecyclerView>
     <include layout="@layout/comm">
     </include>
 

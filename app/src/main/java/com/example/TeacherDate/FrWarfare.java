@@ -1,18 +1,24 @@
 package com.example.TeacherDate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.util.ArrayMap;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.Activity.Wardetails;
 import com.example.adapter.WarfareAdapter;
 import com.example.androidnetwork.R;
 import com.example.model.Warfare;
 import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,13 +38,14 @@ import java.util.Map;
  */
 public class FrWarfare extends Fragment {
     private View view;
-    private ListView lv_warfare;
+    private XRecyclerView lv_warfare;
     private String warfareUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/gettactics";
     private WarfareAdapter adapter;
     private Map<String, Object> map = new ArrayMap<>();
     private List<Warfare> list = new ArrayList<>();
     private int teacherId;
     private int page = 1;
+    private TextView tv_war;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,9 +60,36 @@ public class FrWarfare extends Fragment {
     private void init() {
         teacherId = (int) getArguments().getSerializable("teacherId");
         GetWarFare();
-        lv_warfare = (ListView) view.findViewById(R.id.lv_warfare);
+        lv_warfare = (XRecyclerView) view.findViewById(R.id.lv_warfare);
+        tv_war = (TextView) view.findViewById(R.id.tv_war);
         adapter = new WarfareAdapter(getActivity(), list);
         lv_warfare.setAdapter(adapter);
+
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        lv_warfare.setLayoutManager(manager);
+        lv_warfare.setPullRefreshEnabled(false);
+        adapter.setOnItemClickLinsstenr(new WarfareAdapter.WarfareAdapterOnItemClickLinsstenr() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), Wardetails.class);
+                startActivity(intent);
+            }
+        });
+        lv_warfare.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+
+            @Override
+            public void onLoadMore() {
+
+            }
+        });
+
+
     }
 
     private void GetWarFare() {
@@ -73,7 +107,15 @@ public class FrWarfare extends Fragment {
             @Override
             public void onSuccess(String result) {
 
-                if (result != null) {
+                Toast.makeText(getActivity(), "" + result.length(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "" + result, Toast.LENGTH_SHORT).show();
+
+
+                if (result == null && result.length() <= 0) {
+                    lv_warfare.setVisibility(View.VISIBLE);
+                }
+
+                if (result != null && result.length() > 0) {
                     // [{"id":1,"title":"标题","desc":"描述","image":"封面图片","orderNum":订阅人数}]
                     try {
                         JSONArray array = new JSONArray(result);

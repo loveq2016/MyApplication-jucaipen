@@ -1,8 +1,14 @@
 package com.example.FragmentItems;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.TransitionDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,9 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.Activity.VideoPlay;
@@ -24,6 +32,7 @@ import com.example.utils.JsonUtil;
 import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
 import com.example.utils.TimeUtils;
+import com.example.view.MyGridView;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -42,9 +51,7 @@ import java.util.Map;
 public class FragmentVideo extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemClickListener {
     private View view;
     private VideoPlayAdapter adapter;
-    private GridView video_gridview;
-    private RelativeLayout rela_video;
-    private RelativeLayout liner_video;
+    private MyGridView video_gridview;
     private List<String> list = new ArrayList<>();
     private RadioGroup two_grop;
     private List<Live> typelist = new ArrayList<>();
@@ -64,6 +71,13 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
     private int classId;
     private int typeId = -1;
     private int teacherId = -1;
+    private RelativeLayout rel_screen;
+    private RelativeLayout rela_video;
+    private View video_view;
+    private boolean isview;
+    private ScrollView video_scroll;
+    private ProgressBar fr_progress;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,6 +99,10 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
 
             @Override
             public void onSuccess(String result) {
+                fr_progress.setVisibility(View.GONE);
+                fr_progress.clearAnimation();
+                video_scroll.setVisibility(View.VISIBLE);
+
                 group.removeAllViews();
                 if (position == 1) {
                     //分类信息
@@ -146,9 +164,8 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
                     if (result != null && result.length() > 0) {
                         videoList = JsonUtil.getvideo(result);
                         adapter.setList(videoList);
-                        adapter.notifyDataSetChanged();
                     }
-
+                    adapter.notifyDataSetChanged();
                 }
 
                 @Override
@@ -173,23 +190,20 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void parseType(List<Live> classList, RadioGroup gro) {
         for (int i = 0; i < classList.size(); i++) {
             String title = classList.get(i).getTitle();
             button = new RadioButton(getActivity());
             button.setText(title);
             button.setButtonDrawable(0);
-            button.setTextSize(11);
-            button.setTextColor(getResources().getColor(R.color.cl_btn));
-            button.setPadding(26, 0, 26, 0);
-
-            int rand = TimeUtils.createRandom(5);
-            Log.i("111", "parseType: " + rand);
-            button.setId(rand);
-
-
+            button.setTextSize(12);
+            button.setButtonDrawable(new ColorDrawable(Color.TRANSPARENT));
+            button.setTextColor(ContextCompat.getColorStateList(getActivity(), R.color.video_txt_sele));
+            button.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.video_border_se));
+            button.setId(View.generateViewId());
             button.setGravity(Gravity.CENTER);
-            ViewGroup.LayoutParams lm = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 80);
+            ViewGroup.LayoutParams lm = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             button.setLayoutParams(lm);
             gro.addView(button);
         }
@@ -223,21 +237,22 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
 
 
     private void initWight() {
-
-
         rela_video = (RelativeLayout) view.findViewById(R.id.rela_video);
         rela_video.setOnClickListener(this);
-        liner_video = (RelativeLayout) view.findViewById(R.id.liner_video);
-        liner_video.setOnClickListener(this);
 
 
         type_rgp = (RadioGroup) view.findViewById(R.id.type_rgp);
         two_grop = (RadioGroup) view.findViewById(R.id.two_grop);
         video_type = (RadioGroup) view.findViewById(R.id.video_type);
         teacher_rad = (RadioGroup) view.findViewById(R.id.teacher_rad);
+        rela_video = (RelativeLayout) view.findViewById(R.id.rela_video);
+        rela_video.setOnClickListener(this);
+        rel_screen = (RelativeLayout) view.findViewById(R.id.rel_screen);
+        video_view = view.findViewById(R.id.video_view);
+        video_scroll = (ScrollView) view.findViewById(R.id.video_scroll);
+        fr_progress = (ProgressBar) view.findViewById(R.id.fr_progress);
 
-
-        video_gridview = (GridView) view.findViewById(R.id.video_gridview);
+        video_gridview = (MyGridView) view.findViewById(R.id.video_gridview);
         video_gridview.setOnItemClickListener(this);
         adapter = new VideoPlayAdapter(getActivity(), videoList);
         video_gridview.setAdapter(adapter);
@@ -259,7 +274,16 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rela_video:
-                liner_video.setVisibility(View.VISIBLE);
+                if (isview == false) {
+                    rel_screen.setVisibility(View.VISIBLE);
+                    video_view.setVisibility(View.VISIBLE);
+                    isview = true;
+                } else {
+                    rel_screen.setVisibility(View.GONE);
+                    video_view.setVisibility(View.GONE);
+                    isview = false;
+                }
+
                 break;
         }
     }
@@ -314,12 +338,23 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent();
+       /* Intent intent = new Intent();
         intent.setClass(getActivity(), VideoPlay.class);
         intent.putExtra("videoUrl", videoList.get(position).getVideoUrl());
 
         Toast.makeText(getActivity(), "url=" + videoList.get(position).getVideoUrl(), Toast.LENGTH_SHORT).show();
+        startActivity(intent);*/
+        Intent intent = new Intent();
+        intent.putExtra("id", videoList.get(position).getId());
+        intent.putExtra("videoUrl", videoList.get(position).getVideoUrl());
+        intent.putExtra("classId", videoList.get(position).getClassId());
+        intent.putExtra("title", videoList.get(position).getTitle());
+        intent.putExtra("hit", videoList.get(position).getHits());
+        intent.putExtra("isSpecial", videoList.get(position).isSpecial());
+        intent.putExtra("isCharge", videoList.get(position).isCharge());
+        intent.setClass(getActivity(), VideoPlay.class);
         startActivity(intent);
+
 
     }
 }

@@ -2,7 +2,9 @@ package com.example.TeacherDate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import com.example.androidnetwork.R;
 import com.example.model.Opinion;
 import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,11 +35,11 @@ import java.util.Map;
  * Created by Administrator on 2016/5/14.
  * 他的观点
  */
-public class FrViewpoint extends Fragment implements AdapterView.OnItemClickListener {
+public class FrViewpoint extends Fragment {
     private String pointUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getideaask";
 
 
-    private ListView listview_video;
+    private XRecyclerView listview_video;
     private List<Opinion> opinionList = new ArrayList<>();
     private PageIdeaAdapter pageIdeaAdapter;
     private View view;
@@ -55,19 +58,56 @@ public class FrViewpoint extends Fragment implements AdapterView.OnItemClickList
 
     private void init() {
         teacherId = getArguments().getInt("teacherId");
-        GetPoint();
-        listview_video = (ListView) view.findViewById(R.id.listview_video);
-        listview_video.setOnItemClickListener(this);
+        GetPoint(page);
+        listview_video = (XRecyclerView) view.findViewById(R.id.listview_video);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        listview_video.setLayoutManager(manager);
+
+        listview_video.setPullRefreshEnabled(false);
+        // listview_video.setOnItemClickListener(this);
         pageIdeaAdapter = new PageIdeaAdapter(getActivity(), opinionList);
         listview_video.setAdapter(pageIdeaAdapter);
+        pageIdeaAdapter.setAdapterOnClick(new PageIdeaAdapter.RecyclerViewAdapterOnClick() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent();
+                intent.putExtra("id", opinionList.get(position).getId());
+                intent.setClass(getActivity(), HotCareful.class);
+                startActivity(intent);
+            }
+        });
 
+        listview_video.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+
+            @Override
+            public void onLoadMore() {
+
+                if (5 >= page) {
+                    page++;
+                    GetPoint(page);
+                }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        listview_video.loadMoreComplete();
+                    }
+                }, 3000);
+
+
+            }
+        });
     }
 
-    private void GetPoint() {
+    private void GetPoint(int pages) {
         map.clear();
         map.put("teacherId", teacherId);
         map.put("typeId", 0);
-        map.put("page", page);
+        map.put("page", pages);
         map.put("isIndex", 1);
         RequestParams params = NetUtils.sendHttpGet(pointUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
@@ -121,15 +161,4 @@ public class FrViewpoint extends Fragment implements AdapterView.OnItemClickList
         });
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch (parent.getId()) {
-            case R.id.listview_video:
-                Intent intent = new Intent();
-                intent.putExtra("id",opinionList.get(position).getId());
-                intent.setClass(getActivity(), HotCareful.class);
-                startActivity(intent);
-                break;
-        }
-    }
 }

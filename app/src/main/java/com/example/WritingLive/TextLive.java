@@ -77,7 +77,7 @@ public class TextLive extends Fragment implements AdapterView.OnItemClickListene
                             int id = object.getInt("id");
                             String bodys = object.getString("bodys");
                             int isLock = object.getInt("isLock");
-                            String insertDate=object.getString("insertDate");
+                            String insertDate = object.getString("insertDate");
                             TextVideo video = new TextVideo();
                             video.setId(id);
                             video.setBodys(bodys);

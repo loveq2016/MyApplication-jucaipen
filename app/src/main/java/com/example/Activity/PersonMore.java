@@ -52,7 +52,7 @@ public class PersonMore extends Activity implements View.OnClickListener, Adapte
         person_finish = (ImageButton) findViewById(R.id.person_finish);
         person_finish.setOnClickListener(this);
         personAdapter = new PersonAdapter(this, list);
-        lv_person.setAdapter(personAdapter);
+      //  lv_person.setAdapter(personAdapter);
         GetPerson();
 
 
@@ -73,7 +73,7 @@ public class PersonMore extends Activity implements View.OnClickListener, Adapte
             @Override
             public void onSuccess(String result) {
                 if (result != null && result.length() > 0) {
-                    list = JsonUtil.getFamous(result);
+                    //list = JsonUtil.getFamous(result);
                     personAdapter.setList(list);
                     personAdapter.notifyDataSetChanged();
                 }

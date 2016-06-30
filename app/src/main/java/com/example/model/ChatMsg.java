@@ -15,6 +15,35 @@ public class ChatMsg {
     private int sendLeavel;
     private String toName;
 
+    private  String fromFace;
+
+    private  String sendDate;
+
+    private  String toFace;
+
+    public String getSendDate() {
+        return sendDate;
+    }
+
+    public void setSendDate(String sendDate) {
+        this.sendDate = sendDate;
+    }
+
+    public String getFromFace() {
+        return fromFace;
+    }
+
+    public void setFromFace(String fromFace) {
+        this.fromFace = fromFace;
+    }
+
+    public String getToFace() {
+        return toFace;
+    }
+
+    public void setToFace(String toFace) {
+        this.toFace = toFace;
+    }
 
     public String getMsg() {
         return msg;

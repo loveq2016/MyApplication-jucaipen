@@ -144,7 +144,9 @@ public class Login extends Activity implements View.OnClickListener {
                         if (ret_code == 0) {
                             Toast.makeText(Login.this, "登录成功", Toast.LENGTH_SHORT).show();
                             int uId = object.getInt("userId");
+                            String userName=object.getString("userName");
                             Login.this.finish();
+                            StoreUtils.saveUserDate(Login.this,userName);
                             StoreUtils.saveData(Login.this, uId);
                         } else {
                             Toast.makeText(Login.this, "登录失败", Toast.LENGTH_SHORT).show();

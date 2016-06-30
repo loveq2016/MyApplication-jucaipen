@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <ImageView
@@ -35,17 +35,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/Twenty"
-                android:text="ACKD:  "
+                android:text="提问： "
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="@dimen/thirty_four" />
 
 
             <TextView
                 android:id="@+id/answer_body"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/Thirty"
-                android:text="招手机分期要求白户和纯白户，要有自己的手机实招手机分期要求白户和纯白户，要有自己的手机实名制和银行卡要绑定现在用的手机号名制和银行卡要绑定现在用的手机号:"
+                android:text="招hfdsgfds"
                 android:textColor="@color/cl_person"
                 android:textSize="@dimen/thirty_four" />
 
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/Thirty"
-                android:text="招手机分期要求白户和纯白户，要有自己的手机实招手机分期要求白户和纯白户，要有自己的手机实名制和银行卡要绑定现在用的手机号名制和银行卡要绑定现在用的手机号:"
+                android:text="gyry，，:"
                 android:textColor="@color/cl_person"
                 android:textSize="@dimen/thirty_four" />
 

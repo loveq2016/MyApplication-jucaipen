@@ -101,6 +101,7 @@
                 android:background="#4F5355"
                 android:hint="输入您想发送的内容"
                 android:paddingLeft="10dp"
+                android:id="@+id/et_msg"
                 android:textColor="@color/edt_cl"
                 android:textColorHint="@android:color/white"
                 android:textSize="@dimen/thirty_six" />
@@ -110,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/Thirty"
+                android:id="@+id/send"
                 android:src="@drawable/fasong" />
         </LinearLayout>
 

@@ -1,7 +1,9 @@
 package com.example.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import com.example.model.Comments;
 import com.example.utils.JsonUtil;
 import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -32,11 +35,15 @@ public class CommFragmnet extends Fragment {
     private String commUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getvideocomms";
     private View view;
     private VideoCommAdapter adapter;
-    private ListView comm_lv;
+    private XRecyclerView comm_lv;
     private Map<String, Object> map = new HashMap<>();
     private int page = 1;
     private int id;
     private List<Comments> list = new ArrayList<>();
+
+
+    public CommFragmnet() {
+    }
 
     public CommFragmnet(int id) {
         this.id = id;
@@ -50,19 +57,17 @@ public class CommFragmnet extends Fragment {
         init();
 
         //获取评论信息
-        GetComment();
+        GetComment(page);
 
         return view;
     }
 
 
-    private void GetComment() {
-        //http://192.168.1.134:8080/Jucaipen/jucaipen/getvideocomms?
-        // fkId=428&typeId=0&page=1&parentId=0
-        map.put("fkId",id);
-        map.put("typeId",0);
-        map.put("page",page);
-        map.put("parentId",0);
+    private void GetComment(int pages) {
+        map.put("fkId", id);
+        map.put("typeId", 0);
+        map.put("page", pages);
+        map.put("parentId", 0);
 
         RequestParams params = NetUtils.sendHttpGet(commUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
@@ -74,12 +79,11 @@ public class CommFragmnet extends Fragment {
             @Override
             public void onSuccess(String result) {
 
-                if (result != null) {
+                if (result != null&&result.length()>0) {
                     list = JsonUtil.getcomments(result);
                     adapter.setList(list);
-                    adapter.notifyDataSetChanged();
                 }
-
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -102,9 +106,34 @@ public class CommFragmnet extends Fragment {
     }
 
     private void init() {
-        comm_lv = (ListView) view.findViewById(R.id.comm_lv);
+
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        comm_lv = (XRecyclerView) view.findViewById(R.id.comm_lv);
+        comm_lv.setLayoutManager(manager);
         adapter = new VideoCommAdapter(getActivity(), list);
         comm_lv.setAdapter(adapter);
+        comm_lv.setPullRefreshEnabled(false);
+        comm_lv.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                if (5 >= page) {
+                    page++;
+                    GetComment(page);
+                }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        comm_lv.loadMoreComplete();
+                    }
+                }, 3000);
+            }
+        });
 
     }
 }

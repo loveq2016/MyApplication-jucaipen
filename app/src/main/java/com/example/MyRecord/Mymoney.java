@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.Activity.PayMoneny;
 import com.example.androidnetwork.R;
@@ -36,7 +38,6 @@ public class Mymoney extends Activity implements View.OnClickListener {
     private MoneyAdapter adapter;
     private TestListView lv_money;
     private TextView tv_titles;
-    private TextView tv_help;
     private String myUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getaccountdetail";
     private ImageButton ibt_callback;
     private ScrollView scrollview;
@@ -45,6 +46,8 @@ public class Mymoney extends Activity implements View.OnClickListener {
     private Map<String, Object> map = new HashMap<>();
     private TextView moneynumbers;
     private int page = 1;
+    private TextView tv_monad;
+    private ImageView iv_title;
 
 
     @Override
@@ -55,13 +58,11 @@ public class Mymoney extends Activity implements View.OnClickListener {
         init();
     }
 
-    private void GetmyMoneny( int state) {
+    private void GetmyMoneny(int state) {
         map.clear();
         map.put("userId", StoreUtils.getUserInfo(this));
         map.put("page", page);
         map.put("state", state);
-
-
         RequestParams params = NetUtils.sendHttpGet(myUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
@@ -76,6 +77,7 @@ public class Mymoney extends Activity implements View.OnClickListener {
                 // "detailMoney":10.0,"type":0,"remark":"成为【远清看市】的守护者【1】天，账户积分+10",
                 // "Integeral":27,"jucaiBills":68},
 
+                Toast.makeText(Mymoney.this, ""+result, Toast.LENGTH_SHORT).show();
 
                 // {"page":1,"totlePage":1,"id":585,
                 // "insertDate":"2016-06-16 17:54:00.213","detailMoney":12.0,"type":0,
@@ -84,7 +86,7 @@ public class Mymoney extends Activity implements View.OnClickListener {
                 if (result != null) {
                     list = JsonUtil.getBills(result);
                     adapter.setList(list);
-                    int s= (int) map.get("state");
+                    int s = (int) map.get("state");
                     if (s == 1) {
                         //积分
                         moneynumbers.setText(list.get(0).getIntegeral() + "");
@@ -125,19 +127,25 @@ public class Mymoney extends Activity implements View.OnClickListener {
         scrollview = (ScrollView) findViewById(R.id.scrollview);
         scrollview.smoothScrollTo(0, 0);
         tv_titles = (TextView) findViewById(R.id.tv_titles);
-        tv_help = (TextView) findViewById(R.id.tv_help);
+        tv_monad = (TextView) findViewById(R.id.tv_monad);
         ibt_pay = (ImageButton) findViewById(R.id.ibt_pay);
+        iv_title = (ImageView) findViewById(R.id.iv_title);
+
+
         int type = getIntent().getIntExtra("type", -1);
+
+
         if (type == 1) {
             //积分
-            tv_titles.setText("我的积分");
+            tv_monad.setText("积分");
             ibt_pay.setVisibility(View.GONE);
             GetmyMoneny(1);
 
         } else {
             //聚财币
+            iv_title.setImageResource(R.drawable.jucaibi_dangqian);
             tv_titles.setText("我的聚财币");
-            tv_help.setVisibility(View.GONE);
+            tv_monad.setText("聚财币");
             ibt_pay.setOnClickListener(this);
             GetmyMoneny(0);
         }

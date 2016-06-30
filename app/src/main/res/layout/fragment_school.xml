@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cl_myback"
-    android:orientation="vertical">
+    >
+
+    <ProgressBar
+        android:id="@+id/school_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
 
     <ScrollView
+        android:visibility="gone"
         android:id="@+id/school_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -75,9 +82,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/white"
+                android:listSelector="@android:color/transparent"
                 android:numColumns="2"></com.example.view.MyGridView>
         </LinearLayout>
     </ScrollView>
 
 
-</LinearLayout>
+</RelativeLayout>

@@ -32,7 +32,6 @@ public class TextVideoLive extends FragmentActivity implements View.OnClickListe
     private TextLive textLive;//文字直播
     private ChatRoom chatRoom;//聊天室
     private ReadingPlate readingPlate;//浏览解盘
-   // private WhisperGuard whisperGuard;//守护悄悄话
     private List<Fragment> list;
     private ViewPagerAdapter viewPagerAdapter;
     private int id;

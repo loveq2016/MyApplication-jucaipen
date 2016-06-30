@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical">
+    >
 
     <include layout="@layout/sortitem"></include>
-
-    <ScrollView
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:id="@+id/question_progress"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/ibt_ask"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/question_bg"
-                android:src="@drawable/questin_button" />
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:visibility="gone"
+        android:id="@+id/questionListview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/white" />
 
-            <com.example.view.TestListView
-                android:id="@+id/questionListview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="@android:color/white" />
-        </LinearLayout>
-
-    </ScrollView>
-</LinearLayout>
+</RelativeLayout>

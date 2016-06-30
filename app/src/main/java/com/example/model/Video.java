@@ -20,6 +20,7 @@ public class Video {
     private  boolean isSpecial;
     private boolean isCharge;
 
+
     public boolean isCharge() {
         return isCharge;
     }

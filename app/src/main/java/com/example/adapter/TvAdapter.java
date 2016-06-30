@@ -69,7 +69,7 @@ public class TvAdapter extends BaseAdapter {
         LinearLayout liner_tx = (LinearLayout) convertView.findViewById(R.id.liner_tx);
         TextVideo video = list.get(position);
 
-        String time = TimeUtils.parseStrDate(video.getInsertDate(), "yyyy-MM-dd HH:ss");
+        String time = TimeUtils.getHH_mm(video.getInsertDate());
         holder.tx_time.setText(time);
 
         int lock = video.getIsLock();

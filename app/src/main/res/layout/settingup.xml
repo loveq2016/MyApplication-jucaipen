@@ -46,13 +46,13 @@
             android:textSize="@dimen/thirty_four" />
 
         <TextView
+            android:id="@+id/tv_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/sixty"
             android:text="10086"
-            android:id="@+id/tv_account"
             android:textColor="@color/cl_btn"
             android:textSize="@dimen/thirty_four" />
     </RelativeLayout>
@@ -161,7 +161,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/one_hundred_twenty"
         android:layout_marginTop="@dimen/Thirty"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -208,36 +209,13 @@
             android:src="@drawable/ziliao_youjian" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/one_hundred_twenty"
-        android:layout_marginTop="1dp"
-        android:background="@android:color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/Thirty"
-            android:text="我的反馈"
-            android:textColor="@color/cl_person"
-            android:textSize="@dimen/thirty_four" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingRight="@dimen/Thirty"
-            android:src="@drawable/ziliao_youjian" />
-    </RelativeLayout>
 
     <Button
         android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/thirty_eight"
         android:background="@android:color/white"
+        android:padding="@dimen/thirty_eight"
         android:text="退出登录"
         android:textColor="@android:color/holo_red_dark" />
 </LinearLayout>

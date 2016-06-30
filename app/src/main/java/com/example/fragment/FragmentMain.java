@@ -76,7 +76,6 @@ public class FragmentMain extends Fragment implements RadioGroup.OnCheckedChange
         adapter.notifyDataSetChanged();
     }
 
-
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void init() {
         strs = new String[7];
@@ -114,13 +113,13 @@ public class FragmentMain extends Fragment implements RadioGroup.OnCheckedChange
             radioButton.setText(strs[i]);
             radioButton.setTextColor(Color.RED);
             radioButton.setTextSize(14);
-            radioButton.setButtonDrawable(0);
+
             radioButton.setId(i);
             LayoutParams lm = new LayoutParams(218, LayoutParams.WRAP_CONTENT);
             radioButton.setLayoutParams(lm);
             radioButton.setGravity(Gravity.CENTER);
-            radioButton.setButtonDrawable(new ColorDrawable(Color.TRANSPARENT));
             radioButton.setBackground(getResources().getDrawable(R.drawable.radiobutton_selecter));
+            radioButton.setButtonDrawable(new ColorDrawable(Color.TRANSPARENT));
             radioGroup.addView(radioButton);
         }
         initFragment();

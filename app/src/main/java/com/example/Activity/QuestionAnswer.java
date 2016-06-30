@@ -7,15 +7,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.adapter.DetailsAdapter;
 import com.example.androidnetwork.R;
 import com.example.model.QuestionBean;
 import com.example.utils.NetUtils;
+import com.example.utils.StringUntils;
+import com.example.utils.TimeUtils;
 import com.example.view.TestListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
@@ -24,6 +32,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * Created by Administrator on 2016/5/31.
@@ -38,9 +48,16 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
     private EditText answer_edt;
     private ImageButton answer_send;
     private ScrollView answer_scroll;
-    private List<QuestionBean> questions = new ArrayList<>();
-    private String questionUrl = "";
+    private List<QuestionBean> list = new ArrayList<>();
     private Map<String, Object> map = new HashMap<>();
+    private String askUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getanswerdetails";
+    private int askId;
+
+    private ImageView picture;
+    private TextView answer_name;
+    private TextView question_time;
+    private TextView body_question;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +65,18 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
         setContentView(R.layout.questionanswer);
 
         init();
-        initData();
         GetAnswerDate();
 
     }
 
     private void GetAnswerDate() {
-        RequestParams params = NetUtils.sendHttpGet(questionUrl, map);
+        map.clear();
+        map.put("askId", askId);
+        RequestParams params = NetUtils.sendHttpGet(askUrl, map);
+        //{"userFace":"http://img.jucaipen.com/jucaipenUpload/2016/3/7/20163717857.jpg",
+        // "userNickName":"Fengerous","userLeavel":1,"askDate":"2016-06-04 16:42:50.923",
+        // "askBody":"hello","isFree":0}
+
 
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
@@ -64,14 +86,33 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
 
             @Override
             public void onSuccess(String result) {
-
-                Toast.makeText(QuestionAnswer.this, "" + result, Toast.LENGTH_SHORT).show();
-                Log.e("111", "onSuccess: " + result);
-
                 if (result != null) {
+                    //{"teacherFace":"http:\/\/img.jucaipen.com\/jucaipenUp016164135.jpg","teacherNickName":"昊博"
+                    // ,"teacherLeavel":"资深投资人","answerDate":"2015-09-15 13:48:55.83","answerBody":"可以的"}]
+                    try {
+                        JSONArray array=new JSONArray(result);
+                        for (int i=0;i<array.length();i++){
+                            JSONObject object = array.getJSONObject(i);
+                            String teacherFace = object.optString("teacherFace", "");
+                            String teacherNickName = object.optString("teacherNickName", "");
+                            String teacherLeavel = object.optString("teacherLeavel", "");
+                            String answerDate = object.optString("answerDate", "");
+                            String answerBody = object.optString("answerBody", "");
 
-
+                            QuestionBean bean=new QuestionBean();
+                            bean.setTeacherFace(teacherFace);
+                            bean.setTeacherNickName(teacherNickName);
+                            bean.setTeacherLeavel(teacherLeavel);
+                            bean.setAskDate(answerDate);
+                            bean.setAnswerBody(answerBody);
+                            list.add(bean);
+                        }
+                     adapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+
 
             }
 
@@ -94,20 +135,14 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
 
     }
 
-    private void initData() {
-        for (int i = 0; i < 15; i++) {
-            QuestionBean questionBean = new QuestionBean();
-            if (i % 2 == 0) {
-                questionBean.setType(1);
-            } else {
-                questionBean.setType(2);
-            }
-            questions.add(questionBean);
-        }
-        adapter.notifyDataSetChanged();
-    }
-
     private void init() {
+        askId = getIntent().getIntExtra("askId", -1);
+        String name = getIntent().getStringExtra("name");
+        String insertDate = getIntent().getStringExtra("insertDate");
+        String askBody = getIntent().getStringExtra("askBody");
+        String iamgurl=getIntent().getStringExtra("iamgurl");
+
+
         answer_lv = (TestListView) findViewById(R.id.answer_lv);
         ibt_back = (ImageButton) findViewById(R.id.ibt_back);
         answer_edt = (EditText) findViewById(R.id.answer_edt);
@@ -116,9 +151,22 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
         answer_scroll = (ScrollView) findViewById(R.id.answer_scroll);
         answer_scroll.smoothScrollTo(0, 0);
 
+        picture = (ImageView) findViewById(R.id.picture);
+        answer_name = (TextView) findViewById(R.id.answer_name);
+        question_time = (TextView) findViewById(R.id.question_time);
+        body_question = (TextView) findViewById(R.id.body_question);
+
+        answer_name.setText(name);
+       // question_time.setText(TimeUtils.parseStrDate(insertDate, "yyyy-MM-dd HH:ss"));
+        body_question.setText(askBody);
+        Glide.with(QuestionAnswer.this).load(iamgurl)
+                .placeholder(R.drawable.rentou)
+                .bitmapTransform(new CropCircleTransformation(QuestionAnswer.this))
+                .into(picture);
+
 
         ibt_back.setOnClickListener(this);
-        adapter = new DetailsAdapter(context, questions);
+        adapter = new DetailsAdapter(context, list);
         answer_lv.setAdapter(adapter);
     }
 

@@ -39,8 +39,8 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
     private LinearLayout framelayout;
     private List<Fragment> list = new ArrayList<>();
     private LinearLayout lay;
-    private String postUrl="";
-    private Map<String, Object> map=new HashMap<>();
+    private String postUrl = "";
+    private Map<String, Object> map = new HashMap<>();
 
     @Nullable
     @Override
@@ -54,9 +54,9 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onActivityCreated( Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-       lay=(LinearLayout)getActivity().findViewById(R.id.maingroup);
+        lay = (LinearLayout) getActivity().findViewById(R.id.maingroup);
     }
 
     private void select(int i) {
@@ -114,8 +114,8 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
 
 
         map.clear();
-        map.put("opType",1);
-        RequestParams params= NetUtils.sendHttpGet(postUrl,map);
+        map.put("opType", 1);
+        RequestParams params = NetUtils.sendHttpGet(postUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
             public boolean onCache(String result) {

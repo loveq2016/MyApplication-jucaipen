@@ -57,7 +57,7 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
  */
 public class HotCareful extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private RelateAdapter adapter;
-    private CommentAdapter commentAdapter;
+    // private CommentAdapter commentAdapter;
     private TestListView commentListview;
     private String url = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getnewsdetail";
     private String readurl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getrelatenews";
@@ -115,7 +115,6 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
 
     private void initwight() {
         progress = (ProgressBar) findViewById(R.id.progress);
-
         animation = Loading.loadanntation(this, progress);
 
         Interpolator interpolator = new LinearInterpolator();
@@ -125,7 +124,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
         initDate();
         init();
         //全部评论
-        GetComm(0);
+        // GetComm(0);
         //打赏接口
         Getmarker();
         tv_markerNum = (TextView) findViewById(R.id.tv_markerNum);
@@ -181,6 +180,9 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
 
             @Override
             public void onSuccess(String result) {
+                hot_scroll.setVisibility(View.VISIBLE);
+                progress.clearAnimation();
+                progress.setVisibility(View.GONE);
                 if (result != null) {
                     try {
                         JSONArray array = new JSONArray(result);
@@ -195,7 +197,6 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
                         }
                         inviteCodeAdaper.notifyDataSetChanged();
                         tv_markerNum.setText(list.get(0).getMarkerNum() + "人赞赏");
-                        progress.clearAnimation();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -292,9 +293,9 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
 
                 if (result != null) {
                     comms = JsonUtil.getcomments(result);
-                    commentAdapter.setList(comms);
+                    //commentAdapter.setList(comms);
                 }
-                commentAdapter.notifyDataSetChanged();
+                // commentAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -332,8 +333,8 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
 
         commentListview = (TestListView) findViewById(R.id.comment_xv);
         commentListview.setOnItemClickListener(this);
-        commentAdapter = new CommentAdapter(comms, this);
-        commentListview.setAdapter(commentAdapter);
+//        commentAdapter = new CommentAdapter(comms, this);
+//        commentListview.setAdapter(commentAdapter);
 
 
         /*dialog = new Dialog(this);

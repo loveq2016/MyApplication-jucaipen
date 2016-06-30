@@ -70,7 +70,7 @@ public class SharedNews {
 
             @Override
             public void onError(UiError uiError) {
-                Toast.makeText(context, "分享失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "分享失败:"+uiError.errorMessage, Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -43,14 +43,10 @@
     </RelativeLayout>
 
 
-    <!--<WebView
-        android:id="@+id/comm_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/comm_summary"
-         />-->
     <TextView
+        android:layout_margin="10dp"
         android:id="@+id/comm_content"
+        android:text="gdsagdsafdsa"
         android:layout_below="@id/comm_summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></TextView>

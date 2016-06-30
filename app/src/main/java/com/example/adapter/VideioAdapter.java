@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.androidnetwork.R;
 import com.example.model.School;
+import com.example.utils.TimeUtils;
 
 import java.util.List;
 
@@ -52,9 +53,9 @@ public class VideioAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         MyHolder holder = null;
         if (convertView == null) {
-            holder=new MyHolder();
+            holder = new MyHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.oldvideo, null);
-            holder.old_context= (TextView) convertView.findViewById(R.id.old_context);
+            holder.old_context = (TextView) convertView.findViewById(R.id.old_context);
             holder.video_bg = (ImageView) convertView.findViewById(R.id.video_bg);
             holder.video_date = (TextView) convertView.findViewById(R.id.video_date);
             holder.video_month = (TextView) convertView.findViewById(R.id.video_month);
@@ -62,8 +63,8 @@ public class VideioAdapter extends BaseAdapter {
             holder.tv_indruce = (TextView) convertView.findViewById(R.id.tv_indruce);
 
             convertView.setTag(holder);
-        }else {
-            holder= (MyHolder) convertView.getTag();
+        } else {
+            holder = (MyHolder) convertView.getTag();
         }
 
         School school = list.get(position);
@@ -73,7 +74,7 @@ public class VideioAdapter extends BaseAdapter {
                     .placeholder(R.drawable.approve)
                     .into(holder.video_bg);
         }
-        // tv_context.setText(school.getTitle());
+        //holder.tv_context.setText(school.getTitle());
         holder.old_context.setText(school.getTitle());
         holder.tv_indruce.setText(school.getDesc());
         holder.video_date.setText(school.getHits() + "");

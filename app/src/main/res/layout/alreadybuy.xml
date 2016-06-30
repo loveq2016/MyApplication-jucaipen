@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/One_hundred_forty_five">
+        android:layout_height="@dimen/One_hundred_forty_five"
+        android:background="@android:color/white">
 
         <ImageView
             android:id="@+id/buy_image"

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
 
 import com.example.Activity.HotCareful;
 import com.example.androidnetwork.R;
@@ -35,7 +36,7 @@ import java.util.Map;
  * <p/>
  * 主页    －－观点模块
  */
-public class FragmentIdea extends Fragment implements AdapterView.OnItemClickListener {
+public class FragmentIdea extends Fragment {
     private XRecyclerView ideaListivew;
     private IdeaAdapter adapter;
     private String ideaUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getidealist";
@@ -44,6 +45,8 @@ public class FragmentIdea extends Fragment implements AdapterView.OnItemClickLis
     private List<Opinion> opinionList = new ArrayList<>();
     private int page = 1;
     private Context context = getActivity();
+    private IdeaAdapter.OnRecyclerViewItemClickListener recyclerViewItemClickListener;
+    private ProgressBar idea_progress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,8 +72,13 @@ public class FragmentIdea extends Fragment implements AdapterView.OnItemClickLis
 
             @Override
             public void onSuccess(String result) {
-                opinionList = JsonUtil.getOpinion(result,opinionList);
-                adapter.setList(opinionList);
+                idea_progress.setVisibility(View.GONE);
+                ideaListivew.setVisibility(View.VISIBLE);
+
+                if (result != null) {
+                    opinionList = JsonUtil.getOpinion(result, opinionList);
+                    adapter.setList(opinionList);
+                }
                 adapter.notifyDataSetChanged();
 
             }
@@ -99,56 +107,46 @@ public class FragmentIdea extends Fragment implements AdapterView.OnItemClickLis
         LinearLayoutManager manager = new LinearLayoutManager(context);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         ideaListivew.setLayoutManager(manager);
-
         adapter = new IdeaAdapter(context, opinionList);
         ideaListivew.setAdapter(adapter);
+        adapter.setItemClickListener(new IdeaAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent intent = new Intent();
+                intent.putExtra("id", opinionList.get(position).getId());
+                intent.setClass(getActivity(), HotCareful.class);
+                startActivity(intent);
+            }
+        });
+        idea_progress = (ProgressBar) view.findViewById(R.id.idea_progress);
+
+
         ideaListivew.setLoadingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
-
-
         ideaListivew.setPullRefreshEnabled(false);
-
-
         ideaListivew.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
-
-
             }
 
             @Override
             public void onLoadMore() {
-                if(opinionList!=null&&opinionList.size()>0){
-                    int totlePage= opinionList.get(0).getTotpager();
-                    if(totlePage>=page){
-                       int p= page++;
-                       Getidea(p);
+                if (opinionList != null && opinionList.size() > 0) {
+                    int totlePage = opinionList.get(0).getTotpager();
+                    if (totlePage >= page) {
+                        int p = page++;
+                        Getidea(p);
                     }
 
                 }
-
-
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                       ideaListivew.loadMoreComplete();
+                        ideaListivew.loadMoreComplete();
                     }
-                },3000);
+                }, 3000);
 
             }
         });
-        //ideaListivew.setOnItemClickListener(this);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent();
-        switch (parent.getId()) {
-            case R.id.ideaListivew:
-                intent.putExtra("id", opinionList.get(position).getId());
-                intent.setClass(getActivity(), HotCareful.class);
-                startActivity(intent);
-                break;
-        }
-
-    }
 }

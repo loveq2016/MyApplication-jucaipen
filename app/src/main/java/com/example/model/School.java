@@ -6,8 +6,10 @@ package com.example.model;
  * 学院实体类
  */
 public class School {
-
+   //直播回顾id
     private int id;
+    //直播id
+    private int liveId;
     private String title;
     private String desc;
     private String insertDate;
@@ -19,7 +21,42 @@ public class School {
     int isFree;
     int isEnd;
     String liveTitle;
+    private int classId;
+    private boolean isSpecial;
+    private boolean isCharge;
 
+
+    public int getClassId() {
+        return classId;
+    }
+
+    public void setClassId(int classId) {
+        this.classId = classId;
+    }
+
+    public boolean isCharge() {
+        return isCharge;
+    }
+
+    public void setCharge(boolean charge) {
+        isCharge = charge;
+    }
+
+    public boolean isSpecial() {
+        return isSpecial;
+    }
+
+    public void setSpecial(boolean special) {
+        isSpecial = special;
+    }
+
+    public int getLiveId() {
+        return liveId;
+    }
+
+    public void setLiveId(int liveId) {
+        this.liveId = liveId;
+    }
 
     public String getVideoUrl() {
         return videoUrl;

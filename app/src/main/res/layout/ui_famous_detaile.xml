@@ -29,12 +29,14 @@
                 android:textSize="@dimen/Forty" />
 
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/famous_shared"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/Thirty"
+                android:padding="@dimen/Thirty"
                 android:src="@drawable/fenxiang" />
 
         </RelativeLayout>

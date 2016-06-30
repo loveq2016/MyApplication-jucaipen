@@ -15,6 +15,18 @@ import java.util.Random;
 public class TimeUtils {
     private static String defaultDatePattern = "yyyy-MM-dd ";
     private static int age;
+    public final static String yyyy = "yyyy";
+    public final static String MM_dd = "MM-dd";
+    public final static String dd = "dd";
+    public final static String yyyy_MM_dd = "yyyy-MM-dd";
+    public final static String yyyy_MM_dd_HH_mm = "yyyy-MM-dd HH:mm";
+    public final static String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
+    public final static String yyyy_MM_dd_HH_mm_ss_SSS = "yyyy-MM-dd HH:mm:ss SSS";
+    public final static String MM_dd_HH_mm_ss = "MM-dd  HH:mm:ss";
+    public final static String HH_mm_ss = "HH:mm:ss";
+
+    public final static String yyyy_MM_dd_HH_mm_local = "yyyy骞碝M鏈坉d鏃? HH:mm";
+
 
 
     /**
@@ -188,4 +200,80 @@ public class TimeUtils {
                 + (day.length() == 1 ? ("0 " + day) : day);
         return parse(result);
     }
+
+
+    /**
+     * 杩斿洖褰撳ぉ鏃ユ湡鐨勫瓧绗︿覆锛屽彲浠ヨ嚜宸卞畾鏍煎紡锛屾牸寮忓涓?
+     * @param pattern
+     * @return
+     */
+    public static String now(String pattern) {
+        SimpleDateFormat df = new SimpleDateFormat(pattern);
+        return df.format(Calendar.getInstance().getTime());
+    }
+
+    public static String now_yyyy() {
+        return now(yyyy);
+    }
+
+    public static String now_MM_dd() {
+        return now(MM_dd);
+    }
+
+    public static String now_dd() {
+        return now(dd);
+    }
+
+    public static String now_yyyy_MM_dd() {
+        return now(yyyy_MM_dd);
+    }
+
+    public static String now_yyyy_MM_dd_HH_mm_ss() {
+        return now(yyyy_MM_dd_HH_mm_ss);
+    }
+
+    public static String now_yyyy_MM_dd_HH_mm_ss_SSS() {
+        return now(yyyy_MM_dd_HH_mm_ss_SSS);
+    }
+
+    public static String now_MM_dd_HH_mm_ss() {
+        return now(MM_dd_HH_mm_ss);
+    }
+
+
+    public static String getHH_mm(String time){
+        SimpleDateFormat sdf=new SimpleDateFormat(yyyy_MM_dd_HH_mm_ss);
+        try {
+            Date date=sdf.parse(time);
+            int hour=date.getHours();
+            int minte=date.getMinutes();
+            int seconds=date.getSeconds();
+            String hourStr;
+            if (hour < 10) {
+                hourStr = "0" + hour;
+            } else {
+                hourStr = hour + "";
+            }
+            String mintStr;
+            if (minte < 10) {
+                mintStr = "0" + minte;
+            } else {
+                mintStr = minte + "";
+            }
+
+            String secondStr;
+            if (seconds < 10) {
+                secondStr = "0" + seconds;
+            } else {
+                secondStr = seconds + "";
+            }
+            return  hourStr+":"+mintStr+":"+secondStr;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return  time;
+    }
+
+
+
 }

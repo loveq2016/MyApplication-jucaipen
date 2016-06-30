@@ -1,5 +1,7 @@
 package com.example.Live;
 
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -17,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.androidnetwork.R;
 import com.example.reciver.MyReceiver;
+import com.example.utils.DialogUtils;
+import com.example.utils.ExampleUtil;
 import com.example.utils.JsonUtil;
 import com.example.utils.MarqueeTextView;
 import com.example.adapter.ViewPagerAdapter;
@@ -45,6 +49,10 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
     private ImageButton video_share;
     private int liveId;
     private ImageButton iv_big;
+    private Dialog dialog;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,25 +61,6 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
         init();
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        IntentFilter recIntent=new IntentFilter(JPushInterface.ACTION_MESSAGE_RECEIVED);
-        MyReceiver receiver=new MyReceiver(){
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                    String receiverMsg=intent.getExtras().getString(JPushInterface.EXTRA_MESSAGE);
-                    //[{"sendId":48,"sendName":"学习找牛股","msg":"份饭","shenHe":0,"sendLeavel":0,"toName":null}]
-
-                //解析聊天
-                JsonUtil.getMsg(receiverMsg);
-                    Toast.makeText(LiveRoom.this, "接受的"+receiverMsg, Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        this.registerReceiver(receiver,recIntent);
-    }
 
     private void init() {
         teacherId=getIntent().getIntExtra("teacherId",-1);
@@ -97,6 +86,15 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
         list.add(userSeat);
         list.add(teacherIdea);
         list.add(newList);
+
+        dialog= DialogUtils.ShareDialog(this);
+
+
+
+
+
+
+
 
         room_group = (RadioGroup) findViewById(R.id.room_group);
         room_group.setOnCheckedChangeListener(this);
@@ -148,12 +146,6 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
                 room_viewpager.setCurrentItem(3, false);
 
                 break;
-            case R.id.iv_big:
-                Toast.makeText(LiveRoom.this, "全屏", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.video_share:
-                Toast.makeText(LiveRoom.this, "分享", Toast.LENGTH_SHORT).show();
-                break;
 
         }
 
@@ -194,6 +186,18 @@ public class LiveRoom extends FragmentActivity implements RadioGroup.OnCheckedCh
             case R.id.video_finsh:
                 this.finish();
                 break;
+            case R.id.iv_big:
+                Toast.makeText(this, "全屏", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.video_share:
+                if (!dialog.isShowing()){
+                    dialog.show();
+                }
+                break;
         }
+
+
     }
+
+
 }

@@ -41,6 +41,7 @@
 
 
     <RadioGroup
+        android:id="@+id/money_grp1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
@@ -71,6 +72,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/money_grp2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
@@ -79,6 +81,7 @@
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/payone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -86,6 +89,7 @@
             android:drawableTop="@drawable/payfour" />
 
         <RadioButton
+            android:id="@+id/paytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -93,6 +97,7 @@
             android:drawableTop="@drawable/payeight" />
 
         <RadioButton
+            android:id="@+id/paythree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -149,16 +154,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="应付金额"
+            android:text="应付金额:"
             android:textColor="@color/cl_person"
             android:textSize="@dimen/thirty_four" />
 
         <TextView
+            android:id="@+id/money_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/Forty_two"
-            android:text="1000元"
+            android:text="0 元"
             android:textColor="@color/cl_person"
             android:textSize="@dimen/thirty_four" />
 

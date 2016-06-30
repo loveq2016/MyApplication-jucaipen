@@ -5,16 +5,22 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.example.application.Settings;
 import com.example.utils.StoreUtils;
 import com.example.Activity.Login;
 import com.example.fragment.FragmentMain;
 import com.example.fragment.FragmentThree;
 import com.example.fragment.FragmentTwo;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
@@ -37,11 +43,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       init();
+        init();
     }
 
     private void init() {
-        maingroup= (LinearLayout) findViewById(R.id.maingroup);
+        maingroup = (LinearLayout) findViewById(R.id.maingroup);
 
 
         rl_index = (RelativeLayout) findViewById(R.id.rl_index);
@@ -89,16 +95,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private View.OnClickListener myClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int uId=  StoreUtils.getUserInfo(MainActivity.this);
-            if(uId>0){
+            int uId = StoreUtils.getUserInfo(MainActivity.this);
+            if (uId > 0) {
                 fragmentThree = new FragmentThree();
                 fm = getSupportFragmentManager();
                 ft = fm.beginTransaction();
                 ft.replace(R.id.viewpagr, fragmentThree);
                 ft.commit();
                 setButton(v);
-            }else{
-                Intent login=new Intent();
+            } else {
+                Intent login = new Intent();
                 login.setClass(MainActivity.this, Login.class);
                 MainActivity.this.startActivity(login);
             }
@@ -116,6 +122,37 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         // 当前按钮设置为不可点击，
         v.setEnabled(false);
         currentButton = v;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitBy2Click();
+        }
+        return false;
+    }
+
+    private static Boolean isExit = false;
+
+    private void exitBy2Click() {
+        Timer tExit = null;
+        if (isExit == false) {
+            isExit = true; // 准备退出
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            tExit = new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false; // 取消退出
+                }
+            }, 2000); // 两秒之内改变退出状态
+        } else {
+            //退出程序
+            finish();
+            System.exit(0);
+            Toast.makeText(MainActivity.this, "执行退出APP", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override

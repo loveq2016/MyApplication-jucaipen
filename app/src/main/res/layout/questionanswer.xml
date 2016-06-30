@@ -28,11 +28,11 @@
 
     <ScrollView
         android:id="@+id/answer_scroll"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/chat_liner"
         android:layout_below="@+id/answer_back"
+        android:background="@android:color/white"
         android:scrollbars="none">
 
 
@@ -73,10 +73,11 @@
                     />
 
                 <TextView
+                    android:id="@+id/question_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/picture"
-                    android:layout_below="@+id/nickname"
+                    android:layout_below="@+id/answer_name"
                     android:layout_marginLeft="@dimen/Thirty_two"
                     android:layout_toRightOf="@+id/picture"
                     android:text="提问时间：2016-04-30 20:20"
@@ -93,6 +94,7 @@
                 android:paddingBottom="@dimen/Forty_four">
 
                 <TextView
+                    android:id="@+id/body_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/Thirty_two"
@@ -124,13 +126,13 @@
 
                 <ImageView
                     android:id="@+id/answer_number"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/Forty_two"
                     android:layout_marginRight="@dimen/ten"
                     android:layout_marginTop="@dimen/Forty_two"
                     android:layout_toLeftOf="@+id/comment"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/dianzan" />
             </RelativeLayout>
 
             <View
@@ -173,9 +175,8 @@
             <com.example.view.TestListView
                 android:id="@+id/answer_lv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </com.example.view.TestListView>
+                android:layout_height="match_parent"
+                android:listSelector="@android:color/transparent"></com.example.view.TestListView>
         </LinearLayout>
     </ScrollView>
 
@@ -185,7 +186,8 @@
         android:layout_height="@dimen/One_hundred"
         android:layout_alignParentBottom="true"
         android:background="#24282B"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <ImageButton
             android:layout_width="wrap_content"

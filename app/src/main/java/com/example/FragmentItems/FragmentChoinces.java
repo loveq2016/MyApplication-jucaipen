@@ -6,18 +6,24 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.adapter.HotAdapter;
 import com.example.adapter.MyAdapter;
+import com.example.adapter.PersonNumAdapter;
 import com.example.androidnetwork.R;
+import com.example.utils.StoreUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.example.Activity.FamousPlain;
@@ -59,8 +65,11 @@ public class FragmentChoinces extends Fragment implements AdapterView.OnItemClic
     private Map<String, Object> map = new HashMap<>();
     private HotAdapter hotAdapter;
     private VideoAdapter videoAdapter;
-    private PersonAdapter personAdapter;
+    private PersonNumAdapter numAdapter;
     private TestListView hotlist;
+    private ProgressBar choince_progres;
+    private ScrollView chinoce_scroll;
+
     /*
       广告接口
     */
@@ -81,6 +90,7 @@ public class FragmentChoinces extends Fragment implements AdapterView.OnItemClic
     private ImageView moods_more;
     private RadioGroup rg;
     private List<Press> pressList = new ArrayList<>();
+
 
     //执行图片轮播
     private Handler handler = new Handler() {
@@ -205,24 +215,30 @@ public class FragmentChoinces extends Fragment implements AdapterView.OnItemClic
         GetPerson();
     }
 
-    private void GetPerson() {
+    public void GetPerson() {
         map.clear();
         map.put("isIndex", 0);
-        map.put("userId", 0 + "");
+        map.put("userId", StoreUtils.getUserInfo(getActivity()) + "");
         RequestParams params = NetUtils.sendHttpGet(personUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
             public boolean onCache(String result) {
                 return false;
             }
+//[{"page":0,"totlePage":0,"id":6,"nickName":"风火老师","headFace":"http://img247.jpg",
+// "level":"CCTV资深产品讲师","isV":1,"notice":"坚持“价值成长+趋势投资+资金跟踪+。善于寻找符合政策红利的主升浪个股机会！",
+// "fans":179,"isAttention":1},
 
             @Override
             public void onSuccess(String result) {
+                choince_progres.setVisibility(View.GONE);
+                choince_progres.clearAnimation();
+                chinoce_scroll.setVisibility(View.VISIBLE);
                 if (result != null && result.length() > 0) {
-                    famousList = JsonUtil.getFamous(result);
-                    personAdapter.setList(famousList);
-                    personAdapter.notifyDataSetChanged();
+                    famousList = JsonUtil.getperson(result);
+                    numAdapter.setList(famousList);
                 }
+                numAdapter.notifyDataSetChanged();
 
             }
 
@@ -336,6 +352,8 @@ public class FragmentChoinces extends Fragment implements AdapterView.OnItemClic
         video_more.setOnClickListener(this);
         moods_more = (ImageView) view.findViewById(R.id.moods_more);
         moods_more.setOnClickListener(this);
+        choince_progres = (ProgressBar) view.findViewById(R.id.choince_progres);
+        chinoce_scroll = (ScrollView) view.findViewById(R.id.chinoce_scroll);
 
 
         //创建多个适配器
@@ -345,12 +363,12 @@ public class FragmentChoinces extends Fragment implements AdapterView.OnItemClic
         // ideaAdapter=new IdeaAdapter(getActivity(),opinionList);
         hotAdapter = new HotAdapter(getActivity(), pressList);
         videoAdapter = new VideoAdapter(getActivity(), videoList);
-        personAdapter = new PersonAdapter(getActivity(), famousList);
+        numAdapter = new PersonNumAdapter(getActivity(), famousList);
 
         hotlist.setAdapter(hotAdapter);
 
         gridvideo.setAdapter(videoAdapter);
-        personList.setAdapter(personAdapter);
+        personList.setAdapter(numAdapter);
 
 
         gridvideo.setOnItemClickListener(this);
@@ -368,6 +386,10 @@ public class FragmentChoinces extends Fragment implements AdapterView.OnItemClic
                 intent.putExtra("id", videoList.get(position).getId());
                 intent.putExtra("videoUrl", videoList.get(position).getVideoUrl());
                 intent.putExtra("classId", videoList.get(position).getClassId());
+                intent.putExtra("title",videoList.get(position).getTitle());
+                intent.putExtra("hit",videoList.get(position).getHits());
+                intent.putExtra("isSpecial",videoList.get(position).isSpecial());
+                intent.putExtra("isCharge",videoList.get(position).isCharge());
                 intent.setClass(getActivity(), VideoPlay.class);
                 startActivity(intent);
                 break;
@@ -409,7 +431,7 @@ public class FragmentChoinces extends Fragment implements AdapterView.OnItemClic
 
                 RadioButton rb4 = (RadioButton) rg.getChildAt(4);
                 rb4.performClick();
-             //   intent.setClass(getActivity(), VideoMore.class);
+                //   intent.setClass(getActivity(), VideoMore.class);
 //                startActivity(intent);
                 //Toast.makeText(getActivity(), "推荐视频更多", Toast.LENGTH_SHORT).show();
                 break;

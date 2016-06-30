@@ -37,7 +37,7 @@ public class FragmentLive extends Fragment implements View.OnClickListener {
     }
 
     private void select(int i) {
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getChildFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         hidtFragment(ft);   //先隐藏 Fragment
 

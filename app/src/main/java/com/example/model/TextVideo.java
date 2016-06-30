@@ -17,6 +17,7 @@ public class TextVideo {
     private int isLock;
     private String insertDate;
     private int teacherId;
+    private int totpagler;
 
     public int getTeacherId() {
         return teacherId;

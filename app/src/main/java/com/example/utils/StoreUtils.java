@@ -32,18 +32,16 @@ public class StoreUtils {
 	}
 
 	// �����û���¼����Ϣ
-	public static void saveUserDate(Context context, String login_name,
-			String BuyProductIds, String IsManagers, String ReginDates,
-			String isServers,int type) {
+	public static void saveUserDate(Context context, String login_name) {
 		userData = context.getSharedPreferences("userData",
 				Context.MODE_PRIVATE);
 		Editor editor = userData.edit();
 		editor.putString("login_name", login_name);
-		editor.putString("BuyProductId", BuyProductIds);
+		/*editor.putString("BuyProductId", BuyProductIds);
 		editor.putString("IsManager", IsManagers);
 		editor.putString("ReginDate", ReginDates);
 		editor.putString("IsServer", isServers);
-		editor.putInt("userType", type);
+		editor.putInt("userType", type);*/
 		editor.commit();
 	}
 
@@ -57,23 +55,23 @@ public class StoreUtils {
 	}
 
 	// ��ȡ�û���¼����Ϣ
-	public static Map<String, String> getUserDate(Context context) {
+	public static String getUserDate(Context context) {
 		Map<String, String> map = new HashMap<String, String>();
 		userData = context.getSharedPreferences("userData",
 				Context.MODE_PRIVATE);
-		String BuyProductId = userData.getString("BuyProductId", null);
-		String IsManager = userData.getString("IsManager", null);
-		int userType=userData.getInt("userType", -1);
-		String ReginDate = userData.getString("ReginDate", null);
-		String IsServer = userData.getString("IsServer", null);
+	//	String BuyProductId = userData.getString("BuyProductId", null);
+		//String IsManager = userData.getString("IsManager", null);
+	//	int userType=userData.getInt("userType", -1);
+	//	String ReginDate = userData.getString("ReginDate", null);
+	//	String IsServer = userData.getString("IsServer", null);
 		String login_name = userData.getString("login_name", null);
-		map.put("BuyProductId", BuyProductId);
+	/*	map.put("BuyProductId", BuyProductId);
 		map.put("userType", userType+"");
 		map.put("IsManager", IsManager);
 		map.put("ReginDate", ReginDate);
 		map.put("login_name", login_name);
-		map.put("IsServer", IsServer);
-		return map;
+		map.put("IsServer", IsServer);*/
+		return login_name;
 
 	}
 
