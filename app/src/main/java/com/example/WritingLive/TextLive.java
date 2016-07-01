@@ -58,6 +58,7 @@ public class TextLive extends Fragment implements AdapterView.OnItemClickListene
     }
 
     private void GettvLive() {
+        list.clear();
         map.clear();
         map.put("txtId", id);
         RequestParams params = NetUtils.sendHttpGet(tvUrl, map);

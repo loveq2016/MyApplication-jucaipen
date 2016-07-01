@@ -34,26 +34,28 @@
 
     <TextView
         android:id="@+id/writer_body"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/writer_time"
         android:layout_marginLeft="@dimen/Twenty"
+        android:layout_marginRight="@dimen/Twenty"
         android:layout_marginTop="@dimen/Twenty"
+        android:layout_toLeftOf="@+id/tv_liveLock"
         android:layout_toRightOf="@+id/iv_yuan"
-        android:maxLength="10"
-        android:text="llll"
         android:ellipsize="end"
+        android:singleLine="true"
         android:textColor="@color/cl_person"
         android:textSize="@dimen/thirty_four" />
+
     <ImageView
+        android:id="@+id/tv_liveLock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_liveLock"
-        android:layout_alignTop="@+id/writer_body"
         android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/writer_body"
         android:layout_marginRight="20dp"
-        android:visibility="gone"
-        android:src="@drawable/lock"/>
+        android:src="@drawable/lock"
+        android:visibility="gone" />
 
 
 </RelativeLayout>

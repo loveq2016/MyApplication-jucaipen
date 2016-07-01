@@ -15,6 +15,7 @@ import cn.finalteam.galleryfinal.ThemeConfig;
 import cn.jpush.android.api.JPushInterface;
 
 public class InitImageLoder extends Application {
+    private  int liveId;
 
     @Override
     public void onCreate() {
@@ -32,7 +33,13 @@ public class InitImageLoder extends Application {
         JPushInterface.setDebugMode(false);
         JPushInterface.init(this);
 
-
     }
 
+    public void setLiveId(int liveId) {
+        this.liveId = liveId;
+    }
+
+    public int getLiveId() {
+        return liveId;
+    }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,7 @@ public class FragmentQuestion extends Fragment implements View.OnClickListener {
 
             @Override
             public void onSuccess(String result) {
+
                 question_progress.setVisibility(View.GONE);
                 questionListview.setVisibility(View.VISIBLE);
 
@@ -115,13 +117,12 @@ public class FragmentQuestion extends Fragment implements View.OnClickListener {
         adapter.setViewItemClickListener(new QuestionAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void setonClick(View v, Integer postion) {
-                intent.putExtra("askId",list.get(postion).getAskId());
+                intent.putExtra("askId", list.get(postion).getAskId());
 
-                intent.putExtra("name",list.get(postion).getTrueName());
-                intent.putExtra("insertDate",list.get(postion).getInsertDate());
-                intent.putExtra("askBody",list.get(postion).getAskBodys());
-                intent.putExtra("iamgurl",list.get(postion).getHeadFace());
-
+                intent.putExtra("name", list.get(postion).getTrueName());
+                intent.putExtra("insertDate", list.get(postion).getInsertDate());
+                intent.putExtra("askBody", list.get(postion).getAskBodys());
+                intent.putExtra("iamgurl", list.get(postion).getHeadFace());
                 intent.setClass(getActivity(), QuestionAnswer.class);
                 startActivity(intent);
             }

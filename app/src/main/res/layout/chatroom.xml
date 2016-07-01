@@ -5,15 +5,25 @@
     android:orientation="vertical">
 
     <ListView
+        android:visibility="gone"
         android:id="@+id/lv_chat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"></ListView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/tv_guinfo"
+        android:text="您还没成为该讲师的守护者，请先开通守护"
+        android:gravity="center"/>
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:background="#24282B"
+        android:id="@+id/et_lay"
         android:orientation="horizontal">
 
         <ImageButton

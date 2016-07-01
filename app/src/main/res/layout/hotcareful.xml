@@ -36,13 +36,6 @@
             android:paddingRight="@dimen/Thirty"
             android:src="@drawable/fenxiang" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/iv_shared"
-            android:padding="@dimen/Thirty"
-            android:src="@drawable/shoucang" />
     </RelativeLayout>
 
 

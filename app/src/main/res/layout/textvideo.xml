@@ -49,6 +49,17 @@
             android:textSize="@dimen/Forty" />
 
         <RadioButton
+            android:id="@+id/rbt_look"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_selecter"
+            android:button="@null"
+            android:gravity="center"
+            android:text="浏览解盘"
+            android:textSize="@dimen/Forty" />
+
+        <RadioButton
             android:id="@+id/rbt_chat"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -56,18 +67,10 @@
             android:background="@drawable/radiobutton_selecter"
             android:button="@null"
             android:gravity="center"
-            android:text="聊天室"
+            android:text="守护悄悄话"
             android:textSize="@dimen/Forty" />
 
-        <RadioButton
-            android:id="@+id/rbt_look"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:text="浏览解盘"
-            android:textSize="@dimen/Forty" />
+
 
        <!-- <RadioButton
             android:id="@+id/rbt_guard"
@@ -87,8 +90,8 @@
         android:layout_height="@dimen/Thirty"
         android:background="@color/cl_myback"></View>
 
-    <android.support.v4.view.ViewPager
+    <FrameLayout
         android:id="@+id/text_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"></FrameLayout>
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
@@ -25,6 +26,8 @@ import com.example.adapter.RelateAdapter;
 import com.example.androidnetwork.R;
 import com.example.model.Comments;
 import com.example.utils.JsonUtil;
+import com.example.utils.StoreUtils;
+import com.example.utils.StringUtil;
 import com.example.utils.TimeUtils;
 import com.example.adapter.InviteCodeAdaper;
 import com.example.model.Marker;
@@ -63,6 +66,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
     private String readurl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getrelatenews";
     private String commurl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getlogcomments";
     private String markerUrl = "http://192.168.1.134:8080/Jucaipen/jucaipen/getmarker";
+    private String collectUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/star";
 
     private ImageButton hot_see;
     private Map<String, Object> map = new HashMap<>();
@@ -96,6 +100,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
     private ImageButton ibt_wenxinzone;
     private ImageButton ibt_weibo;
     private Button btn_call;
+    private String iscollectUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getisattention";
     private ProgressBar progress;
 
 
@@ -104,6 +109,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
     private Dialog dialog;
     private ArrayList<String> imagList = new ArrayList<>();
     private Animation animation;
+    private int teacherId;
 
 
     @Override
@@ -127,6 +133,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
         // GetComm(0);
         //打赏接口
         Getmarker();
+
         tv_markerNum = (TextView) findViewById(R.id.tv_markerNum);
         tv_hottitle = (TextView) findViewById(R.id.tv_hottitle);
         hot_image = (ImageView) findViewById(R.id.hot_image);
@@ -225,6 +232,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
 
 
     private void initDate() {
+        teacherId = getIntent().getIntExtra("teacherId", -1);
         newsId = getIntent().getIntExtra("id", -1);
         map.clear();
         map.put("newsId", newsId);
@@ -243,7 +251,8 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
                 tv_hottitle.setText(press.getTitle());
                 tv_teachername.setText(press.getFrom());
                 tv_inserttime.setText(TimeUtils.parseStrDate(press.getInsertDate(), "yyyy-MM-dd HH:mm"));
-                tv_body.setText(Html.fromHtml(press.getBody()));
+                tv_body.setText(StringUtil.clearHTMLCode(press.getBody()));
+
                 read_num.setText("阅读数  " + press.getReadNum() + "");
                 tv_zannum.setText(" " + press.getGoods() + "");
                 tv_second.setText(press.getKeyWord());
@@ -421,6 +430,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
 //                dialog.show();
         }
     }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

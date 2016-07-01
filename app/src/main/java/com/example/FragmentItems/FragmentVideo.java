@@ -33,6 +33,7 @@ import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
 import com.example.utils.TimeUtils;
 import com.example.view.MyGridView;
+import com.example.view.media.MyMediaController;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -261,6 +262,7 @@ public class FragmentVideo extends Fragment implements View.OnClickListener, Rad
         video_type.setOnClickListener(this);
         teacher_rad.setOnCheckedChangeListener(this);
         two_grop.setOnCheckedChangeListener(this);
+
 
 
         GetVideo();

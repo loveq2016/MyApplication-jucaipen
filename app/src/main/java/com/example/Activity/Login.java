@@ -109,12 +109,15 @@ public class Login extends Activity implements View.OnClickListener {
                 }
 
             case R.id.ibt_qq:
-               // reginQQ();
+                Toast.makeText(Login.this, "QQ登录", Toast.LENGTH_SHORT).show();
+                reginQQ();
                 break;
             case R.id.ibt_xinlang:
+                Toast.makeText(Login.this, "暂不支持登录", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ibt_weixin:
-              //  reginWeiXin();
+                Toast.makeText(Login.this, "微信登录", Toast.LENGTH_SHORT).show();
+                reginWeiXin();
 
                 break;
             default:
@@ -144,9 +147,9 @@ public class Login extends Activity implements View.OnClickListener {
                         if (ret_code == 0) {
                             Toast.makeText(Login.this, "登录成功", Toast.LENGTH_SHORT).show();
                             int uId = object.getInt("userId");
-                            String userName=object.getString("userName");
+                            String userName = object.getString("userName");
                             Login.this.finish();
-                            StoreUtils.saveUserDate(Login.this,userName);
+                            StoreUtils.saveUserDate(Login.this, userName);
                             StoreUtils.saveData(Login.this, uId);
                         } else {
                             Toast.makeText(Login.this, "登录失败", Toast.LENGTH_SHORT).show();
@@ -188,7 +191,6 @@ public class Login extends Activity implements View.OnClickListener {
             public void onReceive(Context arg0, Intent arg1) {
                 String qqOpenId = arg1.getStringExtra("qqOpenId");
                 if (qqOpenId.length() > 0) {
-                    isReginQq = true;
                     Toast.makeText(Login.this, "" + qqOpenId, Toast.LENGTH_SHORT).show();
                     // new qqLoginApplication(qqOpenId).execute(0);
                 }
@@ -196,17 +198,25 @@ public class Login extends Activity implements View.OnClickListener {
 
         };
         this.registerReceiver(qqReceiver, filter);
+        isReginQq = true;
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (isReginQq) {
-            this.unregisterReceiver(qqReceiver);
-        }
-        if (isReginWeixin) {
-            this.unregisterReceiver(weiXin);
-        }
+//        if (isReginQq) {
+//            this.unregisterReceiver(qqReceiver);
+//        }
+//        if (isReginWeixin) {
+//            this.unregisterReceiver(weiXin);
+//        }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     private void reginWeiXin() {
@@ -218,15 +228,14 @@ public class Login extends Activity implements View.OnClickListener {
             @Override
             public void onReceive(Context arg0, Intent arg1) {
                 String wexinOpenId = arg1.getStringExtra("weixinOpenId");
-
                 if (wexinOpenId.length() > 0) {
-                    isReginWeixin = true;
-                    Toast.makeText(Login.this, ""+wexinOpenId, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "" + wexinOpenId, Toast.LENGTH_SHORT).show();
                     // new qqLoginApplication(wexinOpenId).execute(1);
                 }
             }
         };
         this.registerReceiver(weiXin, filter);
+        isReginWeixin = true;
 
     }
 

@@ -14,6 +14,25 @@ public class OldLive {
     private int hits;
     private boolean isSpecial;
     private String videoUrl;
+    private int classId;
+    private boolean isCharge;
+
+
+    public int getClassId() {
+        return classId;
+    }
+
+    public void setClassId(int classId) {
+        this.classId = classId;
+    }
+
+    public boolean isCharge() {
+        return isCharge;
+    }
+
+    public void setCharge(boolean charge) {
+        isCharge = charge;
+    }
 
     public String getVideoUrl() {
         return videoUrl;

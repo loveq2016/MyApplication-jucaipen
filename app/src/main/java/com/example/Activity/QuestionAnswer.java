@@ -73,11 +73,6 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
         map.clear();
         map.put("askId", askId);
         RequestParams params = NetUtils.sendHttpGet(askUrl, map);
-        //{"userFace":"http://img.jucaipen.com/jucaipenUpload/2016/3/7/20163717857.jpg",
-        // "userNickName":"Fengerous","userLeavel":1,"askDate":"2016-06-04 16:42:50.923",
-        // "askBody":"hello","isFree":0}
-
-
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
             public boolean onCache(String result) {
@@ -87,11 +82,9 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
             @Override
             public void onSuccess(String result) {
                 if (result != null) {
-                    //{"teacherFace":"http:\/\/img.jucaipen.com\/jucaipenUp016164135.jpg","teacherNickName":"昊博"
-                    // ,"teacherLeavel":"资深投资人","answerDate":"2015-09-15 13:48:55.83","answerBody":"可以的"}]
                     try {
-                        JSONArray array=new JSONArray(result);
-                        for (int i=0;i<array.length();i++){
+                        JSONArray array = new JSONArray(result);
+                        for (int i = 0; i < array.length(); i++) {
                             JSONObject object = array.getJSONObject(i);
                             String teacherFace = object.optString("teacherFace", "");
                             String teacherNickName = object.optString("teacherNickName", "");
@@ -99,7 +92,7 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
                             String answerDate = object.optString("answerDate", "");
                             String answerBody = object.optString("answerBody", "");
 
-                            QuestionBean bean=new QuestionBean();
+                            QuestionBean bean = new QuestionBean();
                             bean.setTeacherFace(teacherFace);
                             bean.setTeacherNickName(teacherNickName);
                             bean.setTeacherLeavel(teacherLeavel);
@@ -107,7 +100,7 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
                             bean.setAnswerBody(answerBody);
                             list.add(bean);
                         }
-                     adapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -140,7 +133,7 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
         String name = getIntent().getStringExtra("name");
         String insertDate = getIntent().getStringExtra("insertDate");
         String askBody = getIntent().getStringExtra("askBody");
-        String iamgurl=getIntent().getStringExtra("iamgurl");
+        String iamgurl = getIntent().getStringExtra("iamgurl");
 
 
         answer_lv = (TestListView) findViewById(R.id.answer_lv);
@@ -157,7 +150,6 @@ public class QuestionAnswer extends Activity implements View.OnClickListener {
         body_question = (TextView) findViewById(R.id.body_question);
 
         answer_name.setText(name);
-       // question_time.setText(TimeUtils.parseStrDate(insertDate, "yyyy-MM-dd HH:ss"));
         body_question.setText(askBody);
         Glide.with(QuestionAnswer.this).load(iamgurl)
                 .placeholder(R.drawable.rentou)

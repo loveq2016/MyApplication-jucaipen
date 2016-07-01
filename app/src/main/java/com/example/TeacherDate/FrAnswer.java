@@ -70,11 +70,11 @@ public class FrAnswer extends Fragment {
             @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent();
-                intent.putExtra("name",list.get(position).getTrueName());
-                intent.putExtra("insertDate",list.get(position).getInsertDate());
-                intent.putExtra("askBody",list.get(position).getAskBodys());
-                intent.putExtra("iamgurl",list.get(position).getHeadFace());
-                intent.putExtra("askId",list.get(position).getAskId());
+                intent.putExtra("name", list.get(position).getTrueName());
+                intent.putExtra("insertDate", list.get(position).getInsertDate());
+                intent.putExtra("askBody", list.get(position).getAskBodys());
+                intent.putExtra("iamgurl", list.get(position).getHeadFace());
+                intent.putExtra("askId", list.get(position).getAskId());
                 intent.setClass(getActivity(), QuestionAnswer.class);
                 startActivity(intent);
             }
@@ -92,8 +92,10 @@ public class FrAnswer extends Fragment {
                 if (list != null && list.size() > 0) {
                     int totlepage = list.get(0).getTotlePage();
                     if (totlepage > page) {
-                        page++;
-                        GetAnswerDate(page);
+                        int p = page++;
+                        GetAnswerDate(p);
+                    }else {
+                        Toast.makeText(getActivity(), "没有更多数据", Toast.LENGTH_SHORT).show();
                     }
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -121,8 +123,6 @@ public class FrAnswer extends Fragment {
 
             @Override
             public void onSuccess(String result) {
-                //{"page":1,"totlePage":1,"askId":173,"trueName":null,"insertDate":"2016-05-23 10:02:00.71"
-                // ,"askBodys":"1111","headFace":null,"isPay":1,"replyCount":0,"answerBody":null},
                 if (result != null) {
                     list = JsonUtil.getInter(result, list);
                 }

@@ -1,6 +1,7 @@
 package com.example.TeacherDate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.util.ArrayMap;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.WritingLive.TextVideoLive;
 import com.example.adapter.WriterAdapter;
 import com.example.androidnetwork.R;
 import com.example.model.School;
@@ -32,7 +34,7 @@ import java.util.Map;
  * <p/>
  * 文字直播
  */
-public class FrWriterLive extends Fragment {
+public class FrWriterLive extends Fragment implements View.OnClickListener {
     private String writerUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getideaask";
     private View view;
     private ListView writer_history;
@@ -61,6 +63,7 @@ public class FrWriterLive extends Fragment {
         GetWriterlive();
         tv_liveFans = (TextView) view.findViewById(R.id.tv_liveFans);
         tv_liveTitle = (TextView) view.findViewById(R.id.tv_liveTitle);
+        tv_liveTitle.setOnClickListener(this);
         tv_liveState = (TextView) view.findViewById(R.id.tv_liveState);
         writer_history = (ListView) view.findViewById(R.id.writer_history);
         adapter = new WriterAdapter(context, list);
@@ -73,7 +76,7 @@ public class FrWriterLive extends Fragment {
         map.put("teacherId", teacherId);
         map.put("page", page);
         map.put("typeId", 2);
-        map.put("isIndex",1);
+        map.put("isIndex", 1);
         RequestParams params = NetUtils.sendHttpGet(writerUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
@@ -95,18 +98,18 @@ public class FrWriterLive extends Fragment {
                             String startDate = object.getString("startDate");
 
                             //是否收费（1否，2是）
-                            int isFree = object.getInt("isFree");
+                            //  int isFree = object.getInt("isFree");
                             //是否结束（1未开始，2进行中，3已结束）
-                            int isEnd = object.getInt("isEnd");
-                            String liveTitle = object.getString("liveTitle");
-                            int hits=object.optInt("hits",0);
+                            int isEnd = object.optInt("isEnd", -1);
+                            String liveTitle = object.optString("liveTitle", "");
+                            int hits = object.optInt("hits", 0);
                             //引用学院实体类
                             School school = new School();
                             school.setId(id);
                             school.setTitle(title);
                             school.setHits(hits);
                             school.setStartDate(startDate);
-                            school.setIsFree(isFree);
+                            //  school.setIsFree(isFree);
                             school.setIsEnd(isEnd);
                             school.setLiveTitle(liveTitle);
                             list.add(school);
@@ -114,7 +117,7 @@ public class FrWriterLive extends Fragment {
                         adapter.notifyDataSetChanged();
 
                         if (list.size() > 0) {
-                            tv_liveFans.setText("在线人数: "+list.get(0).getHits()+"");
+                            tv_liveFans.setText("在线人数: " + list.get(0).getHits() + "");
                             int isEnd = list.get(0).getIsEnd();
                             String liveTitle = list.get(0).getLiveTitle();
                             ///是否结束（1未开始，2进行中，3已结束）
@@ -154,5 +157,19 @@ public class FrWriterLive extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_liveTitle:
+                if (list != null && list.size() > 0) {
+                    Intent intent = new Intent();
+                    intent.putExtra("id", list.get(0).getId());
+                    intent.setClass(getActivity(), TextVideoLive.class);
+                    startActivity(intent);
+                }
+                break;
+        }
     }
 }

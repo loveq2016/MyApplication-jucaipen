@@ -53,6 +53,7 @@
 
 
         <LinearLayout
+            android:id="@+id/liner_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/Thirty"
@@ -79,7 +80,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/Thirty"
-                android:text="gyry，，:"
                 android:textColor="@color/cl_person"
                 android:textSize="@dimen/thirty_four" />
 

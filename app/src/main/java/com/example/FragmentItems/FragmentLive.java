@@ -75,11 +75,11 @@ public class FragmentLive extends Fragment implements View.OnClickListener {
     private void initView() {
         frame_live = (FrameLayout) view.findViewById(R.id.frame_live);
         rb_wz = (RadioButton) view.findViewById(R.id.wz_live);
-        rb_wz.setChecked(true);
         rb_wz.setOnClickListener(this);
         rb_video = (RadioButton) view.findViewById(R.id.video_live);
         rb_video.setOnClickListener(this);
         select(0);
+        rb_wz.setChecked(true);
     }
 
     @Override

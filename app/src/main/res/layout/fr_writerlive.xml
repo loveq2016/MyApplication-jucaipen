@@ -21,20 +21,20 @@
             android:src="@drawable/jianjie_bofang" />
 
         <TextView
+            android:id="@+id/tv_liveState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/iamge_live"
             android:text="正在直播"
-            android:id="@+id/tv_liveState"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="@dimen/Forty" />
 
         <TextView
+            android:id="@+id/tv_liveFans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:id="@+id/tv_liveFans"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/Thirty"
             android:text="在线人数 ：560"
@@ -43,6 +43,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/tv_liveTitle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/one_hundred_twenty"
         android:layout_marginTop="1dp"
@@ -50,9 +51,7 @@
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/Thirty"
         android:paddingRight="@dimen/Thirty"
-        android:id="@+id/tv_liveTitle"
         android:singleLine="true"
-        android:text="飞机到给你打的覅搜房迪奥撒"
         android:textColor="@color/cl_sex"
         android:textSize="@dimen/thirty_six" />
 
@@ -81,12 +80,13 @@
     </LinearLayout>
 
     <ListView
-        android:scrollbars="none"
-        android:dividerHeight="0dp"
-        android:divider="@android:color/white"
         android:id="@+id/writer_history"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="1dp"
-        android:background="@android:color/white"></ListView>
+        android:background="@android:color/white"
+        android:divider="@android:color/white"
+        android:dividerHeight="0dp"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"></ListView>
 </LinearLayout>

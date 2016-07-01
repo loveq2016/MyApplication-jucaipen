@@ -1,16 +1,32 @@
 package com.example.Activity;
 
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
+import android.view.DragEvent;
 import android.view.MotionEvent;
+import android.view.OrientationEventListener;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,12 +34,16 @@ import com.example.androidnetwork.R;
 import com.example.fragment.IntroFragment;
 import com.example.adapter.ViewPagerAdapter;
 import com.example.fragment.CommFragmnet;
+import com.example.view.media.MyMediaController;
 import com.example.view.media.QkVideoView;
+import com.qukan.playsdk.IMediaPlayer;
 import com.qukan.playsdk.QkMediaPlayer;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -31,19 +51,8 @@ import java.util.Map;
  * <p/>
  * 视频回顾
  */
-public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener, View.OnTouchListener {
-//    private RadioButton button_intro;
-//    private RadioButton button_commend;
-//    private ViewPager vp_video;
-//    private ViewPagerAdapter adapter;
-//    private List<Fragment> list=new ArrayList<Fragment>();
-//    private FragmentManager fm;
-//    private Playintro playintro;
-//    private PlayCommend playCommend;
-//    private RadioGroup video_group;
-//    private IntroFragment introFragment;
-//    private CommFragmnet commFragmnet;
-
+public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener,
+        View.OnClickListener, View.OnTouchListener {
     private RadioGroup plant_group;
     private RadioButton intro_rad;
     private RadioButton comm_rad;
@@ -60,31 +69,61 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
     private TextView tv_alltime;
     private TextView tv_nowtime;
     private boolean mBackPressed;
-    private ProgressBar video_progressbar;
+    private SeekBar video_progressbar;
     private Map<String, Object> map = new HashMap<>();
     private String title;
     private int hit;
+    private  RelativeLayout rl_control;
     private boolean isSpecial;
     private boolean isCharge;
+    private ImageView iv_paly;
+    private View view_video;
+
+    private  RelativeLayout video_lay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // setContentView(R.layout.ui_vide);
         setContentView(R.layout.fragmenttwo);
-
 
         init();
     }
 
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        qk_video.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        qk_video.resume();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        qk_video.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                changeState(true);
+            }
+        },5000);
+        qk_video.setKeepScreenOn(true);
+    }
+
     private void init() {
+        rl_control= (RelativeLayout) findViewById(R.id.rl_control);
+        iv_paly= (ImageView) findViewById(R.id.iv_paly);
         String videoUrl = getIntent().getStringExtra("videoUrl");
         int id = getIntent().getIntExtra("id", -1);
         int classId = getIntent().getIntExtra("classId", -1);
         title = getIntent().getStringExtra("title");
         hit = getIntent().getIntExtra("hit", -1);
+        video_lay= (RelativeLayout) findViewById(R.id.video_lay);
         isSpecial = getIntent().getBooleanExtra("isSpecial", false);
         isCharge = getIntent().getBooleanExtra("isCharge", false);
 
@@ -92,13 +131,12 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
         bundle.putString("title", title);
         bundle.putInt("hit", hit);
         bundle.putInt("classId", classId);
-        bundle.putBoolean("isSpecial",isSpecial);
+        bundle.putBoolean("isSpecial", isSpecial);
 
 
         qk_video = (QkVideoView) findViewById(R.id.qk_video);
         qk_video.setOnTouchListener(this);
-
-
+        iv_paly.setOnClickListener(this);
         //播放视频
         if (videoUrl != null && videoUrl.length() > 0) {
             PlayVideo(videoUrl);
@@ -107,13 +145,16 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
 
         introFragment = new IntroFragment();
         introFragment.setArguments(bundle);
-        commFragmnet = new CommFragmnet(id);
+        bundle.putInt("id", id);
+        commFragmnet = new CommFragmnet();
+        commFragmnet.setArguments(bundle);
         list.add(introFragment);
         list.add(commFragmnet);
 
 
         plant_group = (RadioGroup) findViewById(R.id.plant_group);
         plant_group.setOnCheckedChangeListener(this);
+        view_video = findViewById(R.id.view_videos);
         intro_rad = (RadioButton) findViewById(R.id.intro_rad);
         comm_rad = (RadioButton) findViewById(R.id.comm_rad);
         plant_pager = (ViewPager) findViewById(R.id.plant_pager);
@@ -121,34 +162,101 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
         plant_pager.setOnPageChangeListener(this);
         plant_pager.setAdapter(adapter);
 
+
         intro_rad.setChecked(true);
         tv_nowtime = (TextView) findViewById(R.id.tv_nowtime);
-        tv_nowtime.setVisibility(View.GONE);
+
+
+
 
         btn_back = (ImageButton) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(this);
         tv_alltime = (TextView) findViewById(R.id.tv_alltime);
-        tv_alltime.setVisibility(View.GONE);
-        btn_back.setVisibility(View.GONE);
         btn_big = (ImageButton) findViewById(R.id.btn_big);
-        btn_big.setVisibility(View.GONE);
+        btn_big.setOnClickListener(this);
         btn_share = (ImageButton) findViewById(R.id.btn_share);
         btn_share.setOnClickListener(this);
-        btn_share.setVisibility(View.GONE);
-        video_progressbar = (ProgressBar) findViewById(R.id.video_progressbar);
-        video_progressbar.setVisibility(View.GONE);
+        video_progressbar = (SeekBar) findViewById(R.id.video_progressbar);
+        video_progressbar.setThumbOffset(1);
+        video_progressbar.setMax(1000);
+        qk_video.setOnPreparedListener(new IMediaPlayer.OnPreparedListener() {
+
+            @Override
+            public void onPrepared(IMediaPlayer iMediaPlayer) {
+                long totlePro = iMediaPlayer.getDuration();
+                tv_nowtime.setText(generateTime(totlePro));
+                iMediaPlayer.setOnBufferingUpdateListener(new IMediaPlayer.OnBufferingUpdateListener() {
+                    @Override
+                    public void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i) {
+                        // c       d
+                        //  ?      100
+                        int totle= qk_video.getDuration();
+                        int buff=qk_video.getBufferPercentage();
+                        int current=qk_video.getCurrentPosition();
+                        long currentPoint=iMediaPlayer.getCurrentPosition();
+                        tv_alltime.setText(generateTime(currentPoint));
+                        int pro= (current*1000)/totle;
+                        video_progressbar.setProgress(pro);
+                        video_progressbar.setSecondaryProgress(buff);
+                    }
+                });
+
+            }
+
+        });
+
+        video_progressbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                 //  pro   tot
+                //   c      d
+                if(fromUser){
+                    int buff=qk_video.getBufferPercentage();
+                    int cur=progress*qk_video.getDuration()/seekBar.getMax();
+                    if(buff<cur){
+                        Toast.makeText(VideoPlay.this, "正在加载，不要着急", Toast.LENGTH_SHORT).show();
+                    }
+                    qk_video.seekTo(cur);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
+
+    }
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if(newConfig.orientation==Configuration.ORIENTATION_PORTRAIT){
+            LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 624);
+            video_lay.setLayoutParams(lp);
+            getWindow().getDecorView().setSystemUiVisibility(View.VISIBLE);
+        }
+        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
+            LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            video_lay.setLayoutParams(lp);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+
+        }
     }
 
 
     private void PlayVideo(String videoUrl) {
         QkMediaPlayer.loadLibrariesOnce(null);
         QkMediaPlayer.native_profileBegin("libqkplayer.so");
-        // qk_video.setMediaController(mMediaController);
         qk_video.setVideoPath(videoUrl);
-        qk_video.start();
-
     }
 
 
@@ -172,22 +280,6 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
         }
         //  QkMediaPlayer.native_profileEnd();
     }
-
-//    private void init() {
-//        video_group= (RadioGroup) findViewById(R.id.video_group);
-//        video_group.setOnCheckedChangeListener(this);
-//        button_intro= (RadioButton) findViewById(R.id.button_intro);
-//        button_commend= (RadioButton) findViewById(R.id.button_commend);
-//        vp_video= (ViewPager) findViewById(R.id.vp_video);
-//        fm=getSupportFragmentManager();
-//        playintro=new Playintro();
-//        playCommend=new PlayCommend();
-//        list.add(playintro);
-//        list.add(playCommend);
-//        adapter=new ViewPagerAdapter(fm,list);
-//        vp_video.setAdapter(adapter);
-//        button_intro.setChecked(true);
-//    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -228,43 +320,38 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
 
     }
 
+
+
+
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.qk_video:
-
-                break;
             case R.id.btn_back:
                 this.finish();
                 break;
             case R.id.btn_share:
                 Toast.makeText(VideoPlay.this, "分享", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.btn_big:
+                if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                }else if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                }
+                break;
+            case  R.id.iv_paly:
+                if(qk_video.isPlaying()){
+                    qk_video.pause();
+                }else {
+                    qk_video.start();
+                }
+                break;
+            default:
+                break;
         }
     }
 
-    public void changeState(boolean isShow) {
-
-        isVISIBLE = isShow;
-        if (isShow) {
-            btn_back.setVisibility(View.GONE);
-            btn_big.setVisibility(View.GONE);
-            btn_share.setVisibility(View.GONE);
-            tv_alltime.setVisibility(View.GONE);
-            tv_nowtime.setVisibility(View.GONE);
-            video_progressbar.setVisibility(View.GONE);
-        } else {
-            btn_back.setVisibility(View.VISIBLE);
-            btn_big.setVisibility(View.VISIBLE);
-            btn_share.setVisibility(View.VISIBLE);
-            tv_alltime.setVisibility(View.VISIBLE);
-            tv_nowtime.setVisibility(View.VISIBLE);
-            video_progressbar.setVisibility(View.VISIBLE);
-        }
-
-
-    }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -274,9 +361,11 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
             //按下
             case MotionEvent.ACTION_DOWN:
 
-                if (isVISIBLE == false) {
+                if (!isVISIBLE) {
+                    //显示出来
                     changeState(true);
                 } else {
+                    //
                     changeState(false);
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -291,4 +380,34 @@ public class VideoPlay extends FragmentActivity implements RadioGroup.OnCheckedC
         }
         return false;
     }
+
+    private void changeState(boolean b) {
+        isVISIBLE = b;
+        if(b){
+            rl_control.setVisibility(View.GONE);
+        }else {
+            rl_control.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+
+    private static String generateTime(long position)
+    {
+        int totalSeconds = (int) ((position / 1000.0) + 0.5);
+
+        int seconds = totalSeconds % 60;
+        int minutes = (totalSeconds / 60) % 60;
+        int hours = totalSeconds / 3600;
+
+        if (hours > 0)
+        {
+            return String.format(Locale.US, "%02d:%02d:%02d", hours, minutes, seconds).toString();
+        }
+        else
+        {
+            return String.format(Locale.US, "%02d:%02d", minutes, seconds).toString();
+        }
+    }
+
 }

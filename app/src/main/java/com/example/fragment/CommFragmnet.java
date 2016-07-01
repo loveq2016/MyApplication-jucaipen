@@ -42,18 +42,11 @@ public class CommFragmnet extends Fragment {
     private List<Comments> list = new ArrayList<>();
 
 
-    public CommFragmnet() {
-    }
-
-    public CommFragmnet(int id) {
-        this.id = id;
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.commfragmnet, container, false);
+        id = getArguments().getInt("id");
         init();
 
         //获取评论信息
@@ -79,7 +72,7 @@ public class CommFragmnet extends Fragment {
             @Override
             public void onSuccess(String result) {
 
-                if (result != null&&result.length()>0) {
+                if (result != null && result.length() > 0) {
                     list = JsonUtil.getcomments(result);
                     adapter.setList(list);
                 }

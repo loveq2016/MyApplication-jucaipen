@@ -40,12 +40,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/answer_time"
-        android:layout_marginLeft="@dimen/Thirty_two"
-        android:layout_marginRight="@dimen/Thirty_two"
-        android:layout_marginTop="@dimen/Thirty"
+        android:layout_margin="@dimen/Thirty"
         android:layout_toRightOf="@+id/deta_head"
         android:ellipsize="end"
-        android:maxLines="3"
         android:text="记得有这样一段话：时光静好，与君语；细水流年，与君同；繁华落尽，与君老。静好的时光里，小城市，总是有一个人，渡你一生的回忆。有人说，一个人最好记性不要太好，因为回忆越多，幸福感越少。"
         android:textColor="#555"
         android:textSize="@dimen/thirty_four" />

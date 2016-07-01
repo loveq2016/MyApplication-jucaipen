@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -73,6 +74,8 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
     private ImageButton ibt_guard;
     private ImageView teacher_back;
     private String plainUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getbaseteacherinfo";
+    private String guardUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/addattention";
+    private String guardstate = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getattention";
 
 
     private ImageView tImage;
@@ -205,6 +208,13 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
 
             @Override
             public void onSuccess(String result) {
+
+                //{"headFace":"http://img.jucaipen.com/jucaipenUpload/2015/11/21/2015112115247.jpg",
+                // "nickName":"风火老师","isV":0,"leavel":"CCTV资深产品讲师","plain":"<p>\r\n\t<strong>教育经历：</strong>上海财经大学
+                // "renQi":42971,"attention":214,"gurdian":37,"joinDate":"2015-11-21 15:24:07.75",
+                // "notice":"坚持“价机会！","hoby":"善于挖掘市场潜力个股、注重基本面分析、对技术面分析尤为擅长、见解独立
+                // isAttention":true}
+
                 if (result != null) {
                     try {
                         JSONObject object = new JSONObject(result);
@@ -243,6 +253,11 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
                         tv_gz.setText(attention + "");
                         tv_sh.setText(gurdian + "");
                         tv_plain.setText("简介：" + Html.fromHtml(plain));
+                        if (isAttention) {
+                            ibt_attention.setImageResource(R.drawable.yiguanzhu);
+                        } else {
+                            ibt_attention.setImageResource(R.drawable.jianjie_dibu_guanzhu);
+                        }
 
 
                     } catch (JSONException e) {
@@ -290,7 +305,8 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
                 Toast.makeText(FamousPlain.this, "打赏", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ibt_attention:
-                Toast.makeText(FamousPlain.this, "关注", Toast.LENGTH_SHORT).show();
+                //关注
+                Guardstate();
                 break;
             case R.id.ibt_guard:
                 intent.setClass(this, IntoGuard.class);
@@ -332,6 +348,66 @@ public class FamousPlain extends FragmentActivity implements View.OnClickListene
             default:
                 break;
         }
+    }
+
+    /*48、获取我关注的/关注我的
+    URL：http://192.168.1.134:8080/Jucaipen/jucaipen/getattention
+    请求方式：get
+    请求参数：userId
+            page
+    type      0   我关注的    1  关注我的（针对讲师）*/
+
+    private void Guardstate() {
+        map.clear();
+        map.put("userId", StoreUtils.getUserInfo(this));
+        map.put("opType", 0);
+        map.put("teacherId", teacherId);
+        RequestParams params = NetUtils.sendHttpGet(guardUrl, map);
+        x.http().post(params, new Callback.CacheCallback<String>() {
+            @Override
+            public boolean onCache(String result) {
+                return false;
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                Log.e("111", "onSuccess: " + result);
+                if (result != null && result.length() > 0) {
+                    try {
+                        // onSuccess: {"ret_code":1,"err_msg":"该讲师已经关注了"}
+                        JSONObject object = new JSONObject(result);
+                        int ret_code = object.getInt("ret_code");
+                        String err_msg = object.getString("err_msg");
+                        if (ret_code == 0) {
+                            ibt_attention.setImageResource(R.drawable.yiguanzhu);
+                        } else {
+                            Toast.makeText(FamousPlain.this, err_msg, Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     @Override

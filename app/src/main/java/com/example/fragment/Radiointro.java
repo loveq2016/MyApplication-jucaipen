@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.example.adapter.OldLiveAdapter;
 import com.example.adapter.PersonAdapter;
 import com.example.adapter.TodayLive;
 import com.example.androidnetwork.R;
+import com.example.application.InitImageLoder;
 import com.example.model.Studio;
 import com.example.utils.JsonUtil;
 import com.example.model.Famous;
@@ -58,7 +60,7 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
     private String todayLiveUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/gettodaystudio";
     private TodayLive todayLive;
     private MoodAdapter moodAdapter;
-    private String personUrl="http://"+StringUntils.getHostName()+"/Jucaipen/jucaipen/getfanslist";
+    private String personUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getfanslist";
     private OldLiveAdapter oldLiveAdapter;
     //private String programUrl="http://"+ StringUntils.getHostName()+"/Jucaipen/jucaipen/getguest";
     private String videoUrl = "http://192.168.1.134:8080/Jucaipen/jucaipen/getcurrentstudio";
@@ -73,12 +75,12 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
     private List<OldLive> oldLives = new ArrayList<>();
     private String oldLiveUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/getlastplay";
     private int id;
+    private InitImageLoder loader;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.radiointro, container, false);
-
         init();
         return view;
     }
@@ -90,10 +92,11 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
         qk_yb = (QkVideoView) getActivity().findViewById(R.id.qk_yb);
         tv_vdurl = (TextView) getActivity().findViewById(R.id.tv_vdurl);
         intro_live = (TextView) getActivity().findViewById(R.id.intro_live);
+
     }
 
     private void init() {
-
+         loader= (InitImageLoder) getActivity().getApplication();
         /* 获取演播信息 */
         GetVideoDate();
 
@@ -112,7 +115,7 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
 
 
         todayLive = new TodayLive(studios);
-        moodAdapter = new MoodAdapter(studios,getActivity());
+        moodAdapter = new MoodAdapter(studios, getActivity());
         oldLiveAdapter = new OldLiveAdapter(getActivity(), oldLives);
 
 
@@ -133,7 +136,7 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
     }
 
     private void GetPerson() {
-        RequestParams params=NetUtils.sendHttpGet(personUrl,null);
+        RequestParams params = NetUtils.sendHttpGet(personUrl, null);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
             public boolean onCache(String result) {
@@ -143,18 +146,18 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
             @Override
             public void onSuccess(String result) {
                 studios.clear();
-                if (result!=null){
+                if (result != null) {
                     //[{"id":6,"title":"股市早知道","renQi":61,"imageUrl":"
                     try {
-                        JSONArray array=new JSONArray(result);
-                        for (int i=0;i<array.length();i++){
-                            JSONObject object=array.getJSONObject(i);
-                            int id=object.getInt("id");
-                            String title=object.getString("title");
-                            int renQi=object.getInt("renQi");
-                            String imageUrl=object.getString("imageUrl");
+                        JSONArray array = new JSONArray(result);
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject object = array.getJSONObject(i);
+                            int id = object.getInt("id");
+                            String title = object.getString("title");
+                            int renQi = object.getInt("renQi");
+                            String imageUrl = object.getString("imageUrl");
 
-                            Studio studio=new Studio();
+                            Studio studio = new Studio();
                             studio.setId(id);
                             studio.setTitle(title);
                             studio.setRenQi(renQi);
@@ -244,7 +247,7 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
                             intro_live.setText("暂无直播");
                         } else {
                             id = object.getInt("id");
-
+                            loader.setLiveId(id);
                              /*获取往期适配*/
                             GetOldLive();
 
@@ -306,7 +309,7 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
     public void onStop() {
         super.onStop();
 
-        if (mBackPressed || !qk_yb.isBackgroundPlayEnabled()) {
+        if (qk_yb!=null&&(mBackPressed || !qk_yb.isBackgroundPlayEnabled())) {
             qk_yb.stopPlayback();
             qk_yb.release(true);
             qk_yb.stopBackgroundPlay();
@@ -399,8 +402,13 @@ public class Radiointro extends Fragment implements View.OnClickListener, Adapte
         switch (parent.getId()) {
             case R.id.lv_old:
                 Intent intent = new Intent();
+                intent.putExtra("id", oldLives.get(position).getId());
                 intent.putExtra("videoUrl", oldLives.get(position).getVideoUrl());
-                Toast.makeText(getActivity(), "" + oldLives.get(position).getVideoUrl(), Toast.LENGTH_SHORT).show();
+                intent.putExtra("classId", oldLives.get(position).getClassId());
+                intent.putExtra("title", oldLives.get(position).getTitle());
+                intent.putExtra("hit", oldLives.get(position).getHits());
+                intent.putExtra("isSpecial", oldLives.get(position).isSpecial());
+                intent.putExtra("isCharge", oldLives.get(position).isCharge());
                 intent.setClass(getActivity(), VideoPlay.class);
                 startActivity(intent);
                 break;

@@ -119,7 +119,7 @@ public class SchoolSecurity extends Activity implements View.OnClickListener {
     }
 
     public List<SchoolKnowledge> pareJson(String str, int bigId) {
-        Log.i("111", "pareJson: "+str);
+        Log.i("111", "pareJson: " + str);
 //        [{"id":2,"bigType":"初级教程","item":
 //            [{"sId":21,"smallType":"基础知识"},{"sId":4,"smallType":"学习看盘"},{"sId":5,"smallType":"交易指南"}]},
 //        {"id":19,"bigType":"中级教程","item":[{"sId":6,"smallType":"基本面分析"},{"sId":7,"smallType":"技术面分析"},

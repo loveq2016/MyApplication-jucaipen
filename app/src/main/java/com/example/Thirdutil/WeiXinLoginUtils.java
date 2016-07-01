@@ -2,6 +2,7 @@ package com.example.Thirdutil;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.IWXAPI;
@@ -33,7 +34,8 @@ public class WeiXinLoginUtils {
             weixin = new WeiXinLoginUtils();
             api = WXAPIFactory.createWXAPI(context, APP_ID, true);
             if (!api.isWXAppInstalled()) {
-                Log.i("111", "getInstance: " + "没有安装微信");
+                //Log.i("111", "getInstance: " + "没有安装微信");
+                Toast.makeText(context, "没有安装微信", Toast.LENGTH_SHORT).show();
             }
             api.registerApp(APP_ID);
         }

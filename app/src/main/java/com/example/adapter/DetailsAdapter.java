@@ -1,12 +1,14 @@
 package com.example.adapter;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.androidnetwork.R;
@@ -59,14 +61,19 @@ public class DetailsAdapter extends BaseAdapter {
             holder.answer_problem = (TextView) convertView.findViewById(R.id.answer_problem);
 
             QuestionBean questionBean = list.get(position);
-
             Glide.with(context).load(questionBean.getTeacherFace())
                     .placeholder(R.drawable.rentou)
                     .bitmapTransform(new CropCircleTransformation(context))
                     .into(holder.deta_head);
             holder.deta_name.setText(questionBean.getTeacherNickName());
             holder.answer_time.setText(questionBean.getAnswerDate());
-            holder.answer_problem .setText(questionBean.getAnswerBody());
+
+            Toast.makeText(context, ""+questionBean.getAnswerBody(), Toast.LENGTH_SHORT).show();
+            if (questionBean.getAnswerBody().equals("")) {
+                holder.answer_problem.setText("暂无回答");
+            }else {
+                holder.answer_problem.setText(Html.fromHtml(questionBean.getAnswerBody()));
+            }
 
            /* else {
                 //提问

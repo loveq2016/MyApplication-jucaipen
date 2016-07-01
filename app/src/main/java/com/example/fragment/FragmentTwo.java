@@ -11,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 
 import com.example.androidnetwork.R;
 import com.example.utils.NetUtils;
+import com.example.view.media.QkVideoView;
+import com.qukan.playsdk.QkMediaPlayer;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -36,11 +39,13 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
     private RadioButton intro_radio;
     private RadioButton comm_radio;
     private RadioGroup radio_group;
+    private QkVideoView qk_yb;
     private LinearLayout framelayout;
     private List<Fragment> list = new ArrayList<>();
     private LinearLayout lay;
     private String postUrl = "";
     private Map<String, Object> map = new HashMap<>();
+    private int liveId;
 
     @Nullable
     @Override
@@ -53,10 +58,29 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
         return view;
     }
 
+
+    public void setLiveId(int liveId) {
+        this.liveId = liveId;
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         lay = (LinearLayout) getActivity().findViewById(R.id.maingroup);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        qk_yb.resume();
+    }
+
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        qk_yb.pause();
     }
 
     private void select(int i) {
@@ -101,6 +125,7 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
     private void init() {
         //用户上线
         PoastTop();
+        qk_yb= (QkVideoView) view.findViewById(R.id.qk_yb);
         framelayout = (LinearLayout) view.findViewById(R.id.framelayout);
         intro_radio = (RadioButton) view.findViewById(R.id.intro_radio);
         intro_radio.setOnClickListener(this);

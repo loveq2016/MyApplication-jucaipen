@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.androidnetwork.R;
 import com.example.model.School;
+import com.example.utils.StringUtil;
 import com.example.utils.TimeUtils;
 
 import java.util.List;
@@ -56,14 +57,14 @@ public class WriterAdapter extends BaseAdapter {
         School school = list.get(position);
         String time = TimeUtils.parseStrDate(school.getStartDate(), "yyyy-MM-dd");
         writer_time.setText(time);
-        writer_body.setText(school.getTitle());
+        writer_body.setText(StringUtil.clearHTMLCode(school.getTitle()));
         int free=school.getIsFree();
         ////是否收费（1否，2是）
-        if(free==1){
+       /* if(free==1){
             iv_liveLock.setVisibility(View.GONE);
         }else {
             iv_liveLock.setVisibility(View.VISIBLE);
-        }
+        }*/
 
 
         return convertView;

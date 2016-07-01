@@ -57,6 +57,7 @@ public class ReadingPlate extends Fragment {
     }
 
     private void GetReading() {
+        list.clear();
         map.clear();
         map.put("liveId", id);
         RequestParams params = NetUtils.sendHttpGet(plateUrl, map);

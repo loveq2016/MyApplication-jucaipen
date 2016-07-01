@@ -60,7 +60,7 @@ public class LiveText extends Fragment {
     private void init() {
         GetTvDate(page);
         live_lv = (XRecyclerView) view.findViewById(R.id.live_lv);
-        text_progress= (ProgressBar) view.findViewById(R.id.text_progress);
+        text_progress = (ProgressBar) view.findViewById(R.id.text_progress);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         live_lv.setLayoutManager(manager);
@@ -72,6 +72,7 @@ public class LiveText extends Fragment {
             @Override
             public void OnClick(View v, int position) {
                 Intent intent = new Intent();
+                intent.putExtra("teacherId", list.get(position).getTeacherId());
                 intent.putExtra("id", list.get(position).getId());
                 intent.setClass(getActivity(), TextVideoLive.class);
                 getActivity().startActivity(intent);

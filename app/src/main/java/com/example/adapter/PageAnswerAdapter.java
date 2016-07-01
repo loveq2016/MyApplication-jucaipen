@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.androidnetwork.R;
 import com.example.model.Interlocution;
@@ -16,7 +18,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/6/20.
- * 他的问答
+ * 问答
  */
 public class PageAnswerAdapter extends RecyclerView.Adapter<PageAnswerAdapter.MyHolder> implements View.OnClickListener {
     private Context context;
@@ -48,11 +50,22 @@ public class PageAnswerAdapter extends RecyclerView.Adapter<PageAnswerAdapter.My
         TextView page_answer = (TextView) holder.itemView.findViewById(R.id.page_answer);
         TextView answer_body = (TextView) holder.itemView.findViewById(R.id.answer_body);
         TextView question_body = (TextView) holder.itemView.findViewById(R.id.question_body);
+        LinearLayout liner_answer = (LinearLayout) holder.itemView.findViewById(R.id.liner_answer);
 
         page_time.setText(TimeUtils.parseStrDate(interlocution.getInsertDate(), "yyyy-MM-dd"));
         page_answer.setText(interlocution.getTrueName() + " : ");
-        answer_body.setText(interlocution.getAskBodys());
         question_body.setText(interlocution.getAnswerBody());
+        answer_body.setText(interlocution.getAskBodys());
+        int replay = interlocution.getIsReply();
+        if (replay == 1) {
+            liner_answer.setVisibility(View.GONE);
+        }
+
+       /* else {
+            liner_answer.setVisibility(View.GONE);
+        }*/
+
+
         holder.itemView.setTag(position);
 
     }

@@ -205,7 +205,7 @@ public class JsonUtil {
                 String insertDate = object.optString("insertDate", "");
                 String askBodys = object.optString("askBodys", "");
                 String headFace = object.optString("headFace", "");
-                int isReply = object.optInt("replyCount", -1);
+                int isReply = object.optInt("isReply", -1);
                 int isPay = object.optInt("isPay", -1);
                 String answerBody = object.optString("answerBody", "");
 
@@ -575,9 +575,9 @@ public class JsonUtil {
                 int hits = object.optInt("hits", -1);
                 String image = object.optString("image", null);
                 String videoUrl = object.optString("videoUrl", "");
-                int classId=object.getInt("classId");
-                boolean isSpecial=object.getBoolean("isSpecial");
-                boolean isCharge=object.getBoolean("isCharge");
+                int classId = object.getInt("classId");
+                boolean isSpecial = object.getBoolean("isSpecial");
+                boolean isCharge = object.getBoolean("isCharge");
 
 
                 School school = new School();
@@ -680,10 +680,10 @@ public class JsonUtil {
                 String imageUrl = object.optString("imageUrl", "");
                 String desc = object.optString("desc", "");
                 String videUrl = object.optString("videoUrl", "");
-                int classId=object.optInt("classId",-1);
-                int hit=object.optInt("playCount",0);
-                boolean isSpecial=object.optBoolean("isSpecial",false);
-                boolean isCharge=object.optBoolean("isCharge",false);
+                int classId = object.optInt("classId", -1);
+                int hit = object.optInt("playCount", 0);
+                boolean isSpecial = object.optBoolean("isSpecial", false);
+                boolean isCharge = object.optBoolean("isCharge", false);
 
                 Video video = new Video();
                 video.setId(id);
@@ -1055,6 +1055,7 @@ public class JsonUtil {
         try {
             JSONArray array = new JSONArray(result);
             for (int i = 0; i < array.length(); i++) {
+
                 JSONObject object = array.getJSONObject(i);
                 int id = object.optInt("id", -1);
                 String title = object.optString("title", "");
@@ -1063,6 +1064,8 @@ public class JsonUtil {
                 String videoUrl = object.optString("videoUrl", "");
                 int hits = object.optInt("hits", 0);
                 boolean isSpecial = object.optBoolean("isSpecial", false);
+                boolean isCharge=object.optBoolean("isCharge",false);
+                int classId=object.optInt("classId",-1);
 
                 OldLive live = new OldLive();
                 live.setId(id);
@@ -1071,6 +1074,8 @@ public class JsonUtil {
                 live.setImageUrl(imageUrl);
                 live.setVideoDate(videoDate);
                 live.setHits(hits);
+                live.setCharge(isCharge);
+                live.setClassId(classId);
                 live.setSpecial(isSpecial);
                 list.add(live);
 

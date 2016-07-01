@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 import cn.sharesdk.wechat.utils.WXAppExtendObject;
 import cn.sharesdk.wechat.utils.WXMediaMessage;
@@ -106,9 +107,9 @@ public class WXEntryActivity extends Activity {
 		protected void onPostExecute(String result) {
 			try {
 				JSONObject object = new JSONObject(result);
-				String openId = object.getString("openid");
+				String unionid = object.getString("unionid");
 				Intent intent = new Intent("com.receiverWeiXin");
-				intent.putExtra("weixinOpenId", openId);
+				intent.putExtra("weixinOpenId", unionid);
 				WXEntryActivity.this.sendBroadcast(intent);
 			} catch (JSONException e) {
 				e.printStackTrace();
