@@ -108,6 +108,8 @@ public class Login extends Activity implements View.OnClickListener {
                     Toast.makeText(Login.this, "账号或密码有误", Toast.LENGTH_SHORT).show();
                 }
 
+                break;
+
             case R.id.ibt_qq:
                 Toast.makeText(Login.this, "QQ登录", Toast.LENGTH_SHORT).show();
                 reginQQ();
@@ -229,7 +231,7 @@ public class Login extends Activity implements View.OnClickListener {
             public void onReceive(Context arg0, Intent arg1) {
                 String wexinOpenId = arg1.getStringExtra("weixinOpenId");
                 if (wexinOpenId.length() > 0) {
-                    Toast.makeText(Login.this, "" + wexinOpenId, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "unionid:" + wexinOpenId, Toast.LENGTH_SHORT).show();
                     // new qqLoginApplication(wexinOpenId).execute(1);
                 }
             }

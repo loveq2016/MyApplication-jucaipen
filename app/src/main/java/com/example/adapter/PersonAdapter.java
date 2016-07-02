@@ -96,7 +96,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyHolder> 
         public MyHolder(View itemView) {
             super(itemView);
             this.logo = (ImageView) itemView.findViewById(R.id.att_logo);
-            this.tv_name = (TextView) itemView.findViewById(R.id.tv_name);
+            this.tv_name = (TextView) itemView.findViewById(R.id.tv_names);
             this.tv_notice = (TextView) itemView.findViewById(R.id.tv_notice);
             this.tv_fans = (TextView) itemView.findViewById(R.id.tv_fans);
             this.iv_guanzhu = (ImageView) itemView.findViewById(R.id.iv_guanzhu);

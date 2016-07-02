@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.adapter.ProviceAdapter;
 import com.example.androidnetwork.R;
@@ -151,8 +152,31 @@ public class CityTown extends Activity implements View.OnClickListener, AdapterV
 
         intent.putExtra("city", list.get(position).getName());
         intent.setClass(context, Town.class);
-        context.startActivity(intent);
-        this.finish();
+        this.startActivityForResult(intent,400);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==500&&data!=null){
+            String proice=data.getStringExtra("proice");
+            int proiceId=data.getIntExtra("proiceId",-1);
+            String city=data.getStringExtra("city");
+            int cityId=data.getIntExtra("cityId",-1);
+            String town=data.getStringExtra("town");
+            int townId=data.getIntExtra("townId",-1);
+
+            Intent intent=new Intent();
+            intent.putExtra("proice",proice);
+            intent.putExtra("proiceId",proiceId);
+            intent.putExtra("city",city);
+            intent.putExtra("cityId",cityId);
+            intent.putExtra("town",town);
+            intent.putExtra("townId",townId);
+            this.setResult(600,intent);
+
+        }
+        this.finish();
     }
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -83,7 +84,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
     private TextView tv_teachername;
     private TextView tv_inserttime;
     private ImageView iv_hotnews;
-    private TextView tv_body;
+    private WebView tv_body;
     // private TestListView lv_see;
     // private AboutSee aboutSee;
     private TextView read_num;
@@ -140,7 +141,7 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
         tv_teachername = (TextView) findViewById(R.id.tv_teachername);
         tv_inserttime = (TextView) findViewById(R.id.tv_inserttime);
         iv_hotnews = (ImageView) findViewById(R.id.iv_hotnews);
-        tv_body = (TextView) findViewById(R.id.tv_body);
+        tv_body = (WebView) findViewById(R.id.tv_body);
         read_num = (TextView) findViewById(R.id.read_num);
         tv_zannum = (TextView) findViewById(R.id.tv_zannum);
         tv_second = (TextView) findViewById(R.id.tv_second);
@@ -251,16 +252,22 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
                 tv_hottitle.setText(press.getTitle());
                 tv_teachername.setText(press.getFrom());
                 tv_inserttime.setText(TimeUtils.parseStrDate(press.getInsertDate(), "yyyy-MM-dd HH:mm"));
-                tv_body.setText(StringUtil.clearHTMLCode(press.getBody()));
-
+                tv_body.getSettings().setMinimumFontSize(39);
+                tv_body.getSettings().setUseWideViewPort(true);
+                tv_body.getSettings().setLoadWithOverviewMode(true);
+                tv_body.loadDataWithBaseURL(null,press.getBody(),"text/html","UTF-8",null);
+                tv_body.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        return true;
+                    }
+                });
                 read_num.setText("阅读数  " + press.getReadNum() + "");
                 tv_zannum.setText(" " + press.getGoods() + "");
                 tv_second.setText(press.getKeyWord());
 
 
-                Glide.with(context).load(press.getImagUrl())
-                        .placeholder(R.drawable.approve)
-                        .into(iv_hotnews);
+                iv_hotnews.setVisibility(View.GONE);
                 Glide.with(context).load(press.getTeacherFace())
                         .bitmapTransform(new CropCircleTransformation(context))
                         .placeholder(R.drawable.rentou)

@@ -56,7 +56,7 @@ public class AttentionAdapter extends BaseAdapter {
         }
 
         ImageView att_logo = (ImageView) convertView.findViewById(R.id.att_logo);
-        TextView tv_name = (TextView) convertView.findViewById(R.id.tv_name);
+        TextView tv_name = (TextView) convertView.findViewById(R.id.tv_names);
         TextView tv_notice = (TextView) convertView.findViewById(R.id.tv_notice);
         TextView tv_fans = (TextView) convertView.findViewById(R.id.tv_fans);
         ImageView iv_guanzhu = (ImageView) convertView.findViewById(R.id.iv_guanzhu);

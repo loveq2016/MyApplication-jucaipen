@@ -56,6 +56,9 @@ public class TextVideoLive extends FragmentActivity implements View.OnClickListe
     private Map<String, Object> map = new HashMap<>();
     private int teacherId;
     private Bundle bundle;
+    private String title;
+    private  int hits;
+    private  int isEnd;
 
 
     @Override
@@ -69,10 +72,16 @@ public class TextVideoLive extends FragmentActivity implements View.OnClickListe
     private void initFragment() {
         id = getIntent().getIntExtra("id", -1);
         teacherId = getIntent().getIntExtra("teacherId", -1);
+        title=getIntent().getStringExtra("title");
+        hits=getIntent().getIntExtra("hits",0);
+        isEnd=getIntent().getIntExtra("isEnd",0);
 
         bundle = new Bundle();
+        bundle.putString("title",title);
         bundle.putInt("id", id);
         bundle.putInt("teacherId", teacherId);
+        bundle.putInt("hits",hits);
+        bundle.putInt("isEnd",isEnd);
         //  whisperGuard = new WhisperGuard();
         list = new ArrayList<>();
         list.add(textLive);

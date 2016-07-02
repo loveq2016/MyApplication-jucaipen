@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#ffffff"
     android:orientation="horizontal">
 
     <ImageView
@@ -26,14 +27,12 @@
             android:layout_marginLeft="@dimen/Thirty"
             android:layout_marginRight="@dimen/Thirty"
             android:paddingBottom="@dimen/Thirty"
-            android:text="2015-25-56"
-            android:textColor="@android:color/holo_red_dark" />
+            android:textColor="#fd5561" />
 
         <LinearLayout
             android:id="@+id/liner_tx"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cl_myback"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <ImageView
@@ -44,13 +43,21 @@
                 android:layout_marginLeft="@dimen/Thirty"
                 android:layout_marginRight="@dimen/Thirty"
                 android:src="@drawable/wenzi_lock" />
-
-            <TextView
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="#f7f7f7"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:paddingRight="7dp"
+                android:paddingLeft="7dp"
+                android:layout_height="match_parent">
+            <WebView
+                android:scrollbars="none"
                 android:id="@+id/tv_live_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/twenty"
-                android:text="财政将全部资金放不资金放进仓库不呢" />
+                />
+            </RelativeLayout>
 
         </LinearLayout>
 

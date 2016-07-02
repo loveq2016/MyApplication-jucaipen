@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.androidnetwork.R;
 import com.example.model.Studio;
+import com.example.utils.TimeUtils;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class TodayLive extends RecyclerView.Adapter<TodayLive.MyHolder> {
                 .placeholder(R.drawable.approve)
                 .into(video_bg);
         tv_context.setText(studios.get(position).getTitle());
-        video_month.setText(studios.get(position).getStartDate());
+        video_month.setText(TimeUtils.getHH_mm(studios.get(position).getStartDate()));
 
     }
 

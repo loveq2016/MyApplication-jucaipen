@@ -97,7 +97,6 @@ public class SchoolSecurity extends Activity implements View.OnClickListener {
                     pareJson(result, btnId);
 
                 }
-                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -141,6 +140,7 @@ public class SchoolSecurity extends Activity implements View.OnClickListener {
                 parentKnowledges.add(sk);
 
 
+
                 //  sId
                 JSONArray item = obj1.getJSONArray("item");
                 List<SmallType> sts = new ArrayList<>();
@@ -153,11 +153,13 @@ public class SchoolSecurity extends Activity implements View.OnClickListener {
                     st.smallType = smallType;
                     st.xxId = xxId;
                     sts.add(st);
-                    childKnow.add(sts);
                 }
+                childKnow.add(sts);
+                adapter.setParents(parentKnowledges);
+                adapter.setChild(childKnow);
             }
-            adapter.setChild(childKnow);
-            adapter.setParents(parentKnowledges);
+
+            adapter.notifyDataSetChanged();
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -166,6 +166,9 @@ public class FrWriterLive extends Fragment implements View.OnClickListener {
                 if (list != null && list.size() > 0) {
                     Intent intent = new Intent();
                     intent.putExtra("id", list.get(0).getId());
+                    intent.putExtra("title",list.get(0).getTitle());
+                    intent.putExtra("hits",list.get(0).getHits());
+                    intent.putExtra("isEnd",list.get(0).getIsEnd());
                     intent.setClass(getActivity(), TextVideoLive.class);
                     startActivity(intent);
                 }

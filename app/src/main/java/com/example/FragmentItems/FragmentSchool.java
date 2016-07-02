@@ -173,7 +173,9 @@ public class FragmentSchool extends Fragment implements AdapterView.OnItemClickL
     }
 
     private void GetSchool() {
-        RequestParams params = NetUtils.sendHttpGet(schoolUrl, null);
+        map.clear();
+        map.put("page",1);
+        RequestParams params = NetUtils.sendHttpGet(schoolUrl, map);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
             public boolean onCache(String result) {

@@ -7,12 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.adapter.TvAdapter;
 import com.example.androidnetwork.R;
 import com.example.model.TextVideo;
 import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
+import com.example.view.TestListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,10 +37,16 @@ public class TextLive extends Fragment implements AdapterView.OnItemClickListene
     private View view;
     private ListView text_lv;
     private TvAdapter adapter;
+    private  TextView tv_txtState;
+    private TextView tv_txtFans;
     private String tvUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/gettxtdetails";
     private int id;
+    private  TextView tv_txtTitle;
     private Map<String, Object> map = new HashMap<>();
     private List<TextVideo> list = new ArrayList<>();
+    private String title;
+    private int hits;
+    private int isEnd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,6 +58,20 @@ public class TextLive extends Fragment implements AdapterView.OnItemClickListene
 
     private void init() {
         id = getArguments().getInt("id");
+        title=getArguments().getString("title");
+        hits=getArguments().getInt("hits");
+        isEnd=getArguments().getInt("isEnd");
+        //在线人数
+        tv_txtFans= (TextView) view.findViewById(R.id.tv_txtFans);
+        tv_txtTitle= (TextView) view.findViewById(R.id.tv_txtTitle);
+        tv_txtState= (TextView) view.findViewById(R.id.tv_txtState);
+        tv_txtTitle.setText(title);
+        tv_txtFans.setText("在线人数:"+hits);
+        if(isEnd==2){
+            tv_txtState.setText("正在直播");
+        }else {
+            tv_txtState.setText("历史直播");
+        }
         GettvLive();
         text_lv = (ListView) view.findViewById(R.id.text_lv);
         text_lv.setOnItemClickListener(this);

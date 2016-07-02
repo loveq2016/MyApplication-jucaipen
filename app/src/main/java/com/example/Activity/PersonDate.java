@@ -29,6 +29,7 @@ import com.example.model.Person;
 import com.example.utils.DialogUtils;
 import com.example.utils.NetUtils;
 import com.example.utils.StringUntils;
+import com.example.utils.TimeUtils;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -129,7 +130,7 @@ public class PersonDate extends Activity implements View.OnClickListener {
                     edt_account.setText(person.getAccount());
                     date_trueName.setText(person.getTrueName());
                     tv_sex.setText(person.getSex());
-                    brithday.setText(person.getBirthday());
+                    brithday.setText(TimeUtils.parseStrDate(person.getBirthday(),"yyyy-MM-dd"));
                     tv_where.setText(person.getLocalCity());
                     tv_style.setText(person.getInvestType());
                     tv_persondate.setText(person.getDescript());
@@ -352,7 +353,8 @@ public class PersonDate extends Activity implements View.OnClickListener {
             case R.id.person_address:
                 //省  市  区
                 intent.setClass(this, Province.class);
-                startActivity(intent);
+                this.startActivityForResult(intent,200);
+                //startActivity(intent);
                 break;
 
             //个人简介
@@ -422,8 +424,7 @@ public class PersonDate extends Activity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 100) {
+        if (requestCode == 100&&data!=null) {
             if (data != null) {
                 String value = data.getStringExtra("value");
                 if (value != null && value.length() > 0) {
@@ -432,6 +433,15 @@ public class PersonDate extends Activity implements View.OnClickListener {
             } else {
                 tv_persondate.setText("暂无简介");
             }
+
+        }else if(resultCode==700&&data!=null){
+            String proice=data.getStringExtra("proice");
+            int proiceId=data.getIntExtra("proiceId",-1);
+            String city=data.getStringExtra("city");
+            int cityId=data.getIntExtra("cityId",-1);
+            String town=data.getStringExtra("town");
+            int townId=data.getIntExtra("townId",-1);
+            tv_where.setText(proice+"-"+city+"-"+town);
 
         }
 

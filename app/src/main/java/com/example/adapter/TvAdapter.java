@@ -2,11 +2,20 @@ package com.example.adapter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -58,7 +67,7 @@ public class TvAdapter extends BaseAdapter {
             holder = new MyHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.txitem, null);
 
-            holder.tv_live_body = (TextView) convertView.findViewById(R.id.tv_live_body);
+            holder.tv_live_body = (WebView) convertView.findViewById(R.id.tv_live_body);
             holder.tx_lock = (ImageView) convertView.findViewById(R.id.tx_lock);
             holder.tx_time = (TextView) convertView.findViewById(R.id.tx_time);
             convertView.setTag(holder);
@@ -67,17 +76,59 @@ public class TvAdapter extends BaseAdapter {
         }
         // ImageView iv_deblocking= (ImageView) convertView.findViewById(R.id.iv_deblocking);
         LinearLayout liner_tx = (LinearLayout) convertView.findViewById(R.id.liner_tx);
-        TextVideo video = list.get(position);
+        final TextVideo video = list.get(position);
 
         String time = TimeUtils.getHH_mm(video.getInsertDate());
         holder.tx_time.setText(time);
+        holder.tv_live_body.getSettings().setUseWideViewPort(true);
+        holder.tv_live_body.getSettings().setLoadWithOverviewMode(true);
+        holder.tv_live_body.getSettings().setMinimumFontSize(42);
+        holder.tv_live_body.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        holder.tv_live_body.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        if(Build.VERSION.SDK_INT>=11){
+            holder.tv_live_body.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+        }else{
+            holder.tv_live_body.setLayerType(View.LAYER_TYPE_HARDWARE,null);
+        }
+
+
+        if(Build.VERSION.SDK_INT>=19){
+            holder.tv_live_body.getSettings().setLoadsImagesAutomatically(true);
+        }else {
+            holder.tv_live_body.getSettings().setLoadsImagesAutomatically(false);
+        }
+
+        holder.tv_live_body.getSettings().setDomStorageEnabled(true);
+        holder.tv_live_body.setWebViewClient(new WebViewClient(){
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                if(!view.getSettings().getLoadsImagesAutomatically()){
+                    view.getSettings().setLoadsImagesAutomatically(true);
+                }
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                Log.i("111", "onReceivedError: ");
+            }
+
+            @Override
+            public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+                super.onReceivedHttpError(view, request, errorResponse);
+            }
+        });
+
+
+        holder.tv_live_body.setBackgroundColor(Color.parseColor("#f7f7f7"));
 
         int lock = video.getIsLock();
-        if (lock == 1) {
-            holder.tv_live_body.setText(Html.fromHtml(video.getBodys()));
+        if(lock!=2){
+            holder.tv_live_body.loadDataWithBaseURL(null,video.getBodys(),"text/html","UTF-8",null);
             holder.tx_lock.setVisibility(View.GONE);
-        } else {
-            holder.tv_live_body.setText("推荐股票...私密内容，点击解锁");
+        }else {
+            holder.tv_live_body.loadDataWithBaseURL(null,"\"推荐股票...私密内容，点击解锁\"","text/html","UTF-8",null);
         }
 
 
@@ -117,7 +168,7 @@ public class TvAdapter extends BaseAdapter {
     }
 
     class MyHolder {
-        TextView tv_live_body;
+        WebView tv_live_body;
         ImageView tx_lock;
         TextView tx_time;
     }

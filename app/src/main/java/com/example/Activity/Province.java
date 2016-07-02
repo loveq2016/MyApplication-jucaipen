@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.adapter.ProviceAdapter;
 import com.example.androidnetwork.R;
@@ -130,8 +131,31 @@ public class Province extends Activity implements View.OnClickListener ,AdapterV
 
 
         intent.setClass(this,CityTown.class);
-        startActivity(intent);
-        this.finish();
+        this.startActivityForResult(intent,300);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==600&&data!=null){
+            String proice=data.getStringExtra("proice");
+            int proiceId=data.getIntExtra("proiceId",-1);
+            String city=data.getStringExtra("city");
+            int cityId=data.getIntExtra("cityId",-1);
+            String town=data.getStringExtra("town");
+            int townId=data.getIntExtra("townId",-1);
+
+            Intent intent=new Intent();
+            intent.putExtra("proice",proice);
+            intent.putExtra("proiceId",proiceId);
+            intent.putExtra("city",city);
+            intent.putExtra("cityId",cityId);
+            intent.putExtra("town",town);
+            intent.putExtra("townId",townId);
+            this.setResult(700,intent);
+
+        }
+        this.finish();
     }
 }

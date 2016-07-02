@@ -151,8 +151,7 @@ public class Town extends Activity implements View.OnClickListener, AdapterView.
         intent.putExtra("cityId",CityId);
         intent.putExtra("town",list.get(position).getName());
         intent.putExtra("townId",list.get(position).getId());
-        intent.setClass(this,PersonDate.class);
-        startActivity(intent);
+        this.setResult(500,intent);
         this.finish();
     }
 }

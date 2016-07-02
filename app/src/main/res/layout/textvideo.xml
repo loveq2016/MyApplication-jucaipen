@@ -85,10 +85,6 @@
 
     </RadioGroup>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/Thirty"
-        android:background="@color/cl_myback"></View>
 
     <FrameLayout
         android:id="@+id/text_pager"

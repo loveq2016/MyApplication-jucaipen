@@ -3,6 +3,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_thirty_five"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iamge_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/Thirty"
+            android:layout_marginRight="@dimen/Twenty"
+            android:src="@drawable/jianjie_bofang" />
+
+        <TextView
+            android:id="@+id/tv_txtState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iamge_live"
+            android:text="正在直播"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="@dimen/Forty" />
+
+        <TextView
+            android:id="@+id/tv_txtFans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Thirty"
+            android:text="在线人数 ：560"
+            android:textColor="@color/cl_btn"
+            android:textSize="@dimen/Thirty_two" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred_twenty"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/Thirty"
+        android:paddingRight="@dimen/Thirty"
+        android:singleLine="true"
+        android:textColor="@color/cl_sex"
+        android:textSize="@dimen/thirty_six" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f2f2f2"
+        ></View>
 
     <ListView
         android:id="@+id/text_lv"
