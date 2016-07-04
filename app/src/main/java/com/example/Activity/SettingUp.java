@@ -2,7 +2,9 @@ package com.example.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -44,6 +46,7 @@ public class SettingUp extends Activity implements View.OnClickListener {
     private TextView phone_update;
     private String codeUrl = "http://" + StringUntils.getHostName() + "/Jucaipen/jucaipen/updateversion";
     private Button btn_exit;
+    private  RelativeLayout about_mark;
     private Map<String, Object> map = new HashMap<>();
 
     @Override
@@ -74,6 +77,8 @@ public class SettingUp extends Activity implements View.OnClickListener {
         see_code.setOnClickListener(this);
         btn_exit = (Button) findViewById(R.id.btn_exit);
         btn_exit.setOnClickListener(this);
+        about_mark= (RelativeLayout) findViewById(R.id.about_mark);
+        about_mark.setOnClickListener(this);
     }
 
     @Override
@@ -111,6 +116,15 @@ public class SettingUp extends Activity implements View.OnClickListener {
                 login.setClass(this,MainActivity.class);
                 startActivity(login);
                 this.finish();
+                break;
+            case  R.id.about_mark:
+                Uri uri=Uri.parse("market://details?id="+getPackageName());
+                Log.i("111", "onClick: "+uri.toString());
+                Intent marker=new Intent(Intent.ACTION_VIEW,uri);
+                marker.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                this.startActivity(marker);
+                break;
+            default:
                 break;
 
         }

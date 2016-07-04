@@ -22,4 +22,20 @@ public class StringUntils {
     }
 
 
+    /**
+     * 聚财盆跟路径
+     */
+    public static final String JCP_PATH = "http://www.jucaipen.com";
+
+    public static String setHost() {
+        isTest = false;
+        if (isTest) {
+            return "192.168.1.86";
+        } else {
+            return "121.40.227.121";
+        }
+
+    }
+
+
 }

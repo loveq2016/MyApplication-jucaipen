@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@android:color/white"
+     >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/up_shap"
+         >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:id="@+id/up_title"
+            android:layout_height="wrap_content"
+            android:text="版本更新"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/up_title"
+            android:layout_marginLeft="10dp"
+            android:padding="8dp"
+            android:id="@+id/up_details"
+            android:text="更新属性，wfjwoefjowifoiwjfowfnwofowefiowefwejopfewojp，，"/>
+
+         <View
+             android:layout_width="wrap_content"
+             android:layout_height="1dp"
+             android:id="@+id/up_line"
+             android:layout_below="@+id/up_details"
+             android:background="@android:color/holo_red_dark"
+             ></View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/up_line"
+            android:padding="10dp"
+            android:id="@+id/up_sure"
+            android:textColor="@android:color/holo_red_dark"
+            android:gravity="center"
+            android:text="确定更新"/>
+
+    </RelativeLayout>
+</RelativeLayout>

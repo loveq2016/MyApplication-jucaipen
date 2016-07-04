@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -255,7 +256,18 @@ public class HotCareful extends Activity implements View.OnClickListener, Adapte
                 tv_body.getSettings().setMinimumFontSize(39);
                 tv_body.getSettings().setUseWideViewPort(true);
                 tv_body.getSettings().setLoadWithOverviewMode(true);
-                tv_body.loadDataWithBaseURL(null,press.getBody(),"text/html","UTF-8",null);
+                tv_body.getSettings().setJavaScriptEnabled(true);
+                tv_body.getSettings().setDefaultTextEncodingName("UTF-8");
+                tv_body.getSettings().setBuiltInZoomControls(true);
+                tv_body.getSettings().setSupportZoom(true);
+               // tv_body.getSettings().setDefaultZoom(WebSettings.ZoomDensity.CLOSE);
+
+
+                String str4 = press.getBody().replaceAll(
+                        "(<img[^>]*?)\\s+width\\s*=\\s*\\S+", "$1");
+                String str = str4.replaceAll("(<img[^>]+src=\")(\\S+)\"",
+                        "$1$2\" onClick=\"javascript:mWebViewImageListener.onImageClick('$2')\"");
+                tv_body.loadDataWithBaseURL(null,str,"text/html","UTF-8",null);
                 tv_body.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {

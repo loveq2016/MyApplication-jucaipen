@@ -6,6 +6,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -48,12 +49,9 @@ public class PlateAdapter extends BaseAdapter {
         if (convertView==null){
             convertView= LayoutInflater.from(context).inflate(R.layout.txitem,null);
         }
-        TextView tv_live_body= (TextView) convertView.findViewById(R.id.tv_live_body);
-
+        WebView tv_live_body= (WebView) convertView.findViewById(R.id.tv_live_body);
         Plate plate=list.get(position);
-        tv_live_body.setText(Html.fromHtml(plate.getBody()));
-
-
+        tv_live_body.loadDataWithBaseURL(null,plate.getBody(),"txt/html","UTF-8",null);
         return convertView;
     }
 }
